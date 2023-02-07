@@ -73,7 +73,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Misc
   - [ ] Global objects
   - [x] [Global tables](ssm/minetest/registered.lua)
-- [ ] [Class reference](ssm/class)
+- [ ] [Class reference](ssm/classes)
   - [ ] AreaStore
   - [ ] InvRef
   - [ ] ItemStack
@@ -82,7 +82,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] ModChannel
   - [ ] NodeMetaRef
   - [ ] NodeTimerRef
-  - [ ] ObjectRef
+  - [x] [ObjectRef](ssm/classes/objectref.lua)
   - [ ] PcgRandom
   - [ ] PerlinNoise
   - [ ] PerlinNoiseMap
@@ -116,6 +116,7 @@ Feel free to add your subitems if item is partially done.
 
 ## Final tasks
 
+- [ ] Check all `unknown` and `table` types
 - [ ] Double check documentation and update it to the latest version
 - [ ] Check all optional variables
 - [ ] Test it in an existed games
