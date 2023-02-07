@@ -1,0 +1,6 @@
+[submodule "common"]
+	path = common
+	url = https://github.com/minetest-toolkit/minetest-api-def-common
+[submodule "ssm"]
+	path = ssm
+	url = https://github.com/minetest-toolkit/minetest-api-def-ssm
