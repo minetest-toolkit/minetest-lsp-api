@@ -55,8 +55,8 @@ Feel free to add your subitems if item is partially done.
   - [x] [Entity definition](ssm/definitions/entity.lua)
   - [x] ABM (ActiveBlockModifier) definition
   - [x] LBM (LoadingBlockModifier) definition
-  - [ ] Tile definition
-  - [ ] Tile animation definition
+  - [x] Tile definition
+  - [x] Tile animation definition
   - [ ] Item definition
   - [x] [Node definition](ssm/definitions/node.lua)
   - [ ] Crafting recipes
