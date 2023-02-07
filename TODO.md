@@ -17,7 +17,7 @@ Feel free to add your subitems if item is partially done.
 - [x] Registered definitions
   - [x] [Registration functions](ssm/minetest/register.lua)
   - [x] [Registered definition tables](ssm/minetest/registered.lua)
-- [ ] Nodes
+- [ ] [Nodes](ssm/node.lua)
   - [ ] Describe mt.MapBlock and mt.MapChunk
 - [ ] Map terminology and coordinates
 - [ ] HUD
