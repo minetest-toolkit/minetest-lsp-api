@@ -76,7 +76,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] [Class reference](ssm/classes)
   - [ ] AreaStore
   - [x] [InvRef](ssm/classes/invref.lua)
-  - [ ] ItemStack
+  - [x] [ItemStack](ssm/classes/itemstack.lua)
   - [ ] ItemStackMetaRef
   - [ ] MetaDataRef
   - [ ] ModChannel
