@@ -50,6 +50,24 @@ Feel free to add your subitems if item is partially done.
   - [x] [Registration functions](ssm/register.lua)
   - [x] [Registered definition tables](ssm/registered.lua)
 - [ ] Class reference
+  - [ ] AreaStore
+  - [ ] InvRef
+  - [ ] ItemStack
+  - [ ] ItemStackMetaRef
+  - [ ] MetaDataRef
+  - [ ] ModChannel
+  - [ ] NodeMetaRef
+  - [ ] NodeTimerRef
+  - [ ] ObjectRef
+  - [ ] PcgRandom
+  - [ ] PerlinNoise
+  - [ ] PerlinNoiseMap
+  - [ ] PlayerMetaRef
+  - [ ] PseudoRandom
+  - [ ] Raycast
+  - [ ] SecureRandom
+  - [ ] Settings
+  - [ ] StorageRef
 - [ ] Definition tables
   - [x] [Object Properties](ssm/definitions/object.lua)
   - [x] [Entity definition](ssm/definitions/entity.lua)
