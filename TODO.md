@@ -30,7 +30,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Metadata
 - [ ] Formspec
 - [ ] Inventory
-- [ ] Colors
+- [x] Colors
 - [ ] Escape sequences
 - [ ] [Spatial Vectors](common/vector.lua)
   - [x] Full form
