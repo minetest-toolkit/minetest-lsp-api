@@ -30,7 +30,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Metadata
 - [ ] Formspec
 - [ ] Inventory
-- [x] Colors
+- [x] [Colors](common/color.lua)
 - [ ] Escape sequences
 - [ ] [Spatial Vectors](common/vector.lua)
   - [x] Full form
@@ -53,11 +53,10 @@ Feel free to add your subitems if item is partially done.
 - [ ] Definition tables
   - [x] [Object Properties](ssm/definitions/object.lua)
   - [x] [Entity definition](ssm/definitions/entity.lua)
-  - [x] ABM (ActiveBlockModifier) definition
-  - [x] LBM (LoadingBlockModifier) definition
-  - [x] Tile definition
-  - [x] Tile animation definition
-  - [x] Item definition
+  - [x] [ABM (ActiveBlockModifier) definition](ssm/definitions/abm.lua)
+  - [x] [LBM (LoadingBlockModifier) definition](ssm/definitions/lbm.lua)
+  - [x] [Tile definition](ssm/definitions/tile.lua)
+  - [x] [Item definition](ssm/definitions/item.lua)
   - [x] [Node definition](ssm/definitions/node.lua)
   - [ ] Crafting recipes
   - [ ] Ore definition
