@@ -490,30 +490,30 @@ function PlayerObjectRef:set_sky(sky_parameters) end
 
 --- A table used in regular sky_parameters type only (alpha is ignored)
 ---@class mt.SkyColor
----`#61b5f5` For the top half of the sky during the day.
+---Default: `#61b5f5`. For the top half of the sky during the day.
 ---@field day_sky mt.ColorSpec|nil
----`#90d3f6` For the bottom half of the sky during the day.
+---Default: `#90d3f6`. For the bottom half of the sky during the day.
 ---@field day_horizon mt.ColorSpec|nil
----`#b4bafa` For the top half of the sky during dawn/sunset.
+---Default: `#b4bafa`. For the top half of the sky during dawn/sunset.
 ---@field dawn_sky mt.ColorSpec|nil
----`#bac1f0` For the bottom half of the sky during dawn/sunset.
+---Default: `#bac1f0`. For the bottom half of the sky during dawn/sunset.
 ---@field dawn_horizon mt.ColorSpec|nil
----`#006bff` For the top half of the sky during the night.
+---Default: `#006bff`. For the top half of the sky during the night.
 ---@field night_sky mt.ColorSpec|nil
----`#4090ff` For the bottom half of the sky during the night.
+---Default: `#4090ff`. For the bottom half of the sky during the night.
 ---@field night_horizon mt.ColorSpec|nil
----`#646464`For when you're either indoors or underground.
+---Default: `#646464`. For when you're either indoors or underground.
 ---@field indoors mt.ColorSpec|nil
----`#f47d1d` Changes the fog tinting for the sun at sunrise and sunset.
+---Default: `#f47d1d`. Changes the fog tinting for the sun at sunrise and sunset.
 ---@field fog_sun_tint mt.ColorSpec|nil
----`#7f99cc` Changes the fog tinting for the moon at sunrise and sunset.
+---Default: `#7f99cc`. Changes the fog tinting for the moon at sunrise and sunset.
 ---@field fog_moon_tint mt.ColorSpec|nil
 ---Default: `"default"`. Changes which mode the directional fog.
 ---@field fog_tint_type `"custom"`|`"default"`|nil
 
 ---@class mt.SkyParameters
 ---Changes fog in "skybox" and "plain".
----@field base_color mt.ColorSpec|nil `#ffffff`
+---@field base_color mt.ColorSpec|nil Default: `#ffffff`.
 ---`"regular"` Uses `0 | 6 | 0` textures, `base_color`
 ---`ignored | used as fog | used as both fog and sky`.
 ---@field type `"regular"`|`"skybox"`|`"plain"`|nil
