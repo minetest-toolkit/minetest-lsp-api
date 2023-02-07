@@ -46,9 +46,33 @@ Feel free to add your subitems if item is partially done.
 - [ ] Registered entities
 - [ ] L-system trees
 - [ ] Privileges
-- [ ] `minetest` Namespace reference
+- [ ] Minetest namespace reference
+  - [ ] Utilities
+  - [ ] Logging
   - [x] [Registration functions](ssm/register.lua)
-  - [x] [Registered definition tables](ssm/registered.lua)
+  - [ ] Global callback registration functions
+  - [ ] Setting-related
+  - [ ] Authentication
+  - [ ] Chat
+  - [ ] Environment access
+  - [ ] Mod channels
+  - [ ] Inventory
+  - [ ] Formspec
+  - [ ] Item handling
+  - [ ] Rollback
+  - [ ] Defaults
+  - [ ] Sounds
+  - [ ] Timing
+  - [ ] Async environment
+  - [ ] Server
+  - [ ] Bans
+  - [ ] Particles
+  - [ ] Schematics
+  - [ ] HTTP Requests
+  - [ ] Storage API
+  - [ ] Misc
+  - [ ] Global objects
+  - [ ] Global tables
 - [ ] Class reference
   - [ ] AreaStore
   - [ ] InvRef
