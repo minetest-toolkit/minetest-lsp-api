@@ -1,0 +1,145 @@
+---@meta
+---Item definition
+------------------
+
+-- Used by `minetest.register_node`, `minetest.register_craftitem`, and
+-- `minetest.register_tool`.
+---@class mt.ItemDef
+---Item's description.
+---
+---Can contain new lines. `"\n"` has to be used as new line character.
+---@field description string
+---Short item description.
+---
+---Must not contain new lines.
+---
+---Default: `nil`
+---@field short_description string?
+---Item groups.
+---
+---key = name, value = rating; rating = 1..3.
+---
+---If rating not applicable, use 1.
+---* `{wool = 1, fluffy = 3}`
+---* `{soil = 2, outerspace = 1, crumbly = 1}`
+---* `{bendy = 2, snappy = 1}`
+---* `{hard = 1, metal = 1, spikes = 1}`
+---@field groups table<string, integer>
+---Item inventory texture.
+---@field inventory_image string
+---An overlay to the inventory texture which does not get colorized.
+---@field inventory_overlay string
+---Item wielded texture.
+---@field wield_image string
+---An overlay to the wielded texture which does not get colorized.
+---@field wield_overlay string
+---An texture containing the palette of an item.
+---
+---You can set the currently used color as the `"palette_index"` field of the item stack metadata.
+---
+---The palette is always stretched to fit indices between `0` and `255`, to ensure compatibility with `"colorfacedir"` and `"colorwallmounted"` nodes.
+---@field palette string
+---The color of the item. The palette overrides this.
+---@field color mt.ColorSpec
+---The scale the item will have in the player hand.
+---@field wield_scale mt.Vector
+---How much items can be stacked together.
+---
+---The default value of `99` may be configured by users using the setting `"default_stack_max"`.
+---@field stack_max integer
+---How far will the player be able to aim with this node as hand.
+---@field range number
+---If true, item points to all liquid nodes (`liquidtype ~= "none"`), even those for which `pointable = false`.
+---@field liquids_pointable boolean
+---* **When used for nodes:** Defines amount of light emitted by node.
+---* **Otherwise:** Defines texture glow when viewed as a dropped item
+---
+---To set the maximum (`14`), use the value `minetest.LIGHT_MAX`.
+---
+---A value outside the range `0` to `minetest.LIGHT_MAX` causes undefined behavior.
+---
+---Default: `0`
+---@field light_source integer
+---Define the tool capabilities.
+---@field tool_capabilities mt.ToolCapabilities
+---Define client-side placement prediction.
+---
+---* If `nil` and item is node, prediction is made automatically.
+---* If `nil` and item is not a node, no prediction is made.
+---* If `""` and item is anything, no prediction is made.
+---
+---Otherwise should be name of node which the client immediately places on ground when the player places the item.
+---
+---Server will always update actual result shortly.
+---@field node_placement_prediction string?
+---Define client-side dig prediction.
+---
+---* If `""`, no prediction is made.
+---* If `"air"`, node is removed.
+---
+---Otherwise should be name of node which the client immediately place upon digging.
+---
+---Server will always update actual result shortly.
+---
+---Default: `""`
+---@field node_dig_prediction string?
+---Definition of items sounds to be played at various events.
+---
+---All fields in this table are optional.
+---
+---* `breaks`: When tool breaks due to wear. Ignored for non-tools.
+---* `eat`: When item is eaten with `minetest.do_item_eat`.
+---@field sound {breaks: mt.SimpleSoundSpec, eat: mt.SimpleSoundSpec}
+---When the 'place' key was pressed with the item in hand and a node was pointed at.
+---
+---Shall place item and return the leftover `itemstack` or `nil` to not modify the inventory.
+---
+---The placer may be any `ObjectRef` or `nil`.
+---
+---default: `minetest.item_place`
+---@field on_place fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---Same as `on_place` but called when not pointing at a node.
+---
+---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
+---
+---The user may be any `ObjectRef` or `nil`.
+---
+---default: `nil`
+---@field on_secondary_use fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---Shall drop item and return the leftover `itemstack`.
+---
+---The dropper may be any `ObjectRef` or `nil`.
+---
+---default: `minetest.item_drop`
+---@field on_drop fun(itemstack: mt.ItemStack, dropper?: mt.ObjectRef, pos: mt.Vector): mt.ItemStack?
+---When user pressed the 'punch/mine' key with the item in hand.
+---
+---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
+---
+---e.g.:
+---```lua
+---itemstack:take_item(); return itemstack
+---```
+---
+---Otherwise, the function is free to do what it wants.
+---
+---The user may be any `ObjectRef` or `nil`.
+---
+---The default functions handle regular use cases.
+---
+---default: `nil`
+---@field on_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, pointed_thing: mt.PointedThing)
+---If defined, should return an itemstack and will be called instead of wearing out the item (if tool).
+---
+---If returns `nil`, does nothing.
+---
+---If after_use doesn't exist, it is the same as:
+---```lua
+---function(itemstack, user, node, digparams)
+---    itemstack:add_wear(digparams.wear)
+---    return itemstack
+---end
+---```
+---
+---The user may be any `ObjectRef` or `nil`.
+---@field after_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, node: mt.Node, digparams: unknown)

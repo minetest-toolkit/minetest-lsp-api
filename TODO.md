@@ -57,7 +57,7 @@ Feel free to add your subitems if item is partially done.
   - [x] LBM (LoadingBlockModifier) definition
   - [x] Tile definition
   - [x] Tile animation definition
-  - [ ] Item definition
+  - [x] Item definition
   - [x] [Node definition](ssm/definitions/node.lua)
   - [ ] Crafting recipes
   - [ ] Ore definition
