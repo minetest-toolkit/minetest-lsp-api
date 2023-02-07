@@ -1,4 +1,6 @@
 ---@meta
+---ObjectRef
+------------
 
 -- A reference to an entity.
 -- 
@@ -53,7 +55,7 @@ function ObjectRef:move_to(pos, continuous) end
 
 ---@param puncher mt.ObjectRef
 ---@param time_from_last_punch number|nil Time since last punch action.
----@param tool_capabilities mt.ToolCapabilities|nil
+---@param tool_capabilities mt.ToolCaps|nil
 ---@param direction mt.Vector|nil
 function ObjectRef:punch(puncher, time_from_last_punch, tool_capabilities, direction) end
 

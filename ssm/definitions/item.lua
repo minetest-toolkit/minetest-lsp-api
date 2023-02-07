@@ -61,7 +61,7 @@
 ---Default: `0`
 ---@field light_source integer
 ---Define the tool capabilities.
----@field tool_capabilities mt.ToolCapabilities
+---@field tool_capabilities mt.ToolCaps
 ---Define client-side placement prediction.
 ---
 ---* If `nil` and item is node, prediction is made automatically.

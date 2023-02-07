@@ -25,7 +25,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Flag Specifier Format
 - [ ] Items
 - [ ] Groups
-- [ ] Tool Capabilities
+- [x] [Tool Capabilities](ssm/tool_caps.lua)
 - [ ] Entity damage mechanism
 - [ ] Metadata
 - [ ] Formspec
