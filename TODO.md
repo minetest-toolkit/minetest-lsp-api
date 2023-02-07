@@ -15,8 +15,8 @@ Feel free to add your subitems if item is partially done.
 - [ ] Textures
 - [ ] Sounds
 - [x] Registered definitions
-  - [x] [Registration functions](ssm/register.lua)
-  - [x] [Registered definition tables](ssm/registered.lua)
+  - [x] [Registration functions](ssm/minetest/register.lua)
+  - [x] [Registered definition tables](ssm/minetest/registered.lua)
 - [ ] Nodes
   - [ ] Describe mt.MapBlock and mt.MapChunk
 - [ ] Map terminology and coordinates
@@ -46,10 +46,10 @@ Feel free to add your subitems if item is partially done.
 - [ ] Registered entities
 - [ ] L-system trees
 - [ ] Privileges
-- [ ] Minetest namespace reference
+- [ ] [Minetest namespace reference](ssm/minetest)
   - [ ] Utilities
   - [ ] Logging
-  - [x] [Registration functions](ssm/register.lua)
+  - [x] [Registration functions](ssm/minetest/register.lua)
   - [ ] Global callback registration functions
   - [ ] Setting-related
   - [ ] Authentication
@@ -72,8 +72,8 @@ Feel free to add your subitems if item is partially done.
   - [ ] Storage API
   - [ ] Misc
   - [ ] Global objects
-  - [ ] Global tables
-- [ ] Class reference
+  - [x] [Global tables](ssm/minetest/registered.lua)
+- [ ] [Class reference](ssm/class)
   - [ ] AreaStore
   - [ ] InvRef
   - [ ] ItemStack
@@ -92,7 +92,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] SecureRandom
   - [ ] Settings
   - [ ] StorageRef
-- [ ] Definition tables
+- [ ] [Definition tables](ssm/definitions)
   - [x] [Object Properties](ssm/definitions/object.lua)
   - [x] [Entity definition](ssm/definitions/entity.lua)
   - [x] [ABM (ActiveBlockModifier) definition](ssm/definitions/abm.lua)
