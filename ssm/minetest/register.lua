@@ -48,10 +48,10 @@ function minetest.unregister_item(name) end
 ---@param entity mt.EntityDef
 function minetest.register_entity(name, entity) end
 
----@param abm mc.ABMDef
+---@param abm mt.ABMDef
 function minetest.register_abm(abm) end
 
----@param lbm mc.LBMDef
+---@param lbm mt.LBMDef
 function minetest.register_lbm(name, lbm) end
 
 ---This adds an alias `alias` for the item called `original_name`.
