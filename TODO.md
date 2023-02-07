@@ -53,8 +53,8 @@ Feel free to add your subitems if item is partially done.
 - [ ] Definition tables
   - [x] [Object Properties](ssm/definitions/object.lua)
   - [x] [Entity definition](ssm/definitions/entity.lua)
-  - [ ] ABM (ActiveBlockModifier) definition
-  - [ ] LBM (LoadingBlockModifier) definition
+  - [x] ABM (ActiveBlockModifier) definition
+  - [x] LBM (LoadingBlockModifier) definition
   - [ ] Tile definition
   - [ ] Tile animation definition
   - [ ] Item definition
@@ -76,5 +76,6 @@ Feel free to add your subitems if item is partially done.
 ## Final tasks
 
 - [ ] Double check documentation and update it to the latest version
+- [ ] Check all optional variables
 - [ ] Test it in an existed games
 - [ ] Add examples
