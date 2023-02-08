@@ -1,0 +1,24 @@
+---@meta
+---HUD Definition
+-----------------
+
+-- Used by `Player:hud_add`. Returned by `Player:hud_get`.
+---@class mt.HUDDef
+---@field hud_elem_type "image"|"text"|"statbar"|"inventory"|"compass"|"minimap"
+---@field position mt.Vector Left corner position of element.
+---@field name string
+---@field scale mt.Vector
+---@field text string
+---@field text2 string
+---@field number number
+---@field item number Selected item in inventory. 0 for no item selected.
+-- Direction: 0: left-right, 1: right-left, 2: top-bottom, 3: bottom-top.
+---@field direction integer
+---@field alignment mt.Vector
+---@field offset mt.Vector
+---@field size mt.Vector Size of element in pixels.
+-- Lower z-index HUDs are displayed behind higher z-index HUDs.
+---@field z_index number
+-- For "text" elements sets font style:
+-- bitfield with 1 = bold, 2 = italic, 4 = monospace.
+---@field style number

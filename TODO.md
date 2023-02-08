@@ -20,7 +20,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] [Nodes](ssm/node.lua)
   - [ ] Describe mt.MapBlock and mt.MapChunk
 - [ ] Map terminology and coordinates
-- [ ] HUD
+- [x] [HUD](ssm/hud.lua)
 - [ ] Representations of simple things
 - [ ] Flag Specifier Format
 - [ ] Items
@@ -107,7 +107,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Chat command definition
   - [ ] Privilege definition
   - [ ] Detached inventory callbacks
-  - [ ] HUD Definition
+  - [x] [HUD Definition](ssm/definitions/hud.lua)
   - [ ] Particle definition
   - [ ] ParticleSpawner definition
   - [ ] HTTPRequest definition

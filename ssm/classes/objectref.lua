@@ -404,7 +404,7 @@ function PlayerObjectRef:set_physics_override(override_table) end
 function PlayerObjectRef:get_physics_override() end
 
 ---* Add a HUD element described by HUD def, returns ID number on success.
----@param definition mt.HUD
+---@param definition mt.HUDDef
 ---@return number id On success.
 function PlayerObjectRef:hud_add(definition) end
 
@@ -422,7 +422,7 @@ function PlayerObjectRef:hud_change(id, stat, value) end
 
 ---* Gets the HUD element definition structure of the specified ID.
 ---@param id number
----@return mt.HUD
+---@return mt.HUDElement
 function PlayerObjectRef:hud_get(id) end
 
 ---@class mt.HUDFlags
