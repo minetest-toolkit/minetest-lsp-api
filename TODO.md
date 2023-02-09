@@ -103,7 +103,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Tile definition](ssm/definitions/tile.lua)
   - [x] [Item definition](ssm/definitions/item.lua)
   - [x] [Node definition](ssm/definitions/node.lua)
-  - [ ] Crafting recipes
+  - [x] [Crafting recipes](ssm/definitions/recipe.lua)
   - [ ] Ore definition
   - [ ] Biome definition
   - [ ] Decoration definition
