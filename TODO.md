@@ -62,7 +62,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Item handling
   - [ ] Rollback
   - [ ] Defaults
-  - [ ] Sounds
+  - [x] [Sounds](ssm/minetest/sounds.lua)
   - [ ] Timing
   - [ ] Async environment
   - [ ] Server
