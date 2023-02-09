@@ -77,21 +77,21 @@ Feel free to add your subitems if item is partially done.
   - [ ] AreaStore
   - [x] [InvRef](ssm/classes/invref.lua)
   - [x] [ItemStack](ssm/classes/itemstack.lua)
-  - [ ] ItemStackMetaRef
-  - [ ] MetaDataRef
+  - [x] [ItemStackMetaRef](ssm/classes/metaref.lua)
+  - [x] [MetaDataRef](ssm/classes/metaref.lua)
   - [ ] ModChannel
-  - [ ] NodeMetaRef
+  - [x] [NodeMetaRef](ssm/classes/metaref.lua)
   - [ ] NodeTimerRef
   - [x] [ObjectRef](ssm/classes/objectref.lua)
   - [ ] PcgRandom
   - [ ] PerlinNoise
   - [ ] PerlinNoiseMap
-  - [ ] PlayerMetaRef
+  - [x] [PlayerMetaRef](ssm/classes/metaref.lua)
   - [ ] PseudoRandom
   - [ ] Raycast
   - [ ] SecureRandom
   - [ ] Settings
-  - [ ] StorageRef
+  - [x] [StorageRef](ssm/classes/metaref.lua)
 - [ ] [Definition tables](ssm/definitions)
   - [x] [Object Properties](ssm/definitions/object.lua)
   - [x] [Entity definition](ssm/definitions/entity.lua)
