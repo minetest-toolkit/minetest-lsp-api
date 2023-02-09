@@ -17,8 +17,7 @@ Feel free to add your subitems if item is partially done.
 - [x] Registered definitions
   - [x] [Registration functions](ssm/minetest/register.lua)
   - [x] [Registered definition tables](ssm/minetest/registered.lua)
-- [ ] [Nodes](ssm/node.lua)
-  - [ ] Describe mt.MapBlock and mt.MapChunk
+- [x] [Nodes](ssm/node.lua)
 - [ ] Map terminology and coordinates
 - [x] [HUD](ssm/hud.lua)
 - [x] Representations of simple things
@@ -33,7 +32,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Formspec
 - [ ] Inventory
 - [x] [Colors](common/color.lua)
-- [ ] Escape sequences
+- [x] [Escape sequences](ssm/escape.lua)
 - [ ] [Spatial Vectors](common/vector.lua)
   - [x] Full form
   - [ ] Simple form as different type?
