@@ -41,7 +41,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Helper functions
 - [ ] Translations
 - [ ] Perlin noise
-- [ ] Ores
+- [x] [Ores](ssm/definitions/ore.lua)
 - [ ] Decoration types
 - [ ] Schematics
 - [ ] Lua Voxel Manipulator
@@ -104,7 +104,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Item definition](ssm/definitions/item.lua)
   - [x] [Node definition](ssm/definitions/node.lua)
   - [x] [Crafting recipes](ssm/definitions/recipe.lua)
-  - [ ] Ore definition
+  - [x] [Ore definition](ssm/definitions/ore.lua)
   - [ ] Biome definition
   - [ ] Decoration definition
   - [ ] Chat command definition
