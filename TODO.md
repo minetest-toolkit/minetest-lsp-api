@@ -21,7 +21,9 @@ Feel free to add your subitems if item is partially done.
   - [ ] Describe mt.MapBlock and mt.MapChunk
 - [ ] Map terminology and coordinates
 - [x] [HUD](ssm/hud.lua)
-- [ ] Representations of simple things
+- [x] Representations of simple things
+  - [x] [Vector](common/vector.lua)
+  - [x] [PointedThing](common/pointed.lua)
 - [ ] Flag Specifier Format
 - [ ] Items
 - [ ] Groups
