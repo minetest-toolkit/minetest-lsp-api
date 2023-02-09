@@ -2,7 +2,7 @@
 ---Sounds
 ---------
 
----@class mt.SoundHandle
+---@alias mt.SoundHandle unknown
 
 ---* `parameters` is a sound parameter table
 ---@param spec mt.SimpleSoundSpec
