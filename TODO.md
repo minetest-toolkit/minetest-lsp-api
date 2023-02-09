@@ -13,7 +13,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Mods
 - [ ] Aliases
 - [ ] Textures
-- [ ] [Sounds](ssm/sounds.lua)
+- [x] [Sounds](ssm/sounds.lua)
 - [x] Registered definitions
   - [x] [Registration functions](ssm/minetest/register.lua)
   - [x] [Registered definition tables](ssm/minetest/registered.lua)
