@@ -25,7 +25,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Vector](common/vector.lua)
   - [x] [PointedThing](common/pointed.lua)
 - [ ] Flag Specifier Format
-- [ ] Items
+- [x] [Items](ssm/item.lua)
 - [ ] Groups
 - [x] [Tool Capabilities](ssm/tool_caps.lua)
 - [ ] Entity damage mechanism

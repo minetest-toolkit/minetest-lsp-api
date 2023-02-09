@@ -1,0 +1,71 @@
+---@meta
+---Items
+--------
+
+-- Items are things that can be held by players, dropped in the map and
+-- stored in inventories.
+-- Items come in the form of item stacks, which are collections of equal
+-- items that occupy a single inventory slot.
+--
+-- Items and item stacks can exist in three formats: `ItemString`, `ItemTable`
+-- and `ItemStack`.
+--
+-- When an item must be passed to a function, it can usually be in any of
+-- these formats.
+---@alias mt.Item mt.ItemStack|mt.ItemString|mt.ItemTable
+
+-- It is a simple string with 1-4 components:
+--
+-- 1. Full item identifier ("item name")
+-- 2. Optional amount
+-- 3. Optional wear value
+-- 4. Optional item metadata
+--
+-- Syntax:
+--
+--     <identifier> [<amount>[ <wear>[ <metadata>]]]
+--
+-- Examples:
+--
+-- * `"default:apple"`: 1 apple
+-- * `"default:dirt 5"`: 5 dirt
+-- * `"default:pick_stone"`: a new stone pickaxe
+-- * `"default:pick_wood 1 21323"`: a wooden pickaxe, ca. 1/3 worn out
+-- * `[[default:pick_wood 1 21323 "\u0001description\u0002My worn out pick\u0003"]]`:
+--   * a wooden pickaxe from the `default` mod,
+--   * amount must be 1 (pickaxe is a tool), ca. 1/3 worn out (it's a tool),
+--   * with the `description` field set to `"My worn out pick"` in its metadata
+-- * `[[default:dirt 5 0 "\u0001description\u0002Special dirt\u0003"]]`:
+--   * analogous to the above example
+--   * note how the wear is set to `0` as dirt is not a tool
+--
+-- You should ideally use the `ItemStack` format to build complex item strings
+-- (especially if they use item metadata)
+-- without relying on the serialization format. Example:
+--
+--     local stack = ItemStack("default:pick_wood")
+--     stack:set_wear(21323)
+--     stack:get_meta():set_string("description", "My worn out pick")
+--     local itemstring = stack:to_string()
+--
+-- Additionally the methods `minetest.itemstring_with_palette(item, palette_index)`
+-- and `minetest.itemstring_with_color(item, colorstring)` may be used to create
+-- item strings encoding color information in their metadata.
+---@alias mt.ItemString string
+
+-- 5 dirt nodes:
+--
+--     {name="default:dirt", count=5, wear=0, metadata=""}
+--
+-- A wooden pick about 1/3 worn out:
+--
+--     {name="default:pick_wood", count=1, wear=21323, metadata=""}
+--
+-- An apple:
+--
+--     {name="default:apple", count=1, wear=0, metadata=""}
+---@class mt.ItemTable
+---@field name string
+---@field count number
+---@field wear number
+---@field metadata string
