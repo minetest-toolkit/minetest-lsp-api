@@ -13,7 +13,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Mods
 - [ ] Aliases
 - [ ] Textures
-- [ ] Sounds
+- [ ] [Sounds](ssm/sounds.lua)
 - [x] Registered definitions
   - [x] [Registration functions](ssm/minetest/register.lua)
   - [x] [Registered definition tables](ssm/minetest/registered.lua)
@@ -35,6 +35,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] [Spatial Vectors](common/vector.lua)
   - [x] Full form
   - [ ] Simple form as different type?
+  - [ ] Separate Vector2 and Vector3?
 - [ ] Helper functions
 - [ ] Translations
 - [ ] Perlin noise
@@ -119,5 +120,6 @@ Feel free to add your subitems if item is partially done.
 - [ ] Check all `unknown` and `table` types
 - [ ] Double check documentation and update it to the latest version
 - [ ] Check all optional variables
+- [ ] Mark optional class fields?
 - [ ] Test it in an existed games
 - [ ] Add examples
