@@ -1,0 +1,73 @@
+---@meta
+
+-- Used by `minetest.register_biome`.
+--
+-- The maximum number of biomes that can be used is 65535. However, using an
+-- excessive number of biomes will slow down map generation. Depending on
+-- desired performance and computing power the practical limit is much lower.
+---@class mt.BiomeDef
+---@field name string
+-- Node dropped onto upper surface after all else is generated.
+---@field node_dust string
+---@field node_top string
+-- Node forming surface layer of biome and thickness of this layer.
+---@field depth_top number
+---@field node_filler string
+-- Node forming lower layer of biome and thickness of this layer.
+---@field depth_filler number
+-- Node that replaces all stone nodes between roughly y_min and y_max.
+---@field node_stone string
+---@field node_water_top string
+-- Node forming a surface layer in seawater with the defined thickness.
+---@field depth_water_top number
+-- Node that replaces all seawater nodes not in the surface layer.
+---@field node_water string
+-- Node that replaces river water in mapgens that use `default:river_water`.
+---@field node_river_water string
+---@field node_riverbed string
+-- Node placed under river water and thickness of this layer.
+---@field depth_riverbed number
+-- * Nodes placed inside 50% of the medium size caves.
+-- * Multiple nodes can be specified, each cave will use a randomly
+--   chosen node from the list.
+-- * If this field is left out or `nil`, cave liquids fall back to
+--   classic behaviour of lava and water distributed using 3D noise.
+-- * For no cave liquid, specify "air".
+---@field node_cave_liquid string|string[]
+-- * Node used for primary dungeon structure.
+-- * If absent, dungeon nodes fall back to the `mapgen_cobble` mapgen
+--   alias, if that is also absent, dungeon nodes fall back to the biome
+--   `node_stone`.
+-- * If present, the following two nodes are also used.
+---@field node_dungeon string
+-- * Node used for randomly-distributed alternative structure nodes.
+-- * If alternative structure nodes are not wanted leave this absent for
+--   performance reasons.
+---@field node_dungeon_alt string
+-- * Node used for dungeon stairs.
+-- * If absent, stairs fall back to `node_dungeon`.
+---@field node_dungeon_stair string
+---@field y_max number Upper limits for biome.
+---@field y_min number Lower limits for biome.
+-- * XYZ limits for biome, an alternative to using `y_max`.
+-- * Biome is limited to a cuboid defined by these positions.
+-- * Any x, y or z field left undefined defaults to `-31000`.
+---@field max_pos mt.Vector
+-- * XYZ limits for biome, an alternative to using `y_min`.
+-- * Biome is limited to a cuboid defined by these positions.
+-- * Any x, y or z field left undefined defaults to `31000`.
+---@field min_pos mt.Vector
+-- * Vertical distance in nodes above `y_max` over which the biome will
+--   blend with the biome above.
+-- * Set to `0` for no vertical blend.
+-- * Defaults to `0`.
+---@field vertical_blend number
+---@field heat_point number
+-- * Characteristic temperature and humidity for the biome.
+-- * These values create `biome points` on a voronoi diagram with heat and
+--   humidity as axes. The resulting voronoi cells determine the
+--   distribution of the biomes.
+-- * Heat and humidity have average values of `50`, vary mostly between
+--   `0` and `100` but can exceed these values.
+---@field humidity_point number
+local biome

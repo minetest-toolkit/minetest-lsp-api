@@ -104,7 +104,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Node definition](ssm/definitions/node.lua)
   - [x] [Crafting recipes](ssm/definitions/recipe.lua)
   - [x] [Ore definition](ssm/definitions/ore.lua)
-  - [ ] Biome definition
+  - [x] [Biome definition](ssm/definitions/biome.lua)
   - [ ] Decoration definition
   - [ ] Chat command definition
   - [ ] Privilege definition

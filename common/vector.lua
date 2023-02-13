@@ -66,6 +66,7 @@
 -- ### Operators
 --
 -- Operators can be used if all of the involved vectors have metatables:
+--
 -- * `v1 == v2`:
 --     * Returns whether `v1` and `v2` are identical.
 -- * `-v`:
