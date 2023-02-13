@@ -8,10 +8,10 @@
 --
 -- `_custom_field = whatever:mt.ItemDef`.
 ---@class mt.EntityDef
--- A table of object properties.
--- Object properties being read directly from the entity definition
--- table is deprecated. Define object properties in this
--- `initial_properties` table instead.
+-- * A table of object properties.
+-- * Object properties being read directly from the entity definition
+--   table is deprecated.
+-- * Define object properties in this `initial_properties` table instead.
 ---@field initial_properties mt.ObjectProp
 local entity = {}
 
@@ -31,7 +31,14 @@ function entity.on_step(self, dtime, moveresult) end
 ---@param time_from_last_punch number
 ---@param tool_capabilities unknown
 ---@param dir unknown
-function entity.on_punch(self, puncher, time_from_last_punch, tool_capabilities, dir) end
+function entity.on_punch(
+  self,
+  puncher,
+  time_from_last_punch,
+  tool_capabilities,
+  dir
+)
+end
 
 ---@param self mt.EntityDef
 ---@param clicker mt.ObjectRef

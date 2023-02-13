@@ -21,7 +21,7 @@
 
 -- Displays an image on the HUD.
 ---@class mt.HUDImage:mt.HUDProto
--- The scale of the image, with 1 being the original texture size.
+-- * The scale of the image, with 1 being the original texture size.
 -- * Only the X coordinate scale is used (positive values).
 -- * Negative values represent that percentage of the screen it
 --   should take; e.g. `x=-100` means 100% (width).
@@ -64,7 +64,7 @@
 ---@class mt.HUDWaypoint:mt.HUDProto
 ---@field name string The name of the waypoint.
 ---@field text string Distance suffix. Can be blank.
--- Waypoint precision, integer >= 0.
+-- * Waypoint precision, integer >= 0.
 -- * Defaults to 10.
 -- * If set to 0, distance is not shown.
 -- * Shown value is `floor(distance*precision)/precision`.
@@ -83,7 +83,7 @@
 -- the position is instead determined by `world_pos`,
 -- the world position of the waypoint.
 ---@class mt.HUDImageWaypoint:mt.HUDProto
--- The scale of the image, with 1 being the original texture size.
+-- * The scale of the image, with 1 being the original texture size.
 -- * Only the X coordinate scale is used (positive values).
 -- * Negative values represent that percentage of the screen it
 --   should take; e.g. `x=-100` means 100% (width).
@@ -101,6 +101,7 @@
 ---@field text string The name of the texture to use.
 ---@field alignment mt.Vector The alignment of the image.
 -- How the image is rotated/translated:
+--
 -- * 0 - Rotate as heading direction
 -- * 1 - Rotate in reverse direction
 -- * 2 - Translate as landscape direction

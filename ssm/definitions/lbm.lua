@@ -21,4 +21,3 @@
 -- was introduced.
 ---@field run_at_every_load boolean
 ---@field action fun(pos:mt.Vector, node:mt.Node)
-local lbm = {}

@@ -19,42 +19,42 @@
 ---@overload fun(x: mt.ItemStack|string|table|nil): mt.ItemStack
 ItemStack = {}
 
----* Returns `true` if stack is empty.
+---Returns `true` if stack is empty.
 ---@return boolean
 function ItemStack:is_empty() end
 
 ---@return string name ie: "default:stone"
 function ItemStack:get_name() end
 
----* Returns a boolean indicating whether the item was cleared.
+---Returns a boolean indicating whether the item was cleared.
 ---@param item_name string
 ---@return boolean cleared
 function ItemStack:set_name(item_name) end
 
----* Returns number of items on the stack.
+---Returns number of items on the stack.
 ---@return number
 function ItemStack:get_count() end
 
----* Returns a boolean indicating whether the item was cleared.
+---Returns a boolean indicating whether the item was cleared.
 ---@param count integer Unsigned 16 bit.
 ---@return boolean cleared
 function ItemStack:set_count(count) end
 
----* Returns tool wear (`0`-`65535`), `0` for non-tools.
+---Returns tool wear (`0`-`65535`), `0` for non-tools.
 ---@return number
 function ItemStack:get_wear() end
 
----* Returns boolean indicating whether item was cleared.
+---Returns boolean indicating whether item was cleared.
 ---@param wear integer Unsigned 16 bit.
 ---@return boolean cleared
 function ItemStack:set_wear(wear) end
 
----* **DEPRECATED** Returns metadata (a string attached to an item stack).
+---**DEPRECATED** Returns metadata (a string attached to an item stack).
 ---@return string
 ---@deprecated
 function ItemStack:get_metadata() end
 
----* **DEPRECATED**
+---**DEPRECATED**
 ---@param metadata string
 ---@return true
 ---@deprecated
@@ -79,43 +79,43 @@ function ItemStack:get_description() end
 ---@return string|nil
 function ItemStack:get_short_description() end
 
----* Removes all items from the stack, making it empty.
+---Removes all items from the stack, making it empty.
 function ItemStack:clear() end
 
----* Replace the contents of this stack.
+---Replace the contents of this stack.
 ---@param item string|table
 function ItemStack:replace(item) end
 
----* Returns the stack in itemstring form.
+---Returns the stack in itemstring form.
 ---@return string
 function ItemStack:to_string() end
 
----* Returns the stack in Lua table form.
+---Returns the stack in Lua table form.
 ---@return table
 function ItemStack:to_table() end
 
----* Returns the maximum size of the stack (depends on the item).
+---Returns the maximum size of the stack (depends on the item).
 ---@return number
 function ItemStack:get_stack_max() end
 
----* Returns `get_stack_max() - get_count()`.
+---Returns `get_stack_max() - get_count()`.
 ---@return number
 function ItemStack:get_free_space() end
 
----* Returns `true` if the item name refers to a defined item type.
+---Returns `true` if the item name refers to a defined item type.
 ---@return boolean
 function ItemStack:is_known() end
 
----* Returns the item definition table.
+---Returns the item definition table.
 ---@return table
 function ItemStack:get_definition() end
 
----* Returns the digging properties of the item,
----  or those of the hand if none are defined for this item type.
+---Returns the digging properties of the item, or those of the hand if none are
+---defined for this item type.
 ---@return mt.ToolCaps
 function ItemStack:get_tool_capabilities() end
 
----* Increases wear by `amount` if the item is a tool, otherwise does nothing
+---Increases wear by `amount` if the item is a tool, otherwise does nothing
 ---@param amount integer 0..65536
 function ItemStack:add_wear(amount) end
 
@@ -131,7 +131,7 @@ function ItemStack:add_wear_by_uses(max_uses) end
 ---@return mt.ItemStack leftover
 function ItemStack:add_item(item) end
 
----* Returns `true` if item or stack can be fully added to this one.
+---Returns `true` if item or stack can be fully added to this one.
 ---@param item mt.ItemStack
 ---@return boolean
 function ItemStack:item_fits(item) end

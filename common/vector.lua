@@ -25,7 +25,7 @@
 -- * `vector.new(x, y, z)`
 -- * `{x=num, y=num, z=num}` (Even here you are still supposed to use `vector.new`.)
 --
--- ### Compatibility notes
+-- **Compatibility notes**
 --
 -- Vectors used to be defined as tables of the form `{x = num, y = num, z = num}`.
 -- Since Minetest 5.5.0, vectors additionally have a metatable to enable easier use.
@@ -44,7 +44,7 @@
 -- Vectors provided by API functions will provide an instance of this class if not
 -- stated otherwise. Mods should adapt this for convenience reasons.
 --
--- ### Special properties of the class
+-- **Special properties of the class**
 --
 -- Vectors can be indexed with numbers and allow method and operator syntax.
 --
@@ -63,7 +63,7 @@
 -- All `vector.*` functions allow vectors `{x = X, y = Y, z = Z}` without metatables.
 -- Returned vectors always have a metatable set.
 --
--- ### Operators
+-- **Operators**
 --
 -- Operators can be used if all of the involved vectors have metatables:
 --

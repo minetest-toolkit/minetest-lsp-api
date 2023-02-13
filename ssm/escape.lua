@@ -7,6 +7,7 @@
 function minetest.get_color_escape_sequence(color) end
 
 -- Equivalent to:
+--
 -- ```lua
 -- minetest.get_color_escape_sequence(color) .. message ..
 -- minetest.get_color_escape_sequence("#ffffff")

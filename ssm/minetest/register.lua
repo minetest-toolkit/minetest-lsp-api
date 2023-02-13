@@ -68,12 +68,12 @@ function minetest.register_alias(alias, original_name) end
 ---@param original_name string
 function minetest.register_alias_force(alias, original_name) end
 
----* The order of ore registrations determines the order of ore generation.
+---The order of ore registrations determines the order of ore generation.
 ---@param ore mt.OreDef
 ---@return integer handle Uniquely identifying the registered ore on success.
 function minetest.register_ore(ore) end
 
----* To get the biome ID, use `minetest.get_biome_id`.
+---To get the biome ID, use `minetest.get_biome_id`.
 ---@param biome mt.BiomeDef
 ---@return integer handle Uniquely identifying the registered biome on success.
 function minetest.register_biome(biome) end
@@ -106,13 +106,13 @@ function minetest.register_schematic(schematic) end
 ---  afterwards be cleared and re-registered.
 function minetest.clear_registered_biomes() end
 
----* Clears all decorations currently registered.
+---Clears all decorations currently registered.
 function minetest.clear_registered_decorations() end
 
----* Clears all ores currently registered.
+---Clears all ores currently registered.
 function minetest.clear_registered_ores() end
 
----* Clears all schematics currently registered.
+---Clears all schematics currently registered.
 function minetest.clear_registered_schematics() end
 
 ---### Gameplay
@@ -136,12 +136,12 @@ function clear_craft(recipe) end
 ---@param cmd mt.ChatCmdDef
 function register_chatcommand(name, cmd) end
 
----* Overrides fields of a chatcommand registered with `register_chatcommand`.
+---Overrides fields of a chatcommand registered with `register_chatcommand`.
 ---@param name string
 ---@param cmd mt.ChatCmdDef
 function override_chatcommand(name, cmd) end
 
----* Unregister a chatcommands registered with `register_chatcommand`.
+---Unregister a chatcommands registered with `register_chatcommand`.
 ---@param name string
 function unregister_chatcommand(name) end
 

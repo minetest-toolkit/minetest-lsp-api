@@ -1,11 +1,12 @@
+---@diagnostic disable: unused-local
 ---@meta
 ---ObjectRef
 ------------
 
 -- A reference to an entity.
--- 
+--
 -- This is basically a reference to a C++ `ServerActiveObject`.
--- 
+--
 -- **Advice on handling `ObjectRefs`**
 --
 -- When you receive an `ObjectRef` as a callback argument or from another API
@@ -57,12 +58,18 @@ function ObjectRef:move_to(pos, continuous) end
 ---@param time_from_last_punch number|nil Time since last punch action.
 ---@param tool_capabilities mt.ToolCaps|nil
 ---@param direction mt.Vector|nil
-function ObjectRef:punch(puncher, time_from_last_punch, tool_capabilities, direction) end
+function ObjectRef:punch(
+  puncher,
+  time_from_last_punch,
+  tool_capabilities,
+  direction
+)
+end
 
 ---@param clicker mt.ObjectRef
 function ObjectRef:right_click(clicker) end
 
----* Returns number of health points.
+---Returns number of health points.
 ---@return number
 function ObjectRef:get_hp() end
 
@@ -73,22 +80,22 @@ function ObjectRef:get_hp() end
 ---@param reason string|nil See in register_on_player_hpchange
 function ObjectRef:set_hp(hp, reason) end
 
----* Returns an `InvRef` for players, otherwise returns `nil`.
+---Returns an `InvRef` for players, otherwise returns `nil`.
 ---@return mt.InvRef|nil
 function ObjectRef:get_inventory() end
 
----* Returns the name of the inventory list the wielded item is in.
+---Returns the name of the inventory list the wielded item is in.
 ---@return string
 function ObjectRef:get_wield_list() end
 
----* Returns the index of the wielded item.
+---Returns the index of the wielded item.
 ---@return number
 function ObjectRef:get_wield_index() end
 
 ---@return mt.ItemStack
 function ObjectRef:get_wielded_item() end
 
----* Replaces the wielded item, returns `true` if successful.
+---Replaces the wielded item, returns `true` if successful.
 ---@param item mt.ItemStack
 ---@return boolean true If successful.
 function ObjectRef:set_wielded_item(item) end
@@ -96,7 +103,7 @@ function ObjectRef:set_wielded_item(item) end
 ---@param group_table table {group1=rating, group2=rating, ...}
 function ObjectRef:set_armor_groups(group_table) end
 
----* Returns a table with the armor group ratings.
+---Returns a table with the armor group ratings.
 ---@return table {group1=rating, group2=rating, ...}
 function ObjectRef:get_armor_groups() end
 
@@ -104,7 +111,13 @@ function ObjectRef:get_armor_groups() end
 ---@param frame_speed number|nil Default: `15.0`.
 ---@param frame_blend number|nil Default: `0.0`.
 ---@param frame_loop boolean|nil Default: `true`.
-function ObjectRef:set_animation(frame_range, frame_speed, frame_blend, frame_loop) end
+function ObjectRef:set_animation(
+  frame_range,
+  frame_speed,
+  frame_blend,
+  frame_loop
+)
+end
 
 ---@return { x: number, y: number} range
 ---@return number frame_speed
@@ -120,7 +133,14 @@ function ObjectRef:set_animation_frame_speed(frame_speed) end
 ---@param position mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative position.
 ---@param rotation mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative rotation in degrees.
 ---@param forced_visible boolean|nil Default: `false`. Should appear in first person?
-function ObjectRef:set_attach(parent, bone, position, rotation, forced_visible) end
+function ObjectRef:set_attach(
+  parent,
+  bone,
+  position,
+  rotation,
+  forced_visible
+)
+end
 
 ---* This command may fail silently (do nothing) when it would result
 ---  in circular attachments.
@@ -133,7 +153,7 @@ function ObjectRef:set_attach(parent, bone, position, rotation, forced_visible) 
 ---@return boolean|nil forced_visible Should appear in first person?
 function ObjectRef:get_attach() end
 
----* Returns a list of ObjectRefs that are attached to the object.
+---Returns a list of ObjectRefs that are attached to the object.
 ---@return mt.ObjectRef[]
 function ObjectRef:get_children() end
 
@@ -144,7 +164,7 @@ function ObjectRef:set_detach() end
 ---@param rotation mt.Vector|nil Default: `{x=0, y=0, z=0}`.
 function ObjectRef:set_bone_position(bone, position, rotation) end
 
----* Returns position and rotation of the bone.
+---Returns position and rotation of the bone.
 ---@param bone string
 ---@return mt.Vector position, mt.Vector rotation
 function ObjectRef:get_bone_position(bone) end
@@ -163,11 +183,11 @@ function ObjectRef:is_player() end
 ---@field color mt.ColorSpec|nil
 ---@field bgcolor mt.ColorSpec|nil
 
----* Returns a table with the attributes of the nametag of an object.
+---Returns a table with the attributes of the nametag of an object.
 ---@return mt.NameTagAttributes
 function ObjectRef:get_nametag_attributes() end
 
----* Sets the attributes of the nametag of an object.
+---Sets the attributes of the nametag of an object.
 ---@param attrs mt.NameTagAttributes
 function ObjectRef:set_nametag_attributes(attrs) end
 
@@ -199,11 +219,11 @@ function LuaObjectRef:set_rotation(rot) end
 ---@return mt.Vector (radians)
 function LuaObjectRef:get_rotation() end
 
----* Sets the yaw in radians (heading).
+---Sets the yaw in radians (heading).
 ---@param yaw number
 function LuaObjectRef:set_yaw(yaw) end
 
----* Returns number in radians.
+---Returns number in radians.
 ---@return number
 function LuaObjectRef:get_yaw() end
 
@@ -212,7 +232,7 @@ function LuaObjectRef:get_yaw() end
 ---@param mod string Texture modifier.
 function LuaObjectRef:set_texture_mod(mod) end
 
----* Returns current texture modifier.
+---Returns current texture modifier.
 ---@return string mod Texture modifier.
 function LuaObjectRef:get_texture_mod() end
 
@@ -228,9 +248,15 @@ function LuaObjectRef:get_texture_mod() end
 ---@param num_frames number|nil Default: `1`. Total frames in the texture.
 ---@param framelength number|nil Default: `0.2`. Time per animated frame in seconds.
 ---@param select_x_by_camera boolean|nil Default: `false`. Only for visual = `sprite`. Changes the frame `x` position according to the view direction.
-function LuaObjectRef:set_sprite(start_frame, num_frames, framelength, select_x_by_camera) end
+function LuaObjectRef:set_sprite(
+  start_frame,
+  num_frames,
+  framelength,
+  select_x_by_camera
+)
+end
 
----* **Deprecated**: Use the field `self.name` instead.
+---**Deprecated**: Use the field `self.name` instead.
 ---@deprecated
 function LuaObjectRef:get_entity_name() end
 
@@ -244,17 +270,17 @@ local PlayerObjectRef = {}
 ---@return string|nil name `""` if is not a player.
 function PlayerObjectRef:get_player_name() end
 
----* **DEPRECATED**, use get_velocity() instead.
+---**DEPRECATED**, use get_velocity() instead.
 ---@deprecated
 ---@return mt.Vector
 function PlayerObjectRef:get_player_velocity() end
 
----* **DEPRECATED**, use add_velocity(vel) instead.
+---**DEPRECATED**, use add_velocity(vel) instead.
 ---@deprecated
 ---@param vel mt.Vector
 function PlayerObjectRef:add_player_velocity(vel) end
 
----* Get camera direction as a unit vector.
+---Get camera direction as a unit vector.
 ---@return mt.Vector
 function PlayerObjectRef:get_look_dir() end
 
@@ -269,11 +295,11 @@ function PlayerObjectRef:get_look_vertical() end
 ---@return number
 function PlayerObjectRef:get_look_horizontal() end
 
----* Sets look pitch.
+---Sets look pitch.
 ---@param radians number Angle from looking forward, where positive is downwards.
 function PlayerObjectRef:set_look_vertical(radians) end
 
----* Sets look yaw.
+---Sets look yaw.
 ---@param radians number Angle from the +z direction, where positive is counter-clockwise.
 function PlayerObjectRef:set_look_horizontal(radians) end
 
@@ -290,17 +316,17 @@ function PlayerObjectRef:get_look_pitch() end
 ---@return number
 function PlayerObjectRef:get_look_yaw() end
 
----* Sets look pitch - **Deprecated**. Use `set_look_vertical`.
+---Sets look pitch - **Deprecated**. Use `set_look_vertical`.
 ---@deprecated
 ---@param radians number Angle from looking forward, where positive is downwards.
 function PlayerObjectRef:set_look_pitch(radians) end
 
----* Sets look yaw - **Deprecated**. Use `set_look_horizontal`.
+---Sets look yaw - **Deprecated**. Use `set_look_horizontal`.
 ---@deprecated
 ---@param radians number
 function PlayerObjectRef:set_look_yaw(radians) end
 
----* Returns player's breath.
+---Returns player's breath.
 ---@return number
 function PlayerObjectRef:get_breath() end
 
@@ -325,13 +351,13 @@ function PlayerObjectRef:set_fov(fov, is_multiplier, transition_time) end
 ---@return number transition_time (in seconds) taken for the FOV transition. Set by `set_fov`.
 function PlayerObjectRef:get_fov() end
 
----* **DEPRECATED**, use set_meta() instead.
+---**DEPRECATED**, use set_meta() instead.
 ---@deprecated
 ---@param attribute string
 ---@param value string|number|nil
 function PlayerObjectRef:set_attribute(attribute, value) end
 
----* **DEPRECATED**, use set_meta() instead.
+---**DEPRECATED**, use set_meta() instead.
 ---@deprecated
 ---@param attribute string
 ---@return string|nil value
@@ -346,7 +372,7 @@ function PlayerObjectRef:get_meta() end
 --- @param formspec string
 function PlayerObjectRef:set_inventory_formspec(formspec) end
 
----* Returns a formspec string.
+---Returns a formspec string.
 --- @return string
 function PlayerObjectRef:get_inventory_formspec() end
 
@@ -358,7 +384,7 @@ function PlayerObjectRef:get_inventory_formspec() end
 ---@param formspec string
 function PlayerObjectRef:set_formspec_prepend(formspec) end
 
----* Returns a formspec string.
+---Returns a formspec string.
 ---@return string formspec
 function PlayerObjectRef:get_formspec_prepend() end
 
@@ -399,16 +425,16 @@ function PlayerObjectRef:get_player_control_bits() end
 --- @param override_table mt.PhysicsOverride
 function PlayerObjectRef:set_physics_override(override_table) end
 
----* Returns the table given to `set_physics_override`.
+---Returns the table given to `set_physics_override`.
 ---@return mt.PhysicsOverride
 function PlayerObjectRef:get_physics_override() end
 
----* Add a HUD element described by HUD def, returns ID number on success.
+---Add a HUD element described by HUD def, returns ID number on success.
 ---@param definition mt.HUDDef
 ---@return number id On success.
 function PlayerObjectRef:hud_add(definition) end
 
----* Remove the HUD element of the specified id.
+---Remove the HUD element of the specified id.
 ---@param id number
 function PlayerObjectRef:hud_remove(id) end
 
@@ -420,7 +446,7 @@ function PlayerObjectRef:hud_remove(id) end
 ---@param value any
 function PlayerObjectRef:hud_change(id, stat, value) end
 
----* Gets the HUD element definition structure of the specified ID.
+---Gets the HUD element definition structure of the specified ID.
 ---@param id number
 ---@return mt.HUDElement
 function PlayerObjectRef:hud_get(id) end
@@ -438,35 +464,35 @@ function PlayerObjectRef:hud_get(id) end
 ---and block bounds. Does not affect players with the `debug` privilege.
 ---@field basic_debug boolean|nil
 
----* Sets specified HUD flags of player.
+---Sets specified HUD flags of player.
 ---@param flags mt.HUDFlags If a flag equals `nil`, the flag is not modified.
 function PlayerObjectRef:hud_set_flags(flags) end
 
----* `hud_get_flags()`: returns a table of player HUD flags with boolean values.
+---`hud_get_flags()`: returns a table of player HUD flags with boolean values.
 ---@return mt.HUDFlags
 function PlayerObjectRef:hud_get_flags() end
 
----* Sets number of items in builtin hotbar.
+---Sets number of items in builtin hotbar.
 ---@param count number Must be between `1` and `32`.
 function PlayerObjectRef:hud_set_hotbar_itemcount(count) end
 
----* Returns number of visible items.
+---Returns number of visible items.
 ---@return number
 function PlayerObjectRef:hud_get_hotbar_itemcount() end
 
----* Sets background image for hotbar.
+---Sets background image for hotbar.
 ---@param texturename string
 function PlayerObjectRef:hud_set_hotbar_image(texturename) end
 
----* Returns texturename.
+---Returns texturename.
 ---@return string
 function PlayerObjectRef:hud_get_hotbar_image() end
 
----* Sets image for selected item of hotbar.
+---Sets image for selected item of hotbar.
 ---@param texturename string
 function PlayerObjectRef:hud_set_hotbar_selected_image(texturename) end
 
----* Returns texturename
+---Returns texturename
 ---@return string
 function PlayerObjectRef:hud_get_hotbar_selected_image() end
 
@@ -477,8 +503,8 @@ function PlayerObjectRef:hud_get_hotbar_selected_image() end
 ---@field texture string|nil Name of the texture.
 ---@field scale number|nil Only for texture type.
 
----* Overrides the available minimap modes (and toggle order), and changes the
----  selected mode.
+---Overrides the available minimap modes (and toggle order), and changes the
+---selected mode.
 ---@param modes mt.MiniMapMode[]
 ---@param selected_mode number Mode index to be selected after change (starting at 0).
 function PlayerObjectRef:set_minimap_modes(modes, selected_mode) end
@@ -490,7 +516,7 @@ function PlayerObjectRef:set_minimap_modes(modes, selected_mode) end
 ---@overload fun(base_color: mt.ColorSpec|nil, type:string|nil, textures:table|nil, clouds:boolean|nil) **Deprecated**.
 function PlayerObjectRef:set_sky(sky_parameters) end
 
---- A table used in regular sky_parameters type only (alpha is ignored)
+---A table used in regular sky_parameters type only (alpha is ignored)
 ---@class mt.SkyColor
 ---Default: `#61b5f5`. For the top half of the sky during the day.
 ---@field day_sky mt.ColorSpec|nil
@@ -548,11 +574,11 @@ function get_sky_color() end
 ---@field sunrise_visible boolean|nil Default: `true`. Boolean for whether the sunrise texture is visible.
 ---@field scale number|nil Default: `1`. Overall size of the sun. For legacy reasons, the sun is bigger than the moon by a factor of about `1.57` for equal `scale` values.
 
----* Passing no arguments resets the sun to its default values.
+---Passing no arguments resets the sun to its default values.
 ---@param sun_parameters mt.SunParameters|nil
 function PlayerObjectRef:set_sun(sun_parameters) end
 
----* Returns a table with the current sun parameters as in `set_sun`.
+---Returns a table with the current sun parameters as in `set_sun`.
 ---@return mt.SunParameters
 function PlayerObjectRef:get_sun() end
 
@@ -562,11 +588,11 @@ function PlayerObjectRef:get_sun() end
 ---@field tonemap string|nil Default: `"moon_tonemap.png"`. A 512x1 texture containing the tonemap for the moon.
 ---@field scale number|nil Default: `1`. Controlling the overall size of the moon. Note: For legacy reasons, the sun is bigger than the moon by a factor of about `1.57` for equal `scale` values.
 
----* Passing no arguments resets the moon to its default values.
+---Passing no arguments resets the moon to its default values.
 ---@param moon_parameters mt.MoonParameters
 function PlayerObjectRef:set_moon(moon_parameters) end
 
----* Returns a table with the current moon parameters as in `set_moon`.
+---Returns a table with the current moon parameters as in `set_moon`.
 ---@return mt.MoonParameters
 function PlayerObjectRef:get_moon() end
 
@@ -577,11 +603,11 @@ function PlayerObjectRef:get_moon() end
 ---@field star_color mt.ColorSpec|nil Default: `#ebebff69`. Sets the colors of the stars, alpha channel is used to set overall star brightness.
 ---@field scale number|nil Default: `1`. Controlling the overall size of the stars.
 
----* Passing no arguments resets stars to their default values.
+---Passing no arguments resets stars to their default values.
 ---@param star_parameters mt.StarParameters
 function PlayerObjectRef:set_stars(star_parameters) end
 
----* Returns a table with the current stars parameters as in `set_stars`.
+---Returns a table with the current stars parameters as in `set_stars`.
 ---@return mt.StarParameters
 function PlayerObjectRef:get_stars() end
 
@@ -593,11 +619,11 @@ function PlayerObjectRef:get_stars() end
 ---@field thickness number|nil Default: `16`. Cloud thickness in nodes.
 ---@field speed {x:number, z:number}|nil Default: `{x=0, z=-2}`.
 
----* Passing no arguments resets clouds to their default values.
+---Passing no arguments resets clouds to their default values.
 ---@param cloud_parameters mt.CloudParameters
 function PlayerObjectRef:set_clouds(cloud_parameters) end
 
----* Returns a table with the current cloud parameters as in `set_clouds`.
+---Returns a table with the current cloud parameters as in `set_clouds`.
 ---@return mt.CloudParameters
 function PlayerObjectRef:get_clouds() end
 
@@ -616,9 +642,16 @@ function PlayerObjectRef:get_day_night_ratio() end
 ---@param dig  {x:number, y:number}|nil
 ---@param walk_while_dig {x:number, y:number}|nil
 ---@param frame_speed number|nil Default: `30`.
-function PlayerObjectRef:set_local_animation(idle, walk, dig, walk_while_dig, frame_speed) end
+function PlayerObjectRef:set_local_animation(
+  idle,
+  walk,
+  dig,
+  walk_while_dig,
+  frame_speed
+)
+end
 
---- Returns idle, walk, dig, walk_while_dig tables and `frame_speed`.
+---Returns idle, walk, dig, walk_while_dig tables and `frame_speed`.
 ---@return {x:number, y:number}|nil idle
 ---@return {x:number, y:number}|nil walk
 ---@return {x:number, y:number}|nil dig
@@ -632,7 +665,7 @@ function PlayerObjectRef:get_local_animation() end
 ---@param thirdperson? mt.Vector|nil Default: `{x=0, y=0, z=0}`.
 function PlayerObjectRef:set_eye_offset(firstperson, thirdperson) end
 
----* Returns first and third person offsets.
+---Returns first and third person offsets.
 ---@return mt.Vector|nil, mt.Vector|nil
 function get_eye_offset() end
 
@@ -648,14 +681,14 @@ function PlayerObjectRef:send_mapblock(blockpos) end
 ---@field saturation number|nil This value has no effect on clients who have the "Tone Mapping" shader disabled.
 ---@field shadows {intensity: number|nil}|nil This value has no effect on clients who have the "Dynamic Shadows" shader disabled.
 
----* Sets lighting for the player.
+---Sets lighting for the player.
 ---@param light_definition mt.Light
 function PlayerObjectRef:set_lighting(light_definition) end
 
----* Returns the current state of lighting for the player.
+---Returns the current state of lighting for the player.
 ---@return mt.Light
 function PlayerObjectRef:get_lighting() end
 
----* Respawns the player using the same mechanism as the death screen,
----  including calling on_respawnplayer callbacks.
+---Respawns the player using the same mechanism as the death screen,
+---including calling on_respawnplayer callbacks.
 function PlayerObjectRef:respawn() end

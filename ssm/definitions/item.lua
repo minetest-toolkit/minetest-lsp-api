@@ -20,6 +20,7 @@
 ---key = name, value = rating; rating = 1..3.
 ---
 ---If rating not applicable, use 1.
+---
 ---* `{wool = 1, fluffy = 3}`
 ---* `{soil = 2, outerspace = 1, crumbly = 1}`
 ---* `{bendy = 2, snappy = 1}`
@@ -90,7 +91,7 @@
 ---* `breaks`: When tool breaks due to wear. Ignored for non-tools.
 ---* `eat`: When item is eaten with `minetest.do_item_eat`.
 ---@field sound {breaks: mt.SimpleSoundSpec, eat: mt.SimpleSoundSpec}
----When the 'place' key was pressed with the item in hand and a node was pointed at.
+---When the `place` key was pressed with the item in hand and a node was pointed at.
 ---
 ---Shall place item and return the leftover `itemstack` or `nil` to not modify the inventory.
 ---
@@ -112,7 +113,7 @@
 ---
 ---default: `minetest.item_drop`
 ---@field on_drop fun(itemstack: mt.ItemStack, dropper?: mt.ObjectRef, pos: mt.Vector): mt.ItemStack?
----When user pressed the 'punch/mine' key with the item in hand.
+---When user pressed the `punch/mine` key with the item in hand.
 ---
 ---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
 ---

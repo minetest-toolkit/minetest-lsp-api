@@ -4,9 +4,8 @@
 
 ---@alias mt.SoundHandle unknown
 
----* `parameters` is a sound parameter table
 ---@param spec mt.SimpleSoundSpec
----@param parameters table
+---@param parameters table A sound parameter table.
 --- `false`
 --- Ephemeral sounds will not return a handle and can't be stopped or faded.
 --- It is recommend to use this for short sounds that happen in response to

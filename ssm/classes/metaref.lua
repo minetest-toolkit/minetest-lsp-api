@@ -48,14 +48,13 @@ function MetaDataRef:set_float(key, value) end
 ---@return number
 function MetaDataRef:get_float(key) end
 
----Returns `nil` or a table with keys:
---- * `fields`: key-value storage
+---Returns `nil` or a table with keys: `fields`: key-value storage.
 ---@return {fields: {[string]: any}}?
 function MetaDataRef:to_table() end
 
 ---Any non-table value will clear the metadata.
 ---
----Returns `true` on success.
+--- * Returns `true` on success.
 --- * `fields`: key-value storage
 ---@param table {fields: {[string]: any}}?
 ---@return boolean
@@ -73,7 +72,7 @@ function MetaDataRef:equals(other) end
 ---@class mt.NodeMetaRef: mt.MetaDataRef
 local NodeMetaRef = {}
 
----Returns `nil` or a table with keys:
+--- * Returns `nil` or a table with keys:
 --- * `fields`: key-value storage
 --- * `inventory`: `{list1 = {}, ...}}`
 ---@return {fields: {[string]: any}, inventory: {[string]: {[integer]: string}}}?
@@ -81,7 +80,7 @@ function NodeMetaRef:to_table() end
 
 ---Any non-table value will clear the metadata.
 ---
----Returns `true` on success.
+--- * Returns `true` on success.
 --- * `fields`: key-value storage
 --- * `inventory`: `{list1 = {}, ...}}`
 ---@param table {fields: {[string]: any}, inventory: {[string]: {[integer]: string}}}?
