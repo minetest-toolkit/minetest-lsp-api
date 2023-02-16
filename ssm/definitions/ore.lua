@@ -46,6 +46,8 @@
 ---@field seed number
 ---@field octaves number
 ---@field persistence number
+---@field lacunarity number
+---@field flags string
 
 -- These tell in what manner the ore is generated.
 --

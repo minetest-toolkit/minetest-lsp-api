@@ -41,7 +41,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Translations
 - [ ] Perlin noise
 - [x] [Ores](ssm/definitions/ore.lua)
-- [ ] Decoration types
+- [x] [Decoration types](ssm/definitions/decor.lua)
 - [ ] Schematics
 - [ ] Lua Voxel Manipulator
 - [ ] Mapgen objects
@@ -105,7 +105,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Crafting recipes](ssm/definitions/recipe.lua)
   - [x] [Ore definition](ssm/definitions/ore.lua)
   - [x] [Biome definition](ssm/definitions/biome.lua)
-  - [ ] Decoration definition
+  - [x] [Decoration definition](ssm/definitions/decor.lua)
   - [ ] Chat command definition
   - [ ] Privilege definition
   - [ ] Detached inventory callbacks
