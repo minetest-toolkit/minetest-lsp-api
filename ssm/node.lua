@@ -24,6 +24,20 @@
 ---@field param2 integer
 local node = {}
 
+---@class mt.MapNode:mt.Node
+-- (alias `param1`): the probability of this node being placed (default: 255).
+--
+-- * A probability value of `0` or `1` means that node will never appear
+--   (0% chance).
+-- * A probability value of `254` or `255` means the node will always appear
+--   (100% chance).
+-- * If the probability value `p` is greater than `1`, then there is a
+--   `(p / 256 * 100)` percent chance that node will appear when the schematic is
+--   placed on the map.
+---@field prob integer
+-- Representing if the node should forcibly overwrite any previous contents (default: false).
+---@field force_place boolean
+
 ---Node paramtypes
 ------------------
 

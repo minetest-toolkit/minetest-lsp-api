@@ -109,7 +109,7 @@
 -- If schematic is a string, it is the filepath relative to the current
 -- working directory of the specified Minetest schematic file.
 -- Could also be the ID of a previously registered schematic.
----@field schematic string|mt.Schematic
+---@field schematic string|mt.SchematicSpec
 ---@field replacements table
 -- Flags for schematic decorations.
 ---@field flags string
@@ -121,11 +121,3 @@
 -- Ignored by `y_min`, `y_max` and `spawn_by` checks, which always refer
 -- to the `place_on` node.
 ---@field place_offset_y number
-
----@class mt.Schematic
----@field size mt.Vector
----@field data mt.Node[]
--- Alternative schematic specification by supplying a table. The fields
--- size and data are mandatory whereas yslice_prob is optional.
--- See `Schematic specifier` for details.
----@field yslice_prob {ypos:number, prob:number}[]

@@ -96,7 +96,7 @@ function minetest.register_decoration(decoration) end
 ---* If the schematic is loaded from a file, the `name` field is set to the filename.
 ---* If the function is called when loading the mod, and `name` is a relative
 ---  path, then the current mod path will be prepended to the schematic filename.
----@param schematic mt.SchematicDef
+---@param schematic mt.SchematicSpec
 ---@return integer handle Uniquely identifying the registered biome on success.
 function minetest.register_schematic(schematic) end
 

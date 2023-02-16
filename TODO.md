@@ -42,7 +42,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Perlin noise
 - [x] [Ores](ssm/definitions/ore.lua)
 - [x] [Decoration types](ssm/definitions/decor.lua)
-- [ ] Schematics
+- [x] [Schematics](ssm/definitions/schematic.lua)
 - [ ] Lua Voxel Manipulator
 - [ ] Mapgen objects
 - [ ] Registered entities
