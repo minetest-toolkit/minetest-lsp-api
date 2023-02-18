@@ -108,7 +108,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Decoration definition](ssm/definitions/decor.lua)
   - [x] [Chat command definition](ssm/definitions/chat.lua)
   - [x] [Privilege definition](ssm/definitions/priv.lua)
-  - [ ] Detached inventory callbacks
+  - [x] [Detached inventory callbacks](ssm/definitions/detached.lua)
   - [x] [HUD Definition](ssm/definitions/hud.lua)
   - [ ] Particle definition
   - [ ] ParticleSpawner definition
