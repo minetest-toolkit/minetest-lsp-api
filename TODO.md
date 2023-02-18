@@ -107,7 +107,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Biome definition](ssm/definitions/biome.lua)
   - [x] [Decoration definition](ssm/definitions/decor.lua)
   - [x] [Chat command definition](ssm/definitions/chat.lua)
-  - [ ] Privilege definition
+  - [x] [Privilege definition](ssm/definitions/priv.lua)
   - [ ] Detached inventory callbacks
   - [x] [HUD Definition](ssm/definitions/hud.lua)
   - [ ] Particle definition
