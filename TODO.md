@@ -106,7 +106,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Ore definition](ssm/definitions/ore.lua)
   - [x] [Biome definition](ssm/definitions/biome.lua)
   - [x] [Decoration definition](ssm/definitions/decor.lua)
-  - [ ] Chat command definition
+  - [x] [Chat command definition](ssm/definitions/chat.lua)
   - [ ] Privilege definition
   - [ ] Detached inventory callbacks
   - [x] [HUD Definition](ssm/definitions/hud.lua)
