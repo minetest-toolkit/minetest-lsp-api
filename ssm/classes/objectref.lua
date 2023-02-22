@@ -3,6 +3,9 @@
 ---ObjectRef
 ------------
 
+---@class mt.ObjectRefProto
+local ObjectRef = {}
+
 -- A reference to an entity.
 --
 -- This is basically a reference to a C++ `ServerActiveObject`.
@@ -19,10 +22,7 @@
 -- Lua back to the engine.
 -- Doing so is much less error-prone and you will never need to wonder if the
 -- object you are working with still exists.
----@class mt.ObjectRef
-local ObjectRef = {}
-
----@alias AnyObjectRef mt.ObjectRef|mt.LuaObjectRef|mt.PlayerObjectRef
+---@alias mt.ObjectRef mt.LuaObjectRef|mt.PlayerObjectRef
 
 ---@return mt.Vector
 function ObjectRef:get_pos() end
@@ -58,13 +58,7 @@ function ObjectRef:move_to(pos, continuous) end
 ---@param time_from_last_punch number|nil Time since last punch action.
 ---@param tool_capabilities mt.ToolCaps|nil
 ---@param direction mt.Vector|nil
-function ObjectRef:punch(
-  puncher,
-  time_from_last_punch,
-  tool_capabilities,
-  direction
-)
-end
+function ObjectRef:punch(puncher, time_from_last_punch, tool_capabilities, direction) end
 
 ---@param clicker mt.ObjectRef
 function ObjectRef:right_click(clicker) end
@@ -111,13 +105,7 @@ function ObjectRef:get_armor_groups() end
 ---@param frame_speed number|nil Default: `15.0`.
 ---@param frame_blend number|nil Default: `0.0`.
 ---@param frame_loop boolean|nil Default: `true`.
-function ObjectRef:set_animation(
-  frame_range,
-  frame_speed,
-  frame_blend,
-  frame_loop
-)
-end
+function ObjectRef:set_animation(frame_range, frame_speed, frame_blend, frame_loop) end
 
 ---@return { x: number, y: number} range
 ---@return number frame_speed
@@ -133,14 +121,7 @@ function ObjectRef:set_animation_frame_speed(frame_speed) end
 ---@param position mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative position.
 ---@param rotation mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative rotation in degrees.
 ---@param forced_visible boolean|nil Default: `false`. Should appear in first person?
-function ObjectRef:set_attach(
-  parent,
-  bone,
-  position,
-  rotation,
-  forced_visible
-)
-end
+function ObjectRef:set_attach(parent, bone, position, rotation, forced_visible) end
 
 ---* This command may fail silently (do nothing) when it would result
 ---  in circular attachments.
@@ -192,7 +173,7 @@ function ObjectRef:get_nametag_attributes() end
 function ObjectRef:set_nametag_attributes(attrs) end
 
 ---Lua entity only (no-op for other objects).
----@class mt.LuaObjectRef : mt.ObjectRef
+---@class mt.LuaObjectRef : mt.ObjectRefProto
 local LuaObjectRef = {}
 
 ---* Remove object.
@@ -248,13 +229,7 @@ function LuaObjectRef:get_texture_mod() end
 ---@param num_frames number|nil Default: `1`. Total frames in the texture.
 ---@param framelength number|nil Default: `0.2`. Time per animated frame in seconds.
 ---@param select_x_by_camera boolean|nil Default: `false`. Only for visual = `sprite`. Changes the frame `x` position according to the view direction.
-function LuaObjectRef:set_sprite(
-  start_frame,
-  num_frames,
-  framelength,
-  select_x_by_camera
-)
-end
+function LuaObjectRef:set_sprite(start_frame, num_frames, framelength, select_x_by_camera) end
 
 ---**Deprecated**: Use the field `self.name` instead.
 ---@deprecated
@@ -264,7 +239,7 @@ function LuaObjectRef:get_entity_name() end
 function LuaObjectRef:get_luaentity() end
 
 ---Player only (no-op for other objects).
----@class mt.PlayerObjectRef : mt.ObjectRef
+---@class mt.PlayerObjectRef : mt.ObjectRefProto
 local PlayerObjectRef = {}
 
 ---@return string|nil name `""` if is not a player.
@@ -642,14 +617,7 @@ function PlayerObjectRef:get_day_night_ratio() end
 ---@param dig  {x:number, y:number}|nil
 ---@param walk_while_dig {x:number, y:number}|nil
 ---@param frame_speed number|nil Default: `30`.
-function PlayerObjectRef:set_local_animation(
-  idle,
-  walk,
-  dig,
-  walk_while_dig,
-  frame_speed
-)
-end
+function PlayerObjectRef:set_local_animation(idle, walk, dig, walk_while_dig, frame_speed) end
 
 ---Returns idle, walk, dig, walk_while_dig tables and `frame_speed`.
 ---@return {x:number, y:number}|nil idle
