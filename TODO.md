@@ -110,7 +110,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Privilege definition](ssm/definitions/priv.lua)
   - [x] [Detached inventory callbacks](ssm/definitions/detached.lua)
   - [x] [HUD Definition](ssm/definitions/hud.lua)
-  - [ ] Particle definition
+  - [x] [Particle definition](ssm/definitions/particle.lua)
   - [ ] ParticleSpawner definition
   - [ ] HTTPRequest definition
   - [ ] Authentication handler definition
