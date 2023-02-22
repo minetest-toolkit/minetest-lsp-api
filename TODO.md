@@ -112,7 +112,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [HUD Definition](ssm/definitions/hud.lua)
   - [x] [Particle definition](ssm/definitions/particle.lua)
   - [x] [ParticleSpawner definition](ssm/definitions/particle_spawner.lua)
-  - [ ] HTTPRequest definition
+  - [x] [HTTPRequest definition](ssm/definitions/http.lua)
   - [ ] Authentication handler definition
   - [ ] Bit Library
 
