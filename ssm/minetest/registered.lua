@@ -75,5 +75,5 @@ minetest.registered_chatcommands = {}
 
 -- * Map of registered privilege definitions, indexed by name.
 -- * Registered privileges can be modified directly in this table.
----@type table<string, mt.ChatPrivDef>
+---@type table<string, mt.PrivDef>
 minetest.registered_privileges = {}
