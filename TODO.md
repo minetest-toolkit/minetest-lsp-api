@@ -113,7 +113,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Particle definition](ssm/definitions/particle.lua)
   - [x] [ParticleSpawner definition](ssm/definitions/particle_spawner.lua)
   - [x] [HTTPRequest definition](ssm/definitions/http.lua)
-  - [ ] Authentication handler definition
+  - [x] [Authentication handler definition](ssm/definitions/auth.lua)
   - [ ] Bit Library
 
 ## Final tasks
