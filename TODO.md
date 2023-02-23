@@ -94,7 +94,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] SecureRandom
   - [ ] Settings
   - [x] [StorageRef](ssm/classes/metaref.lua)
-- [ ] [Definition tables](ssm/definitions)
+- [x] [Definition tables](ssm/definitions)
   - [x] [Object Properties](ssm/definitions/object.lua)
   - [x] [Entity definition](ssm/definitions/entity.lua)
   - [x] [ABM (ActiveBlockModifier) definition](ssm/definitions/abm.lua)
@@ -114,7 +114,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [ParticleSpawner definition](ssm/definitions/particle_spawner.lua)
   - [x] [HTTPRequest definition](ssm/definitions/http.lua)
   - [x] [Authentication handler definition](ssm/definitions/auth.lua)
-  - [ ] Bit Library
+  - [x] Bit Library
 
 ## Final tasks
 
