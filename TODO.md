@@ -76,7 +76,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Global objects
   - [x] [Global tables](ssm/minetest/registered.lua)
 - [ ] [Class reference](ssm/classes)
-  - [ ] AreaStore
+  - [x] [AreaStore](ssm/classes/areastore.lua)
   - [x] [InvRef](ssm/classes/invref.lua)
   - [x] [ItemStack](ssm/classes/itemstack.lua)
   - [x] [ItemStackMetaRef](ssm/classes/metaref.lua)
