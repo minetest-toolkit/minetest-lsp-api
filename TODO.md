@@ -85,7 +85,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [NodeMetaRef](ssm/classes/metaref.lua)
   - [x] [NodeTimerRef](ssm/classes/nodetimer.lua)
   - [x] [ObjectRef](ssm/classes/objectref.lua)
-  - [ ] PcgRandom
+  - [x] [PcgRandom](ssm/classes/pcgrandom.lua)
   - [ ] PerlinNoise
   - [ ] PerlinNoiseMap
   - [x] [PlayerMetaRef](ssm/classes/metaref.lua)
