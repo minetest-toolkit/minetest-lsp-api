@@ -83,7 +83,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [MetaDataRef](ssm/classes/metaref.lua)
   - [x] [ModChannel](ssm/classes/modchannel.lua)
   - [x] [NodeMetaRef](ssm/classes/metaref.lua)
-  - [ ] NodeTimerRef
+  - [x] [NodeTimerRef](ssm/classes/nodetimer.lua)
   - [x] [ObjectRef](ssm/classes/objectref.lua)
   - [ ] PcgRandom
   - [ ] PerlinNoise
