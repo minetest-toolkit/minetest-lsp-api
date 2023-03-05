@@ -106,7 +106,7 @@ function InvRef:get_location() end
 -- * This callback triggered `before` the action.
 function InvRef:allow_move() end
 
--- Moving items in the inventory.
+-- * Moving items in the inventory.
 -- * The `allow_*` callbacks return how many items can be moved.
 -- * This callback triggered `before` the action.
 function InvRef:allow_metadata_inventory_move() end

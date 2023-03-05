@@ -81,7 +81,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [ItemStack](ssm/classes/itemstack.lua)
   - [x] [ItemStackMetaRef](ssm/classes/metaref.lua)
   - [x] [MetaDataRef](ssm/classes/metaref.lua)
-  - [ ] ModChannel
+  - [x] [ModChannel](ssm/classes/modchannel.lua)
   - [x] [NodeMetaRef](ssm/classes/metaref.lua)
   - [ ] NodeTimerRef
   - [x] [ObjectRef](ssm/classes/objectref.lua)
