@@ -86,8 +86,8 @@ Feel free to add your subitems if item is partially done.
   - [x] [NodeTimerRef](ssm/classes/nodetimer.lua)
   - [x] [ObjectRef](ssm/classes/objectref.lua)
   - [x] [PcgRandom](ssm/classes/pcgrandom.lua)
-  - [ ] PerlinNoise
-  - [ ] PerlinNoiseMap
+  - [x] [PerlinNoise](ssm/classes/perlinnoise.lua)
+  - [x] [PerlinNoiseMap](ssm/classes/perlinnoise.lua)
   - [x] [PlayerMetaRef](ssm/classes/metaref.lua)
   - [ ] PseudoRandom
   - [ ] Raycast
