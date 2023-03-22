@@ -75,7 +75,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Misc
   - [ ] Global objects
   - [x] [Global tables](ssm/minetest/registered.lua)
-- [ ] [Class reference](ssm/classes)
+- [x] [Class reference](ssm/classes)
   - [x] [AreaStore](ssm/classes/areastore.lua)
   - [x] [InvRef](ssm/classes/invref.lua)
   - [x] [ItemStack](ssm/classes/itemstack.lua)
@@ -92,7 +92,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [PseudoRandom](ssm/classes/pseudorandom.lua)
   - [x] [Raycast](ssm/classes/raycast.lua)
   - [x] [SecureRandom](ssm/classes/securerandom.lua)
-  - [ ] Settings
+  - [x] Settings
   - [x] [StorageRef](ssm/classes/metaref.lua)
 - [x] [Definition tables](ssm/definitions)
   - [x] [Object Properties](ssm/definitions/object.lua)
