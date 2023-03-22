@@ -91,7 +91,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [PlayerMetaRef](ssm/classes/metaref.lua)
   - [x] [PseudoRandom](ssm/classes/pseudorandom.lua)
   - [x] [Raycast](ssm/classes/raycast.lua)
-  - [ ] SecureRandom
+  - [x] [SecureRandom](ssm/classes/securerandom.lua)
   - [ ] Settings
   - [x] [StorageRef](ssm/classes/metaref.lua)
 - [x] [Definition tables](ssm/definitions)
