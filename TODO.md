@@ -89,7 +89,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [PerlinNoise](ssm/classes/perlinnoise.lua)
   - [x] [PerlinNoiseMap](ssm/classes/perlinnoise.lua)
   - [x] [PlayerMetaRef](ssm/classes/metaref.lua)
-  - [ ] PseudoRandom
+  - [x] [PseudoRandom](ssm/classes/pseudorandom.lua)
   - [ ] Raycast
   - [ ] SecureRandom
   - [ ] Settings
