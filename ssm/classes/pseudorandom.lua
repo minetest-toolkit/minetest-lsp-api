@@ -11,6 +11,8 @@ It can be created via `PseudoRandom(seed)`.
 ---@class mt.PseudoRandom
 local PseudoRandom
 
+---@cast PseudoRandom +fun(seed:number):mt.PseudoRandom
+
 -- Return next integer random number.
 --
 -- `((max - min) == 32767) or ((max-min) <= 6553))`
