@@ -9,9 +9,12 @@ introduced by K&R.
 It can be created via `PseudoRandom(seed)`.
 ]]
 ---@class mt.PseudoRandom
-local PseudoRandom
+local PseudoRandomClass
 
----@cast PseudoRandom +fun(seed:number):mt.PseudoRandom
+--- Create a pseudorandom number generator.
+---@param seed number
+---@return mt.PseudoRandom
+function PseudoRandom(seed) end
 
 -- Return next integer random number.
 --
@@ -20,4 +23,4 @@ local PseudoRandom
 -- making bad distribution otherwise.
 ---@param min number|nil Default: `0`
 ---@param max number|nil Default: `32767`
-function PseudoRandom:next(min, max) end
+function PseudoRandomClass:next(min, max) end
