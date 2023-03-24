@@ -4,7 +4,7 @@
 
 ---Set node at position
 ---@param pos mt.Vector
----@param node { name: string, param1: number, param2: number }
+---@param node mt.Node
 ---If param1 or param2 is omitted, it's set to `0`.
 ---e.g. `minetest.set_node({x=0, y=10, z=0}, {name="default:wood"})`
 function minetest.set_node(pos, node) end
@@ -21,12 +21,12 @@ minetest.add_node = minetest.set_node
 ---For setting a cube, this is 1.3x faster than set_node whereas LVM is 20
 ---times faster.
 ---@param positions mt.Vector[]
----@param node { name: "node_id" }
+---@param node mt.Node
 function minetest.bulk_set_node(positions, node) end
 
 ---Set node at position, but don't remove metadata
 ---@param pos mt.Vector
----@param node { name: "node_id" }
+---@param node mt.Node
 function minetest.swap_node(pos, node) end
 
 ---By default it does the same as `minetest.set_node(pos, {name="air"})`
@@ -36,9 +36,8 @@ function minetest.remove_node(pos) end
 ---Returns the node at the given position as table in the format
 ---`{name="node_name", param1=0, param2=0}`,
 ---@param pos mt.Vector
----@return {name: "ignore", param1: 0, param2: 0} for unloaded areas.
+---@return mt.Node {name: "ignore", param1: 0, param2: 0} for unloaded areas.
 function minetest.get_node(pos) end
-
 
 ---Same as `get_node` but returns `nil` for unloaded areas.
 ---@param pos mt.Vector
@@ -198,11 +197,11 @@ function minetest.set_gen_notify(flags, deco_ids) end
 ---@return number[] # `deco_id`'s.
 function minetest.get_gen_notify() end
 
----@param decoration_name  string
+---@param decoration_name string
 ---@return number? # decoration ID number for the provided decoration name string, or `nil` on failure.
 function minetest.get_decoration_id(decoration_name) end
 
----@alias voxelmanip_name
+---@alias mt.VoxelManipName
 ---|"voxelmanip"
 ---|"heightmap"
 ---|"biomemap"
@@ -210,7 +209,7 @@ function minetest.get_decoration_id(decoration_name) end
 ---|"humiditymap"
 ---|"gennotify"
 
----@param objectname voxelmanip_name
+---@param objectname mt.VoxelManipName
 ---@return mt.MapgenObject? # requested mapgen object if available
 function minetest.get_mapgen_object(objectname) end
 
@@ -341,11 +340,11 @@ function minetest.load_area(pos1, pos2) end
 
 ---@enum mt.EmergeAction
 local EmergeAction = {
-  EMERGE_CANCELLED = 0,
-  EMERGE_ERRORED = 1,
-  EMERGE_FROM_MEMORY = 2,
-  EMERGE_FROM_DISK = 3,
-  EMERGE_GENERATED = 4,
+	EMERGE_CANCELLED = 0,
+	EMERGE_ERRORED = 1,
+	EMERGE_FROM_MEMORY = 2,
+	EMERGE_FROM_DISK = 3,
+	EMERGE_GENERATED = 4,
 }
 
 minetest.EMERGE_CANCELLED = EmergeAction.EMERGE_CANCELLED

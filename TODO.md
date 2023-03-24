@@ -56,7 +56,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Setting-related
   - [ ] Authentication
   - [ ] Chat
-  - [ ] Environment access
+  - [x] [Environment access](api/minetest/environment_access.lua)
   - [ ] Mod channels
   - [ ] Inventory
   - [ ] Formspec
