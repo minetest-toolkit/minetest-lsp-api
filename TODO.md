@@ -50,7 +50,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Privileges
 - [ ] [Minetest namespace reference](api/minetest)
   - [x] [Utilities](api/minetest/utilities.lua)
-  - [ ] Logging
+  - [x] [Logging](api/minetest/logging.lua)
   - [x] [Registration functions](api/minetest/register.lua)
   - [ ] Global callback registration functions
   - [ ] Setting-related
