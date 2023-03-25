@@ -49,7 +49,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] L-system trees
 - [ ] Privileges
 - [ ] [Minetest namespace reference](api/minetest)
-  - [ ] Utilities
+  - [x] [Utilities](api/minetest/utilities.lua)
   - [ ] Logging
   - [x] [Registration functions](api/minetest/register.lua)
   - [ ] Global callback registration functions
