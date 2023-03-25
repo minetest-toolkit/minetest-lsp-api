@@ -118,7 +118,7 @@ function minetest.clear_registered_schematics() end
 ---### Gameplay
 
 ---@param recipe mt.CraftRecipe
-function register_craft(recipe) end
+function minetest.register_craft(recipe) end
 
 ---* Will erase existing craft based either on output item or on input recipe.
 ---* Specify either output or input only. If you specify both, input will be
@@ -130,20 +130,20 @@ function register_craft(recipe) end
 ---  ignored if the recipe contains output. Erasing is then done independently
 ---  from the crafting method.
 ---@param recipe mt.CraftRecipe
-function clear_craft(recipe) end
+function minetest.clear_craft(recipe) end
 
 ---@param name string
 ---@param cmd mt.ChatCmdDef
-function register_chatcommand(name, cmd) end
+function minetest.register_chatcommand(name, cmd) end
 
 ---Overrides fields of a chatcommand registered with `register_chatcommand`.
 ---@param name string
 ---@param cmd mt.ChatCmdDef
-function override_chatcommand(name, cmd) end
+function minetest.override_chatcommand(name, cmd) end
 
 ---Unregister a chatcommands registered with `register_chatcommand`.
 ---@param name string
-function unregister_chatcommand(name) end
+function minetest.unregister_chatcommand(name) end
 
 ---* `priv` can be a description or a definition table.
 ---* If it is a description, the priv will be granted to singleplayer and admin
