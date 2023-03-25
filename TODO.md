@@ -44,7 +44,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Decoration types](api/definitions/decor.lua)
 - [x] [Schematics](api/definitions/schematic.lua)
 - [ ] Lua Voxel Manipulator
-- [ ] Mapgen objects
+- [x] [Mapgen objects](api/definitions/mapgen_objects.lua)
 - [ ] Registered entities
 - [ ] L-system trees
 - [ ] Privileges
