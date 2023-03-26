@@ -55,7 +55,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Global callback](api/minetest/global_callback.lua)
   - [ ] Setting-related
   - [ ] Authentication
-  - [ ] Chat
+  - [x] [Chat](api/minetest/chat.lua)
   - [x] [Environment access](api/minetest/environment_access.lua)
   - [ ] Mod channels
   - [ ] Inventory
