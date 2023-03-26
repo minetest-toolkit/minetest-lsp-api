@@ -92,7 +92,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [PseudoRandom](api/classes/pseudorandom.lua)
   - [x] [Raycast](api/classes/raycast.lua)
   - [x] [SecureRandom](api/classes/securerandom.lua)
-  - [x] Settings
+  - [x] [Settings](api/classes/settings.lua)
   - [x] [StorageRef](api/classes/metaref.lua)
 - [x] [Definition tables](api/definitions)
   - [x] [Object Properties](api/definitions/object.lua)
