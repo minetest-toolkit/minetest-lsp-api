@@ -41,6 +41,7 @@ function minetest.get_node(pos) end
 
 ---Same as `get_node` but returns `nil` for unloaded areas.
 ---@param pos mt.Vector
+---@return mt.Node?
 function minetest.get_node_or_nil(pos) end
 
 ---Gets the light value at the given position. Note that the light value
@@ -52,6 +53,7 @@ function minetest.get_node_or_nil(pos) end
 ---`nil` is returned e.g. when the map isn't loaded at `pos`
 ---@param pos mt.Vector
 ---@param timeofday number?
+---@return integer? # number between `0` and `15` or `nil`
 function minetest.get_node_light(pos, timeofday) end
 
 ---Figures out the sunlight (or moonlight) value at pos at the given time of
@@ -68,9 +70,10 @@ function minetest.get_natural_light(pos, timeofday) end
 ---Calculates the artificial light (light from e.g. torches) value from the
 ---`param1` value.
 ---`param1`: The param1 value of a `paramtype = "light"` node.
----Returns a number between `0` and `15`
 ---Currently it's the same as `math.floor(param1 / 16)`, except that it
 ---ensures compatibility.
+---@param param1 integer number between `0` and `255`
+---@return integer # number between `0` and `15`
 function minetest.get_artificial_light(param1) end
 
 ---Place node with the same effects that a player would cause
@@ -78,30 +81,47 @@ function minetest.place_node(pos, node) end
 
 ---Dig node with the same effects that a player would cause
 ---Returns `true` if successful, `false` on failure (e.g. protected location)
+---@param pos mt.Vector
+---@return boolean
 function minetest.dig_node(pos) end
 
 ---Punch node with the same effects that a player would cause
+---@param pos mt.Vector
 function minetest.punch_node(pos) end
 
 ---Change node into falling node
 ---Returns `true` and the ObjectRef of the spawned entity if successful, `false` on failure
+---@param pos mt.Vector
+---@return boolean
 function minetest.spawn_falling_node(pos) end
 
 ---Get a table of positions of nodes that have metadata within a region
 ---{pos1, pos2}.
+---@param pos1 mt.Vector
+---@param pos2 mt.Vector
+---@return mt.Vector[]
 function minetest.find_nodes_with_meta(pos1, pos2) end
 
 ---* Get a `NodeMetaRef` at that position
+---@param pos mt.Vector
+---@return mt.NodeMetaRef
 function minetest.get_meta(pos) end
 
 ---Get `NodeTimerRef`
+---@param pos mt.Vector
+---@return mt.NodeTimerRef
 function minetest.get_node_timer(pos) end
 
 ---Spawn Lua-defined entity at position.
+---@param pos mt.Vector
+---@param name string
+---@param staticdata? string
 ---@return mt.ObjectRef? ref or `nil` if failed
 function minetest.add_entity(pos, name, staticdata) end
 
 ---Spawn item
+---@param pos mt.Vector
+---@param item string
 ---@return mt.ObjectRef? ref or `nil` if failed
 function minetest.add_item(pos, item) end
 
@@ -500,4 +520,5 @@ function minetest.check_for_falling(pos) end
 ---full-node biome 'dust' nodes.
 ---@param x number
 ---@param z number
+---@return mt.Vector
 function minetest.get_spawn_level(x, z) end
