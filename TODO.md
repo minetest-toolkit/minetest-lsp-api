@@ -52,7 +52,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Utilities](api/minetest/utilities.lua)
   - [x] [Logging](api/minetest/logging.lua)
   - [x] [Registration functions](api/minetest/register.lua)
-  - [ ] Global callback registration functions
+  - [x] [Global callback](api/minetest/global_callback.lua)
   - [ ] Setting-related
   - [ ] Authentication
   - [ ] Chat
