@@ -19,9 +19,17 @@
 local ItemStackClass = {}
 
 ---`ItemStack` constructor.
----@param x mt.ItemStack|mt.ItemString|nil
+---@param x mt.ItemStack|mt.ItemString|mt.ItemStackTable|nil
 ---@return mt.ItemStack
 function ItemStack(x) end
+
+---@class mt.ItemStackTable
+---@field meta {[string]: number|string}
+---@field metadata string deprecated
+---@field count integer
+---@field name string
+---@field wear integer
+local ItemStackTable = {}
 
 ---Returns `true` if stack is empty.
 ---@return boolean
