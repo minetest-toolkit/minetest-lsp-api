@@ -73,7 +73,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] HTTP Requests
   - [ ] Storage API
   - [ ] Misc
-  - [ ] Global objects
+  - [x] [Global objects](api/minetest/global_objects.lua)
   - [x] [Global tables](api/minetest/registered.lua)
 - [x] [Class reference](api/classes)
   - [x] [AreaStore](api/classes/areastore.lua)
