@@ -43,7 +43,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Ores](api/definitions/ore.lua)
 - [x] [Decoration types](api/definitions/decor.lua)
 - [x] [Schematics](api/definitions/schematic.lua)
-- [ ] Lua Voxel Manipulator
+- [x] [Lua Voxel Manipulator](api/definitions/mapgen_objects.lua)
 - [x] [Mapgen objects](api/definitions/mapgen_objects.lua)
 - [ ] Registered entities
 - [ ] L-system trees

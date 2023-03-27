@@ -197,7 +197,7 @@ function minetest.get_perlin(seeddiff, octaves, persistence, spread) end
 ---Loads the manipulator from the map if positions are passed.
 ---@param pos1 mt.Vector?
 ---@param pos2 mt.Vector?
----@return userdata #VoxelManip
+---@return mt.VoxelManip
 function minetest.get_voxel_manip(pos1, pos2) end
 
 ---Set the types of on-generate notifications that should be collected.
