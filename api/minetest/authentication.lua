@@ -2,7 +2,7 @@
 ---Authentication
 -----------------
 
----@alias mt.PrivsSet { [string]: true }
+---@alias mt.PrivsSet { [string]: boolean }
 
 ---Converts string representation of privs into table form
 ---@param str string String to convert.
