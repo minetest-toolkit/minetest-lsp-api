@@ -12,7 +12,7 @@ function minetest.string_to_privs(str, delim) end
 
 ---Returns the string representation of `privs`
 ---@param privs mt.PrivsSet `{ priv1 = true, ... }`
----@param delim string String to delimit privs. Defaults to `","`.
+---@param delim? string String to delimit privs. Defaults to `","`.
 ---@return string
 function minetest.privs_to_string(privs, delim) end
 
