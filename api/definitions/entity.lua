@@ -16,7 +16,7 @@
 local entity = {}
 
 ---@param self mt.EntityDef
----@param staticdata unknown
+---@param staticdata string
 ---@param dtime number Elapsed time.
 function entity.on_activate(self, staticdata, dtime) end
 
@@ -31,14 +31,7 @@ function entity.on_step(self, dtime, moveresult) end
 ---@param time_from_last_punch number
 ---@param tool_capabilities unknown
 ---@param dir unknown
-function entity.on_punch(
-  self,
-  puncher,
-  time_from_last_punch,
-  tool_capabilities,
-  dir
-)
-end
+function entity.on_punch(self, puncher, time_from_last_punch, tool_capabilities, dir) end
 
 ---@param self mt.EntityDef
 ---@param clicker mt.ObjectRef

@@ -11,26 +11,29 @@ minetest.registered_items = {}
 minetest.registered_nodes = {}
 
 ---Map of registered craft item definitions, indexed by name.
----@type table<string, mt.CraftItemDef>
+---@type table<string, mt.ItemDef>
 minetest.registered_craftitems = {}
 
 ---Map of registered tool definitions, indexed by name.
----@type table<string, mt.ToolDef>
+---@type table<string, mt.ItemDef>
 minetest.registered_tools = {}
 
--- * Map of registered entity prototypes, indexed by name.
+-- Map of registered entity prototypes, indexed by name.
+--
 -- * Values in this table may be modified directly.
 -- * Note: changes to initial properties will only affect entities spawned afterwards,
 --   as they are only read when spawning.
----@type table<string, mt.ProtoEntity>
+---@type table<string, mt.EntityDef>
 minetest.registered_entities = {}
+
+---@alias mt.ObjectID userdata
 
 ---Map of object references, indexed by active object id.
 ---@type table<mt.ObjectID, mt.ObjectRef>
 minetest.object_refs = {}
 
 ---Map of Lua entities, indexed by active object id.
----@type table<mt.ObjectID, mt.LuaEntity>
+---@type table<mt.ObjectID, mt.LuaObjectRef>
 minetest.luaentities = {}
 
 ---List of ABM definitions.
@@ -42,31 +45,31 @@ minetest.registered_abms = {}
 minetest.registered_lbms = {}
 
 ---Map of registered aliases, indexed by name.
----@type table<string, mt.Alias>
+---@type table<string, string>
 minetest.registered_aliases = {}
 
 -- * Map of registered ore definitions, indexed by the `name` field.
 -- * If `name` is nil, the key is the object handle returned by
 --   `minetest.register_ore`.
----@type table<string|mt.ObjectHandle, mt.OreDef>
+---@type table<string|number, mt.OreDef>
 minetest.registered_ores = {}
 
 -- * Map of registered biome definitions, indexed by the `name` field.
 -- * If `name` is nil, the key is the object handle returned by
 --   `minetest.register_biome`.
----@type table<string|mt.ObjectHandle, mt.BiomeDef>
+---@type table<string|number, mt.BiomeDef>
 minetest.registered_biomes = {}
 
 -- * Map of registered decoration definitions, indexed by the `name` field.
 -- * If `name` is nil, the key is the object handle returned by
 --   `minetest.register_decoration`.
----@type table<string|mt.ObjectHandle, mt.DecorDef>
+---@type table<string|number, mt.DecorDef>
 minetest.registered_decorations = {}
 
 -- * Map of registered schematic definitions, indexed by the `name` field.
 -- * If `name` is nil, the key is the object handle returned by
 --   `minetest.register_schematic`.
----@type table<string|mt.ObjectHandle, mt.SchematicDef>
+---@type table<string|number, mt.SchematicSpec>
 minetest.registered_schematics = {}
 
 -- Map of registered chat command definitions, indexed by name.
