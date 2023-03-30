@@ -45,7 +45,7 @@ function InvRef:get_stack(listname, index) end
 ---Copy `stack` to index in list.
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 function InvRef:set_stack(listname, index, stack) end
 
 ---Return full list (list of `ItemStack`s).
@@ -55,7 +55,7 @@ function InvRef:get_list(listname) end
 
 ---Set full list (size will not change).
 ---@param listname string
----@param list mt.ItemStack[]
+---@param list mt.Item[]
 function InvRef:set_list(listname, list) end
 
 ---Returns table that maps listnames to inventory lists.
@@ -74,14 +74,14 @@ function InvRef:add_item(listname, stack) end
 
 ---Returns `true` if the stack of items can be fully added to the list.
 ---@param listname string
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@return boolean
 function InvRef:room_for_item(listname, stack) end
 
 ---* Returns `true` if the stack of items can be fully taken from the list.
 ---* If `match_meta` is false (default), only the items' names are compared.
 ---@param listname string
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param match_meta boolean|nil `false` Only compares names if unset.
 ---@return boolean
 function InvRef:contains_item(listname, stack, match_meta) end
@@ -92,7 +92,7 @@ function InvRef:contains_item(listname, stack, match_meta) end
 ---  unique item this way will likely remove the wrong one -- to do that use
 ---  `set_stack` with an empty `ItemStack`.
 ---@param listname string
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@return mt.ItemStack
 function InvRef:remove_item(listname, stack) end
 

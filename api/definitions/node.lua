@@ -212,7 +212,7 @@ function node.on_flood(pos, oldnode, newnode) end
 ---@param pos mt.Vector
 ---@param oldnode mt.Node
 ---@param oldmeta mt.NodeMetaRef Old node before deletion.
----@param drops table<unknown, mt.ItemStack>
+---@param drops table<unknown, mt.Item>
 function node.preserve_metadata(pos, oldnode, oldmeta, drops) end
 
 -- * Called after constructing node when node was placed using
@@ -221,7 +221,7 @@ function node.preserve_metadata(pos, oldnode, oldmeta, drops) end
 -- * Default: `nil`.
 ---@param pos mt.Vector
 ---@param placer mt.ObjectRef|nil
----@param itemstack mt.ItemStack
+---@param itemstack mt.Item
 ---@param pointed_thing mt.PointedThing
 function node.after_place_node(pos, placer, itemstack, pointed_thing) end
 
@@ -262,7 +262,7 @@ function node.on_punch(pos, node, puncher, pointed_thing) end
 ---@param pos mt.Vector
 ---@param node mt.Node
 ---@param clicker mt.ObjectRef
----@param itemstack mt.ItemStack
+---@param itemstack mt.Item
 ---@param pointed_thing mt.PointedThing|nil
 ---@return mt.ItemStack|nil leftover
 function node.on_rightclick(pos, node, clicker, itemstack, pointed_thing) end
@@ -312,7 +312,7 @@ function node.allow_metadata_inventory_move(pos, from_list, from_index, to_list,
 ---@param pos mt.Vector
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.ObjectRef
 ---@return integer allowed
 function node.allow_metadata_inventory_put(pos, listname, index, stack, player) end
@@ -323,7 +323,7 @@ function node.allow_metadata_inventory_put(pos, listname, index, stack, player) 
 ---@param pos mt.Vector
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.ObjectRef
 ---@return integer allowed
 function node.allow_metadata_inventory_take(pos, listname, index, stack, player) end
@@ -344,7 +344,7 @@ function node.on_metadata_inventory_move(pos, from_list, from_index, to_list, to
 ---@param pos mt.Vector
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.ObjectRef
 function node.on_metadata_inventory_put(pos, listname, index, stack, player) end
 
@@ -353,7 +353,7 @@ function node.on_metadata_inventory_put(pos, listname, index, stack, player) end
 ---@param pos mt.Vector
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.ObjectRef
 function node.on_metadata_inventory_take(pos, listname, index, stack, player) end
 

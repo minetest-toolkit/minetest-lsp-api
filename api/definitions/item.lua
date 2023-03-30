@@ -98,7 +98,7 @@
 ---The placer may be any `ObjectRef` or `nil`.
 ---
 ---default: `minetest.item_place`
----@field on_place fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---@field on_place fun(itemstack: mt.Item, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 ---Same as `on_place` but called when not pointing at a node.
 ---
 ---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
@@ -106,13 +106,13 @@
 ---The user may be any `ObjectRef` or `nil`.
 ---
 ---default: `nil`
----@field on_secondary_use fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---@field on_secondary_use fun(itemstack: mt.Item, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 ---Shall drop item and return the leftover `itemstack`.
 ---
 ---The dropper may be any `ObjectRef` or `nil`.
 ---
 ---default: `minetest.item_drop`
----@field on_drop fun(itemstack: mt.ItemStack, dropper?: mt.ObjectRef, pos: mt.Vector): mt.ItemStack?
+---@field on_drop fun(itemstack: mt.Item, dropper?: mt.ObjectRef, pos: mt.Vector): mt.ItemStack?
 ---When user pressed the `punch/mine` key with the item in hand.
 ---
 ---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
@@ -129,7 +129,7 @@
 ---The default functions handle regular use cases.
 ---
 ---default: `nil`
----@field on_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, pointed_thing: mt.PointedThing)
+---@field on_use fun(itemstack: mt.Item, user?: mt.ObjectRef, pointed_thing: mt.PointedThing)
 ---If defined, should return an itemstack and will be called instead of wearing out the item (if tool).
 ---
 ---If returns `nil`, does nothing.
@@ -143,4 +143,4 @@
 ---```
 ---
 ---The user may be any `ObjectRef` or `nil`.
----@field after_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, node: mt.Node, digparams: unknown)
+---@field after_use fun(itemstack: mt.Item, user?: mt.ObjectRef, node: mt.Node, digparams: unknown)

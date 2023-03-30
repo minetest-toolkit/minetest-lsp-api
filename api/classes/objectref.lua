@@ -90,7 +90,7 @@ function ObjectRef:get_wield_index() end
 function ObjectRef:get_wielded_item() end
 
 ---Replaces the wielded item, returns `true` if successful.
----@param item mt.ItemStack
+---@param item mt.Item
 ---@return boolean true If successful.
 function ObjectRef:set_wielded_item(item) end
 

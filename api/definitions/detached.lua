@@ -31,7 +31,7 @@ function did.on_move(inv, from_list, from_index, to_list, to_index, count, playe
 ---@param inv mt.InvRef
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.PlayerObjectRef
 -- If `-1`: Allow and don't modify item count in inventory.
 ---@return number items_allowed_count
@@ -41,7 +41,7 @@ function did.allow_put(inv, listname, index, stack, player) end
 ---@param inv mt.InvRef
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.PlayerObjectRef
 function did.on_put(inv, listname, index, stack, player) end
 
@@ -49,7 +49,7 @@ function did.on_put(inv, listname, index, stack, player) end
 ---@param inv mt.InvRef
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.PlayerObjectRef
 -- If `-1`: Allow and don't modify item count in inventory.
 ---@return number items_allowed_count
@@ -59,6 +59,6 @@ function did.allow_take(inv, listname, index, stack, player) end
 ---@param inv mt.InvRef
 ---@param listname string
 ---@param index integer
----@param stack mt.ItemStack
+---@param stack mt.Item
 ---@param player mt.PlayerObjectRef
 function did.on_take(inv, listname, index, stack, player) end

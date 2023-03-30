@@ -28,8 +28,8 @@ function minetest.create_detached_inventory(name, callbacks, player_name) end
 function minetest.remove_detached_inventory(name) end
 
 ---@param hp_change integer
----@param replace_with_item mt.ItemStack
----@param itemstack mt.ItemStack
+---@param replace_with_item mt.Item
+---@param itemstack mt.Item
 ---@param user mt.ObjectRef
 ---@param pointed_thing mt.PointedThing
 ---@return mt.ItemStack leftover

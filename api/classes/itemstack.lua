@@ -139,12 +139,12 @@ function ItemStackObject:add_wear_by_uses(max_uses) end
 
 ---* Returns leftover `ItemStack`.
 ---* Put some item or stack onto this stack.
----@param item mt.ItemStack
+---@param item mt.Item
 ---@return mt.ItemStack leftover
 function ItemStackObject:add_item(item) end
 
 ---Returns `true` if item or stack can be fully added to this one.
----@param item mt.ItemStack
+---@param item mt.Item
 ---@return boolean
 function ItemStackObject:item_fits(item) end
 
@@ -166,5 +166,5 @@ function ItemStackObject:peek_item(n) end
 ---* Note: if `other` is an itemstring or table representation of an
 ---  ItemStack, this will always return false, even if it is
 ---  "equivalent".
----@param other mt.ItemStack
+---@param other mt.Item
 function ItemStackObject:equals(other) end

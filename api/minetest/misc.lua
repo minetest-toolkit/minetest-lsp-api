@@ -248,7 +248,7 @@ function minetest.is_area_protected(pos1, pos2, player_name, interval) end
 ---* `prevent_after_place` is directly passed to `minetest.item_place_node`
 ---
 ---Returns the new itemstack after placement.
----@param itemstack mt.ItemStack
+---@param itemstack mt.Item
 ---@param placer? mt.ObjectRef
 ---@param pointed_thing mt.PointedThing
 ---@param infinitestacks boolean
@@ -267,7 +267,7 @@ function minetest.rotate_and_place(
 end
 
 ---Calls `rotate_and_place()` with `infinitestacks` set according to the state of the creative mode setting, checks for "sneak" to set the `invert_wall` parameter and `prevent_after_place` set to `true`.
----@param itemstack mt.ItemStack
+---@param itemstack mt.Item
 ---@param placer mt.ObjectRef
 ---@param pointed_thing mt.PointedThing
 function minetest.rotate_node(itemstack, placer, pointed_thing) end
