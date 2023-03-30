@@ -58,7 +58,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Chat](api/minetest/chat.lua)
   - [x] [Environment access](api/minetest/environment_access.lua)
   - [x] [Mod channels](api/classes/modchannel.lua)
-  - [ ] Inventory
+  - [x] [Inventory](api/minetest/inventory.lua)
   - [ ] Formspec
   - [ ] Item handling
   - [ ] Rollback
