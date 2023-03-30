@@ -2,8 +2,6 @@
 ---ItemStack
 ------------
 
----@alias mt.ItemStack mt.ItemStackObject|mt.ItemString|mt.ItemStackTable|nil
-
 ---An `ItemStack` is a stack of items.
 ---
 ---It can be created via `ItemStack(x)`, where x is an ItemStack,
@@ -17,12 +15,12 @@
 ---      as stack metadata can be serialized in arbitrary order.
 ---* Note: if `stack2` is an itemstring or table representation of an
 ---      ItemStack, this will always return false, even if it is "equivalent".
----@class mt.ItemStackObject
+---@class mt.ItemStack
 local ItemStackObject = {}
 
 ---`ItemStack` constructor.
----@param x mt.ItemStack
----@return mt.ItemStackObject
+---@param x mt.Item
+---@return mt.ItemStack
 function ItemStack(x) end
 
 ---@class mt.ItemStackTable
@@ -141,25 +139,25 @@ function ItemStackObject:add_wear_by_uses(max_uses) end
 
 ---* Returns leftover `ItemStack`.
 ---* Put some item or stack onto this stack.
----@param item mt.ItemStackObject
----@return mt.ItemStackObject leftover
+---@param item mt.ItemStack
+---@return mt.ItemStack leftover
 function ItemStackObject:add_item(item) end
 
 ---Returns `true` if item or stack can be fully added to this one.
----@param item mt.ItemStackObject
+---@param item mt.ItemStack
 ---@return boolean
 function ItemStackObject:item_fits(item) end
 
 ---* Returns taken `ItemStack`.
 ---* Take (and remove) up to `n` items from this stack.
 ---@param n number|nil Default: `1`.
----@return mt.ItemStackObject taken
+---@return mt.ItemStack taken
 function ItemStackObject:take_item(n) end
 
 ---* Returns taken `ItemStack`.
 ---* Copy (don't remove) up to `n` items from this stack.
 ---@param n number|nil Default: `1`.
----@return mt.ItemStackObject taken
+---@return mt.ItemStack taken
 function ItemStackObject:peek_item(n) end
 
 ---* Returns `true` if this stack is identical to `other`.
@@ -168,5 +166,5 @@ function ItemStackObject:peek_item(n) end
 ---* Note: if `other` is an itemstring or table representation of an
 ---  ItemStack, this will always return false, even if it is
 ---  "equivalent".
----@param other mt.ItemStackObject
+---@param other mt.ItemStack
 function ItemStackObject:equals(other) end

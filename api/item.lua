@@ -12,7 +12,7 @@
 --
 -- When an item must be passed to a function, it can usually be in any of
 -- these formats.
----@alias mt.Item mt.ItemStack|mt.ItemString|mt.ItemTable
+---@alias mt.Item mt.ItemStack|mt.ItemString|mt.ItemTable|nil
 
 -- It is a simple string with 1-4 components:
 --
