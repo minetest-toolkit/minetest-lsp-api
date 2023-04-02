@@ -13,27 +13,27 @@ Feel free to add your subitems if item is partially done.
 - [ ] Mods
 - [ ] Aliases
 - [ ] Textures
-- [x] [Sounds](api/sounds.lua)
+- [x] [Sounds](api/classes/sounds.lua)
 - [x] Registered definitions
   - [x] [Registration functions](api/minetest/register.lua)
   - [x] [Registered definition tables](api/minetest/registered.lua)
-- [x] [Nodes](api/node.lua)
+- [x] [Nodes](api/classes/node.lua)
 - [ ] Map terminology and coordinates
-- [x] [HUD](api/hud.lua)
+- [x] [HUD](api/classes/hud.lua)
 - [x] Representations of simple things
-  - [x] [Vector](api/vector.lua)
-  - [x] [PointedThing](api/pointed.lua)
+  - [x] [Vector](api/classes/vector.lua)
+  - [x] [PointedThing](api/classes/pointed.lua)
 - [ ] Flag Specifier Format
-- [x] [Items](api/item.lua)
+- [x] [Items](api/classes/item.lua)
 - [ ] Groups
-- [x] [Tool Capabilities](api/tool_caps.lua)
+- [x] [Tool Capabilities](api/classes/tool_caps.lua)
 - [ ] Entity damage mechanism
 - [ ] Metadata
 - [ ] Formspec
 - [ ] Inventory
-- [x] [Colors](api/color.lua)
-- [x] [Escape sequences](api/escape.lua)
-- [ ] [Spatial Vectors](api/vector.lua)
+- [x] [Colors](api/classes/color.lua)
+- [x] [Escape sequences](api/minetest/escape.lua)
+- [ ] [Spatial Vectors](api/classes/vector.lua)
   - [x] Full form
   - [ ] Simple form as different type?
   - [ ] Separate Vector2 and Vector3?
