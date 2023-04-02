@@ -26,7 +26,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Flag Specifier Format
 - [x] [Items](api/classes/item.lua)
 - [ ] Groups
-- [x] [Tool Capabilities](api/classes/tool_caps.lua)
+- [x] [Tool Capabilities](api/classes/toolcaps.lua)
 - [ ] Entity damage mechanism
 - [ ] Metadata
 - [ ] Formspec
@@ -43,8 +43,8 @@ Feel free to add your subitems if item is partially done.
 - [x] [Ores](api/definitions/ore.lua)
 - [x] [Decoration types](api/definitions/decor.lua)
 - [x] [Schematics](api/definitions/schematic.lua)
-- [x] [Lua Voxel Manipulator](api/definitions/mapgen_objects.lua)
-- [x] [Mapgen objects](api/definitions/mapgen_objects.lua)
+- [x] [Lua Voxel Manipulator](api/definitions/mapgen.lua)
+- [x] [Mapgen objects](api/definitions/mapgen.lua)
 - [ ] Registered entities
 - [ ] L-system trees
 - [ ] Privileges
@@ -52,11 +52,11 @@ Feel free to add your subitems if item is partially done.
   - [x] [Utilities](api/minetest/utilities.lua)
   - [x] [Logging](api/minetest/logging.lua)
   - [x] [Registration functions](api/minetest/register.lua)
-  - [x] [Global callback](api/minetest/global_callback.lua)
+  - [x] [Global callback](api/minetest/global.lua)
   - [x] [Setting-related](api/minetest/settings.lua)
   - [x] [Authentication](api/minetest/authentication.lua)
   - [x] [Chat](api/minetest/chat.lua)
-  - [x] [Environment access](api/minetest/environment_access.lua)
+  - [x] [Environment access](api/minetest/environment.lua)
   - [x] [Mod channels](api/classes/modchannel.lua)
   - [x] [Inventory](api/minetest/inventory.lua)
   - [x] [Formspec](api/minetest/formspec.lua)
@@ -73,7 +73,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] HTTP Requests
   - [ ] Storage API
   - [x] [Misc](api/minetest/misc.lua)
-  - [x] [Global objects](api/minetest/global_objects.lua)
+  - [x] [Global objects](api/minetest/global.lua)
   - [x] [Global tables](api/minetest/registered.lua)
 - [x] [Class reference](api/classes)
   - [x] [AreaStore](api/classes/areastore.lua)
@@ -111,7 +111,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Detached inventory callbacks](api/definitions/detached.lua)
   - [x] [HUD Definition](api/definitions/hud.lua)
   - [x] [Particle definition](api/definitions/particle.lua)
-  - [x] [ParticleSpawner definition](api/definitions/particle_spawner.lua)
+  - [x] [ParticleSpawner definition](api/definitions/particle.lua)
   - [x] [HTTPRequest definition](api/definitions/http.lua)
   - [x] [Authentication handler definition](api/definitions/auth.lua)
   - [x] Bit Library
