@@ -5,7 +5,7 @@
 -- `param1` and `param2` are 8-bit integers ranging from 0 to 255. The engine uses
 -- them for certain automated functions. If you don't use these functions, you can
 -- use them to store arbitrary values.
----@alias mt.Param integer
+---@alias mt.NodeParam integer
 
 ---Nodes are the bulk data of the world: cubes and other things that take the
 ---space of a cube. Huge amounts of them are handled efficiently, but they
@@ -21,8 +21,8 @@
 ---    {name="name", param1=num, param2=num}
 ---@class mt.Node
 ---@field name string
----@field param1 mt.Param
----@field param2 mt.Param
+---@field param1 mt.NodeParam
+---@field param2 mt.NodeParam
 local node = {}
 
 ---@class mt.MapNode:mt.Node

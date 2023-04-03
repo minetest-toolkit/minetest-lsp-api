@@ -74,9 +74,9 @@ function minetest.is_colored_paramtype(ptype) end
 -- Removes everything but the color information from the given `param2` value.
 --
 -- Returns `nil` if the given `paramtype2` does not contain color information.
----@param param2 mt.Param
+---@param param2 mt.NodeParam
 ---@param paramtype2 mt.ParamType2
----@return mt.Param|nil
+---@return mt.NodeParam|nil
 function minetest.strip_param2_color(param2, paramtype2) end
 
 -- Returns list of itemstrings that are dropped by `node` when dug
