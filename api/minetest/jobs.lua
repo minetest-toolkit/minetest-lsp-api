@@ -28,6 +28,42 @@ function minetest.after(time, func, ...) end
 --
 -- When `func` returns, the callback is called (in the normal environment)
 -- with all of the return values as arguments.
+--
+-- **List of APIs available in an async environment:**
+--
+-- Classes:
+--
+-- - `ItemStack`
+-- - `PerlinNoise`
+-- - `PerlinNoiseMap`
+-- - `PseudoRandom`
+-- - `PcgRandom`
+-- - `SecureRandom`
+-- - `VoxelArea`
+-- - `VoxelManip`
+--   - only if transferred into environment; can't read/write to map
+-- - `Settings`
+--
+-- Class instances that can be transferred between environments:
+--
+-- - `ItemStack`
+-- - `PerlinNoise`
+-- - `PerlinNoiseMap`
+-- - `VoxelManip`
+--
+-- Functions:
+--
+-- - Standalone helpers such as logging, filesystem, encoding, hashing or
+--   compression APIs
+-- - `minetest.request_insecure_environment` (same restrictions apply)
+--
+-- Variables:
+--
+-- - `minetest.settings`
+-- - `minetest.registered_items`, `registered_nodes`, `registered_tools`,
+--   `registered_craftitems` and `registered_aliases`
+--   - with all functions and userdata values replaced by `true`, calling any
+--     callbacks here is obviously not possible
 ---@param func function
 ---@param callback fun(...: any): any
 ---@param ... unknown Variable number of arguments that are passed to `func`.
