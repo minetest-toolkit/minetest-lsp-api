@@ -154,3 +154,82 @@ function minetest.itemstring_with_palette(item, palette_index) end
 ---@param colorstring mt.ColorString The new color of the item stack.
 ---@return mt.ItemString
 function minetest.itemstring_with_color(item, colorstring) end
+
+---Defaults for the `on_place`, `on_drop`, `on_punch` and `on_dig`
+------------------------------------------------------------------
+
+-- Default `on_place` callback for nodes.
+--
+-- Place item as a node.
+--
+-- * If `prevent_after_place` set to `true`, `after_place_node` is not called
+--   for the newly placed node to prevent a callback and placement loop.
+---@param itemstack mt.Item
+---@param placer mt.ObjectRef
+---@param pointed_thing mt.PointedThing
+---@param param2 mt.NodeParam|nil Overrides `facedir` and wallmounted `param2`.
+---@param prevent_after_place boolean|nil
+---@return mt.ItemStack, mt.Vector|nil position
+function minetest.item_place_node(itemstack, placer, pointed_thing, param2, prevent_after_place) end
+
+-- Place item as-is.
+--
+-- - **Note**: This function is deprecated and will never be called.
+---@param itemstack mt.Item
+---@param placer mt.ObjectRef
+---@param pointed_thing mt.PointedThing
+---@return mt.ItemStack leftover
+---@deprecated
+function minetest.item_place_object(itemstack, placer, pointed_thing) end
+
+-- Default `on_place` callback for items.
+--
+-- Wrapper that calls `minetest.item_place_node` if appropriate.
+-- Calls `on_rightclick` of `pointed_thing.under` if defined instead.
+--
+-- **Note**: is not called when wielded item overrides `on_place`.
+---@param itemstack mt.Item
+---@param placer mt.ObjectRef
+---@param pointed_thing mt.PointedThing
+---@param param2 mt.NodeParam|nil Overrides facedir and wallmounted `param2`.
+---@return mt.ItemStack, mt.Vector|nil position
+function minetest.item_place(itemstack, placer, pointed_thing, param2) end
+
+-- Default `on_drop` callback.
+--
+-- Drop the item.
+---@param itemstack mt.Item
+---@param dropper mt.ObjectRef
+---@param pos mt.Vector
+---@return mt.ItemStack leftover
+function minetest.item_drop(itemstack, dropper, pos) end
+
+-- Default `on_eat` callback.
+--
+-- - `replace_with_item` is the itemstring which is added to the inventory. If
+--   the player is eating a stack, then replace_with_item goes to a different
+--   spot.
+--
+-- Returns a function wrapper for `minetest.do_item_eat`.
+---@param hp_change number
+---@param replace_with_item mt.Item|nil
+---@return fun(itemstack:mt.Item, user:mt.ObjectRef, pointed_thing:mt.PointedThing)
+function minetest.item_eat(hp_change, replace_with_item) end
+
+-- Default `on_punch` callback.
+--
+-- Calls functions registered by `minetest.register_on_punchnode()`.
+---@param pos mt.Vector
+---@param node mt.Node
+---@param puncher mt.ObjectRef
+---@param pointed_thing mt.PointedThing
+function minetest.node_punch(pos, node, puncher, pointed_thing) end
+
+-- Default `on_dig` callback.
+--
+-- - Checks if node can be dug, puts item into inventory, removes node.
+-- - Calls functions registered by `minetest.registered_on_dignodes()`.
+---@param pos mt.Vector
+---@param node mt.Node
+---@param digger mt.ObjectRef
+function minetest.node_dig(pos, node, digger) end
