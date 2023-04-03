@@ -64,8 +64,8 @@ Feel free to add your subitems if item is partially done.
   - [x] [Rollback](api/minetest/rollback.lua)
   - [x] [Default callbacks](api/minetest/items.lua)
   - [x] [Sounds](api/minetest/sounds.lua)
-  - [x] [Timing](api/minetest/timing.lua)
-  - [ ] Async environment
+  - [x] [Timing](api/minetest/jobs.lua)
+  - [x] [Async environment](api/minetest/jobs.lua)
   - [ ] Server
   - [ ] Bans
   - [ ] Particles
