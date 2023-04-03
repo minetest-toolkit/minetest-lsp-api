@@ -2,6 +2,11 @@
 ---Nodes
 --------
 
+-- `param1` and `param2` are 8-bit integers ranging from 0 to 255. The engine uses
+-- them for certain automated functions. If you don't use these functions, you can
+-- use them to store arbitrary values.
+---@alias mt.Param integer
+
 ---Nodes are the bulk data of the world: cubes and other things that take the
 ---space of a cube. Huge amounts of them are handled efficiently, but they
 ---are quite static.
@@ -14,14 +19,10 @@
 ---They are represented by a table:
 ---
 ---    {name="name", param1=num, param2=num}
----
----`param1` and `param2` are 8-bit integers ranging from 0 to 255. The engine uses
----them for certain automated functions. If you don't use these functions, you can
----use them to store arbitrary values.
 ---@class mt.Node
 ---@field name string
----@field param1 integer
----@field param2 integer
+---@field param1 mt.Param
+---@field param2 mt.Param
 local node = {}
 
 ---@class mt.MapNode:mt.Node

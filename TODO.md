@@ -60,7 +60,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Mod channels](api/classes/modchannel.lua)
   - [x] [Inventory](api/minetest/inventory.lua)
   - [x] [Formspec](api/minetest/formspec.lua)
-  - [ ] Item handling
+  - [x] [Item handling](api/minetest/items.lua)
   - [ ] Rollback
   - [ ] Defaults
   - [x] [Sounds](api/minetest/sounds.lua)
