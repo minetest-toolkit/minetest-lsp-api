@@ -66,7 +66,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Sounds](api/minetest/sounds.lua)
   - [x] [Timing](api/minetest/jobs.lua)
   - [x] [Async environment](api/minetest/jobs.lua)
-  - [ ] Server
+  - [x] [Server](api/minetest/server.lua)
   - [ ] Bans
   - [ ] Particles
   - [ ] Schematics
