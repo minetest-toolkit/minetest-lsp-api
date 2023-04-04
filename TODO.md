@@ -48,7 +48,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Registered entities
 - [ ] L-system trees
 - [ ] Privileges
-- [ ] [Minetest namespace reference](api/minetest)
+- [x] [Minetest namespace reference](api/minetest)
   - [x] [Utilities](api/minetest/utilities.lua)
   - [x] [Logging](api/minetest/logging.lua)
   - [x] [Registration functions](api/minetest/register.lua)
@@ -71,7 +71,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Particles](api/minetest/particles.lua)
   - [x] [Schematics](api/minetest/schematics.lua)
   - [x] [HTTP Requests](api/minetest/http.lua)
-  - [ ] Storage API
+  - [x] [Storage API](api/minetest/misc.lua)
   - [x] [Misc](api/minetest/misc.lua)
   - [x] [Global objects](api/minetest/global.lua)
   - [x] [Global tables](api/minetest/registered.lua)
