@@ -67,8 +67,8 @@ Feel free to add your subitems if item is partially done.
   - [x] [Timing](api/minetest/jobs.lua)
   - [x] [Async environment](api/minetest/jobs.lua)
   - [x] [Server](api/minetest/server.lua)
-  - [x] Bans
-  - [ ] Particles
+  - [x] [Bans](api/minetest/bans.lua)
+  - [x] [Particles](api/minetest/particles.lua)
   - [ ] Schematics
   - [ ] HTTP Requests
   - [ ] Storage API
