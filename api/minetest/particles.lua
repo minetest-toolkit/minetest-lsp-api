@@ -15,5 +15,5 @@ function minetest.add_particlespawner(particlespawner) end
 -- If `playername` is specified, only deletes on the player's client,
 -- otherwise on all clients.
 ---@param id number
----@param playername string
+---@param playername string|nil
 function minetest.delete_particlespawner(id, playername) end
