@@ -69,7 +69,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Server](api/minetest/server.lua)
   - [x] [Bans](api/minetest/bans.lua)
   - [x] [Particles](api/minetest/particles.lua)
-  - [ ] Schematics
+  - [x] [Schematics](api/minetest/schematics.lua)
   - [ ] HTTP Requests
   - [ ] Storage API
   - [x] [Misc](api/minetest/misc.lua)

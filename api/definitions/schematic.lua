@@ -21,3 +21,57 @@
 ---|"place_center_y" Placement of this decoration is centered along the Y axis.
 ---|"place_center_z" Placement of this decoration is centered along the Z axis.
 ---|"force_placement" Schematic nodes other than "ignore" will replace existing nodes.
+
+-- Used in `minetest.create_schematic`.
+--
+-- - If there are two or more entries with the same `pos` value, the last entry
+--   is used.
+-- - If `pos` is not inside the box formed by `p1` and `p2`, it is ignored.
+-- - If `probability_list` equals `nil`, no probabilities are applied.
+---@class mt.SchematicProbability
+---@field pos mt.Vector Absolute coordinates of the node being modified.
+-- From `0` to `255` that encodes probability and per-node force-place.
+-- Probability has levels 0-127, then 128 may be added
+-- to encode per-node force-place. For probability stated as 0-255,
+-- divide by 2 and round down to get values 0-127, then add 128 to apply
+-- per-node force-place.
+---@field prob integer
+
+-- Used in `minetest.create_schematic`.
+--
+-- - If slice probability list equals `nil`, no slice probabilities are applied.
+---@class mt.SchematicSliceProbability
+-- Indicates the y position of the slice with a probability applied,
+-- the lowest slice being `ypos = 0`.
+---@field ypos number
+-- From `0` to `255` that encodes probability and per-node force-place.
+-- Probability has levels 0-127, then 128 may be added
+-- to encode per-node force-place. For probability stated as 0-255,
+-- divide by 2 and round down to get values 0-127, then add 128 to apply
+-- per-node force-place.
+---@field prob integer
+
+---@alias mt.SchematicFormat
+---|"mts" A string containing the binary MTS data used in the MTS file format.
+---|"lua" A string containing Lua code representing the schematic in table format.
+
+-- Used in `minetest.serialize_schematic`.
+---@class mt.SchematicSerializeOptions
+-- If `lua_use_comments` is true and `format` is "lua", the Lua code
+-- generated will have (X, Z) position comments for every X row generated in
+-- the schematic data for easier reading.
+---@field lua_use_comments boolean
+-- If `lua_num_indent_spaces` is a nonzero number and `format` is "lua", the
+-- Lua code generated will use that number of spaces as indentation instead
+-- of a tab character.
+---@field lua_num_indent_spaces number
+
+-- Used in `minetest.read_schematic`.
+---@class mt.SchematicReadOptions
+-- - `none`: no `write_yslice_prob` table is inserted,
+-- - `low`: only probabilities that are not 254 or 255 are written in the
+--   `write_ylisce_prob` table,
+-- - `all`: write all probabilities to the `write_yslice_prob` table.
+-- - The default for this option is `all`.
+-- - Any invalid value will be interpreted as `all`.
+---@field write_yslice_prob "none"|"low"|"all"
