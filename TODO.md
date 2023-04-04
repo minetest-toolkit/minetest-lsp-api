@@ -70,7 +70,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [Bans](api/minetest/bans.lua)
   - [x] [Particles](api/minetest/particles.lua)
   - [x] [Schematics](api/minetest/schematics.lua)
-  - [ ] HTTP Requests
+  - [x] [HTTP Requests](api/minetest/http.lua)
   - [ ] Storage API
   - [x] [Misc](api/minetest/misc.lua)
   - [x] [Global objects](api/minetest/global.lua)
