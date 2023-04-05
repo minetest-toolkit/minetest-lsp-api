@@ -39,7 +39,7 @@ Feel free to add your subitems if item is partially done.
   - [ ] Separate Vector2 and Vector3?
 - [ ] Helper functions
 - [ ] Translations
-- [ ] Perlin noise
+- [x] [Perlin noise](api/definitions/ore.lua)
 - [x] [Ores](api/definitions/ore.lua)
 - [x] [Decoration types](api/definitions/decor.lua)
 - [x] [Schematics](api/definitions/schematic.lua)
