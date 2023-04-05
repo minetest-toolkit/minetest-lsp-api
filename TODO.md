@@ -45,7 +45,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Schematics](api/definitions/schematic.lua)
 - [x] [Lua Voxel Manipulator](api/definitions/mapgen.lua)
 - [x] [Mapgen objects](api/definitions/mapgen.lua)
-- [ ] Registered entities
+- [x] [Registered entities](api/definitions/entity.lua)
 - [x] [L-system trees](api/definitions/tree.lua)
 - [x] [Minetest namespace reference](api/minetest)
   - [x] [Utilities](api/minetest/utilities.lua)
