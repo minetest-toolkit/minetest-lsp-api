@@ -37,7 +37,7 @@ Feel free to add your subitems if item is partially done.
   - [x] Full form
   - [ ] Simple form as different type?
   - [ ] Separate Vector2 and Vector3?
-- [ ] Helper functions
+- [ ] [Helper functions](api/minetest/helpers.lua)
 - [x] [Translations](api/minetest/translations.lua)
 - [x] [Perlin noise](api/definitions/ore.lua)
 - [x] [Ores](api/definitions/ore.lua)
