@@ -46,8 +46,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Lua Voxel Manipulator](api/definitions/mapgen.lua)
 - [x] [Mapgen objects](api/definitions/mapgen.lua)
 - [ ] Registered entities
-- [ ] L-system trees
-- [ ] Privileges
+- [x] [L-system trees](api/definitions/tree.lua)
 - [x] [Minetest namespace reference](api/minetest)
   - [x] [Utilities](api/minetest/utilities.lua)
   - [x] [Logging](api/minetest/logging.lua)
