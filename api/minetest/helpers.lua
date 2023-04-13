@@ -159,7 +159,7 @@ after `uses` times of uses.
 function minetest.get_tool_wear_after_use(uses, initial_wear) end
 
 -- Simulates an item that digs a node.
----@param groups mt.Groups
+---@param groups mt.ObjectGroups
 ---@param tool_capabilities mt.ToolCaps
 ---@param wear number Amount of wear the tool starts with (default: `0`).
 ---@return mt.DigParams
@@ -192,10 +192,10 @@ You can read the rating of a group for an item or a node by using
 
     minetest.get_item_group(itemname, groupname)
 ]]
----@alias mt.Groups table<string, number>
+---@alias mt.ObjectGroups table<string, number>
 
 -- Simulates an item that punches an object.
----@param groups mt.Groups
+---@param groups mt.ObjectGroups
 ---@param tool_caps mt.ToolCaps
 ---@param last_punch_time number|nil Time in seconds since last punch action.
 ---@param wear number|nil Amount of wear the item starts with (default: `0`).

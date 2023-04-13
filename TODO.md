@@ -25,7 +25,7 @@ Feel free to add your subitems if item is partially done.
   - [x] [PointedThing](api/classes/pointed.lua)
 - [ ] Flag Specifier Format
 - [x] [Items](api/classes/item.lua)
-- [ ] Groups
+- [x] Groups
 - [x] [Tool Capabilities](api/classes/toolcaps.lua)
 - [x] [Entity damage mechanism](api/definitions/entity.lua)
 - [x] [Metadata](api/classes/metaref.lua)
