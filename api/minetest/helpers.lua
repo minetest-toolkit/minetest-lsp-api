@@ -25,7 +25,7 @@ function math.hypot(x, y) end
 -- If the absolute value of `x` is within the `tolerance` or `x` is NaN, `0` is
 -- returned.
 ---@param x number
----@param tolerance number Default: `0`
+---@param tolerance number|nil Default: `0`
 ---@return -1|0|1
 function math.sign(x, tolerance) end
 
