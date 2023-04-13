@@ -115,7 +115,7 @@ Feel free to add your subitems if item is partially done.
 ## Final tasks
 
 - [ ] Check all `unknown` and `table` types
-- [ ] Double check documentation and update it to the latest version
+- [x] Update it to the latest version
 - [ ] Check all optional variables
 - [ ] Mark optional class fields?
 - [ ] Test it in an existed games
