@@ -27,7 +27,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Items](api/classes/item.lua)
 - [ ] Groups
 - [x] [Tool Capabilities](api/classes/toolcaps.lua)
-- [ ] Entity damage mechanism
+- [x] [Entity damage mechanism](api/definitions/entity.lua)
 - [x] [Metadata](api/classes/metaref.lua)
 - [x] [Formspec](api/minetest/formspec.lua)
 - [x] [Inventory](api/minetest/inventory.lua)

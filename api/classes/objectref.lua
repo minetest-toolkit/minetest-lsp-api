@@ -54,10 +54,15 @@ function ObjectRef:add_velocity(vel) end
 ---@param continuous boolean|nil Default: `false`.
 function ObjectRef:move_to(pos, continuous) end
 
+--[[
+If `direction` equals `nil` and `puncher` does not equal `nil`, `direction`
+will be automatically filled in based on the location of `puncher`.
+]]
 ---@param puncher mt.ObjectRef
 ---@param time_from_last_punch number|nil Time since last punch action.
 ---@param tool_capabilities mt.ToolCaps|nil
 ---@param direction mt.Vector|nil
+---@return number tool_wear
 function ObjectRef:punch(puncher, time_from_last_punch, tool_capabilities, direction) end
 
 ---@param clicker mt.ObjectRef
