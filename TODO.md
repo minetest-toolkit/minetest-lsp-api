@@ -30,7 +30,7 @@ Feel free to add your subitems if item is partially done.
 - [ ] Entity damage mechanism
 - [ ] Metadata
 - [ ] Formspec
-- [ ] Inventory
+- [x] [Inventory](api/minetest/inventory.lua)
 - [x] [Colors](api/classes/color.lua)
 - [x] [Escape sequences](api/minetest/escape.lua)
 - [ ] [Spatial Vectors](api/classes/vector.lua)
