@@ -23,7 +23,7 @@ Feel free to add your subitems if item is partially done.
 - [x] Representations of simple things
   - [x] [Vector](api/classes/vector.lua)
   - [x] [PointedThing](api/classes/pointed.lua)
-- [ ] Flag Specifier Format
+- [x] Flag Specifier Format
 - [x] [Items](api/classes/item.lua)
 - [x] Groups
 - [x] [Tool Capabilities](api/classes/toolcaps.lua)
