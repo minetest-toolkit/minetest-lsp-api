@@ -55,7 +55,7 @@ function InvRef:get_list(listname) end
 
 ---Set full list (size will not change).
 ---@param listname string
----@param list mt.Item[]
+---@param list mt.Item[]|nil
 function InvRef:set_list(listname, list) end
 
 ---Returns table that maps listnames to inventory lists.

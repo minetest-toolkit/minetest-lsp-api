@@ -33,6 +33,8 @@ local VoxelManip = {}
 ---containing the region formed by `p1` and `p2`.
 ---@param p1 mt.Vector
 ---@param p2 mt.Vector
+---@return mt.Vector
+---@return mt.Vector
 function VoxelManip:read_from_map(p1, p2) end
 
 ---Writes the data loaded from the `VoxelManip` back to the map.
@@ -137,7 +139,7 @@ function VoxelManip:get_emerged_area() end
 VoxelArea = {}
 
 -- VoxelArea constructor.
----@param def {MinEdge:mt.VoxelArea, MaxEdge:mt.Vector}
+---@param def {MinEdge:mt.Vector, MaxEdge:mt.Vector}
 ---@return mt.VoxelArea
 function VoxelArea:new(def) end
 

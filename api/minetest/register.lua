@@ -52,7 +52,7 @@ function minetest.register_entity(name, entity) end
 function minetest.register_abm(abm) end
 
 ---@param lbm mt.LBMDef
-function minetest.register_lbm(name, lbm) end
+function minetest.register_lbm(lbm) end
 
 ---This adds an alias `alias` for the item called `original_name`.
 ---From now on, you can use `alias` to refer to the item `original_name`.

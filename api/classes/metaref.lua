@@ -22,7 +22,7 @@ function MetaDataRef:get(key) end
 
 ---Value of `""` will delete the key.
 ---@param key string
----@param value string
+---@param value string|nil
 function MetaDataRef:set_string(key, value) end
 
 ---Returns `""` if key not present.
