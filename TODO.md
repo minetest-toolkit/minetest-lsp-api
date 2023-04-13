@@ -9,16 +9,16 @@ Feel free to add your subitems if item is partially done.
 ## Documentation
 
 - [x] [Minetest Lua Modding API Reference](api/minetest/minetest.lua)
-- [ ] Games
-- [ ] Mods
-- [ ] Aliases
-- [ ] Textures
+- [x] Games
+- [x] Mods
+- [x] Aliases
+- [x] Textures
 - [x] [Sounds](api/classes/sounds.lua)
 - [x] Registered definitions
   - [x] [Registration functions](api/minetest/register.lua)
   - [x] [Registered definition tables](api/minetest/registered.lua)
 - [x] [Nodes](api/classes/node.lua)
-- [ ] Map terminology and coordinates
+- [x] Map terminology and coordinates
 - [x] [HUD](api/classes/hud.lua)
 - [x] Representations of simple things
   - [x] [Vector](api/classes/vector.lua)
