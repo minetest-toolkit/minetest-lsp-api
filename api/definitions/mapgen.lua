@@ -1,7 +1,31 @@
 ---@meta
----Mapgen objects
------------------
+---Lua Voxel Manipulator
+------------------------
 
+--[[
+VoxelManip is a scripting interface to the internal 'Map Voxel Manipulator'
+facility. The purpose of this object is for fast, low-level, bulk access to
+reading and writing Map content. As such, setting map nodes through VoxelManip
+will lack many of the higher level features and concepts you may be used to
+with other methods of setting nodes. For example, nodes will not have their
+construction and destruction callbacks run, and no rollback information is
+logged.
+
+It is important to note that VoxelManip is designed for speed, and *not* ease
+of use or flexibility. If your mod requires a map manipulation facility that
+will handle 100% of all edge cases, or the use of high level node placement
+features, perhaps `minetest.set_node()` is better suited for the job.
+
+In addition, VoxelManip might not be faster, or could even be slower, for your
+specific use case. VoxelManip is most effective when setting large areas of map
+at once - for example, if only setting a 3x3x3 node area, a
+`minetest.set_node()` loop may be more optimal. Always profile code using both
+methods of map manipulation to determine which is most appropriate for your
+usage.
+
+A recent simple test of setting cubic areas showed that `minetest.set_node()`
+is faster than a VoxelManip for a 3x3x3 node cube or smaller.
+]]
 ---@class mt.VoxelManip
 local VoxelManip = {}
 

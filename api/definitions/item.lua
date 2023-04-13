@@ -129,7 +129,7 @@
 ---The default functions handle regular use cases.
 ---
 ---default: `nil`
----@field on_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, pointed_thing: mt.PointedThing)
+---@field on_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 ---If defined, should return an itemstack and will be called instead of wearing out the item (if tool).
 ---
 ---If returns `nil`, does nothing.
@@ -143,4 +143,4 @@
 ---```
 ---
 ---The user may be any `ObjectRef` or `nil`.
----@field after_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, node: mt.Node, digparams: unknown)
+---@field after_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, node: mt.Node, digparams: unknown): mt.ItemStack?

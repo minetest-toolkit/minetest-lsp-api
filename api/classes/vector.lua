@@ -105,6 +105,7 @@ vector = {}
 ---@param z number
 ---@return mt.Vector
 ---@nodiscard
+---@overload fun(v:mt.Vector): mt.Vector
 function vector.new(x, y, z) end
 
 ---Create a new vector `(0, 0, 0)`.
