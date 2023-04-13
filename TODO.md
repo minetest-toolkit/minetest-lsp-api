@@ -29,7 +29,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Tool Capabilities](api/classes/toolcaps.lua)
 - [ ] Entity damage mechanism
 - [ ] Metadata
-- [ ] Formspec
+- [x] [Formspec](api/minetest/formspec.lua)
 - [x] [Inventory](api/minetest/inventory.lua)
 - [x] [Colors](api/classes/color.lua)
 - [x] [Escape sequences](api/minetest/escape.lua)
