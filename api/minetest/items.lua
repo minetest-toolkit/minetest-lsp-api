@@ -26,32 +26,32 @@ function minetest.get_pointed_thing_position(pointed_thing, above) end
 -- causes it to take the `y` component into account.
 ---@param dir mt.Vector
 ---@param is6d boolean|nil
----@return string
+---@return mt.NodeParam
 function minetest.dir_to_facedir(dir, is6d) end
 
 -- Convert a facedir back into a vector aimed directly out the "back" of a node.
----@param facedir string
+---@param facedir mt.NodeParam
 ---@return mt.Vector
 function minetest.facedir_to_dir(facedir) end
 
--- Convert a vector to a 4dir value, used in `param2` for `paramtype2="4dir"`.
----@param dir mt.Vector
----@return string
-function minetest.dir_to_fourdir(dir) end
+-- -- Convert a vector to a 4dir value, used in `param2` for `paramtype2="4dir"`.
+-- ---@param dir mt.Vector
+-- ---@return string
+-- function minetest.dir_to_fourdir(dir) end
 
--- Convert a 4dir back into a vector aimed directly out the "back" of a node.
----@param fourdir string
----@return mt.Vector
-function minetest.fourdir_to_dir(fourdir) end
+-- -- Convert a 4dir back into a vector aimed directly out the "back" of a node.
+-- ---@param fourdir string
+-- ---@return mt.Vector
+-- function minetest.fourdir_to_dir(fourdir) end
 
 -- Convert a vector to a wallmounted value, used for `paramtype2="wallmounted"`.
 ---@param dir mt.Vector
----@return string
+---@return mt.ParamType2
 function minetest.dir_to_wallmounted(dir) end
 
 -- Convert a wallmounted value back into a vector
 -- aimed directly out the "back" of a node.
----@param wallmounted string
+---@param wallmounted mt.ParamType2
 ---@return mt.Vector
 function minetest.wallmounted_to_dir(wallmounted) end
 
