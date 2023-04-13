@@ -261,9 +261,9 @@ function minetest.is_area_protected(pos1, pos2, player_name, interval) end
 ---@param itemstack mt.Item
 ---@param placer? mt.ObjectRef
 ---@param pointed_thing mt.PointedThing
----@param infinitestacks boolean
----@param orient_flags {invert_wall: boolean, force_wall: boolean, force_ceiling: boolean, force_floor: boolean, force_facedir: boolean}
----@param prevent_after_place boolean
+---@param infinitestacks boolean|nil
+---@param orient_flags {invert_wall: boolean|nil, force_wall: boolean|nil, force_ceiling: boolean|nil, force_floor: boolean|nil, force_facedir: boolean|nil}
+---@param prevent_after_place boolean|nil
 ---@return mt.ItemStack
 ---@nodiscard
 function minetest.rotate_and_place(

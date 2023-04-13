@@ -46,11 +46,11 @@ minetest.registered_on_shutdown = {}
 ---If return `true` no item is taken from `itemstack`
 ---
 ---**Not recommended**: use `on_construct` or `after_place_node` in node definition then possible.
----@param func fun(pos: mt.Vector, newnode: mt.Node, placer?: mt.ObjectRef, oldnode: mt.Node, itemstack: mt.Item, pointed_thing: mt.PointedThing): boolean
+---@param func fun(pos: mt.Vector, newnode: mt.Node, placer?: mt.ObjectRef, oldnode: mt.Node, itemstack: mt.Item, pointed_thing: mt.PointedThing): boolean|nil
 function minetest.register_on_placenode(func) end
 
 ---Map of registered on_placenode.
----@type (fun(pos: mt.Vector, newnode: mt.Node, placer?: mt.ObjectRef, oldnode: mt.Node, itemstack: mt.Item, pointed_thing: mt.PointedThing): boolean)[]
+---@type (fun(pos: mt.Vector, newnode: mt.Node, placer?: mt.ObjectRef, oldnode: mt.Node, itemstack: mt.Item, pointed_thing: mt.PointedThing): boolean|nil)[]
 minetest.registered_on_placenodes = {}
 
 ---Register a function that will be called when a node has been dug.
@@ -94,7 +94,7 @@ minetest.registered_on_newplayers = {}
 ---Note: This callback is invoked even if the punched player is dead.
 ---
 ---Callback should return `true` to prevent the default damage mechanism.
----@param func fun(player: mt.PlayerObjectRef, hitter: mt.ObjectRef, time_from_last_punch: number, tool_capabilities: mt.ToolCaps, dir: mt.Vector, damage: number): boolean
+---@param func fun(player: mt.PlayerObjectRef, hitter: mt.ObjectRef, time_from_last_punch: number, tool_capabilities: mt.ToolCaps, dir: mt.Vector, damage: number): boolean|nil
 function minetest.register_on_punchplayer(func) end
 
 ---Map of registered on_punchplayer.
@@ -161,11 +161,11 @@ minetest.registered_on_dieplayers = {}
 ---Called **before** repositioning of player occurs.
 ---
 ---Return `true` in func to disable regular player placement.
----@param func fun(player: mt.PlayerObjectRef): boolean
+---@param func fun(player: mt.PlayerObjectRef): boolean|nil
 function minetest.register_on_respawnplayer(func) end
 
 ---Map of registered on_respawnplayer.
----@type (fun(player: mt.PlayerObjectRef): boolean)[]
+---@type (fun(player: mt.PlayerObjectRef): boolean|nil)[]
 minetest.registered_on_respawnplayers = {}
 
 ---Register a function that will be called when a client connects to the server, prior to authentication.
@@ -191,11 +191,11 @@ minetest.registered_on_joinplayers = {}
 ---Register a function that will be called when a player leaves the game.
 ---
 ---`timed_out`: True for timeout, false for other reasons.
----@param func fun(player: mt.PlayerObjectRef, timed_out: boolean)
+---@param func fun(player: mt.PlayerObjectRef, timed_out: boolean|nil)
 function minetest.register_on_leaveplayer(func) end
 
 ---Map of registered on_leaveplayer.
----@type fun(player: mt.PlayerObjectRef, timed_out: boolean)[]
+---@type fun(player: mt.PlayerObjectRef, timed_out: boolean|nil)[]
 minetest.registered_on_leaveplayers = {}
 
 ---Register a function that will be called when a client attempts to log into an account.
@@ -204,10 +204,10 @@ minetest.registered_on_leaveplayers = {}
 ---* `ip`: The IP address of the client
 ---* `is_success`: Whether the client was successfully authenticated
 ---* For newly registered accounts, `is_success` will always be true
----@param func fun(name: string, ip: string, is_success: boolean)
+---@param func fun(name: string, ip: string, is_success: boolean|nil)
 function minetest.register_on_authplayer(func) end
 
----@type fun(name: string, ip: string, is_success: boolean)[]
+---@type fun(name: string, ip: string, is_success: boolean|nil)[]
 minetest.registered_on_authplayers = {}
 
 ---Register a function that will be called when a client attempts to log into an account but fails.
@@ -228,11 +228,11 @@ minetest.registered_on_cheats = {}
 ---Register a function that will be called when a player send a chat message.
 ---
 ---Return `true` to mark the message as handled, which means that it will not be sent to other players.
----@param func fun(name: string, message: string): boolean
+---@param func fun(name: string, message: string): boolean|nil
 function minetest.register_on_chat_message(func) end
 
 ---Map of registered on_chat_message.
----@type (fun(name: string, message: string): boolean)[]
+---@type (fun(name: string, message: string): boolean|nil)[]
 minetest.registered_on_chat_messages = {}
 
 ---Register a function that will be called when a player send a chat command.
@@ -276,11 +276,11 @@ minetest.registered_on_chatcommands = {}
 ---Newest functions are called first.
 ---
 ---If function returns `true`, remaining functions are not called.
----@param func fun(player: mt.PlayerObjectRef, formname: string, fields: table<string, any>): boolean
+---@param func fun(player: mt.PlayerObjectRef, formname: string, fields: table<string, any>): boolean|nil
 function minetest.register_on_player_receive_fields(func) end
 
 ---Map of registered on_player_receive_fields.
----@type (fun(player: mt.PlayerObjectRef, formname: string, fields: table<string, any>): boolean)[]
+---@type (fun(player: mt.PlayerObjectRef, formname: string, fields: table<string, any>): boolean|nil)[]
 minetest.registered_on_player_receive_fields = {}
 
 ---Register a function that will be called when a player craft something.
@@ -381,7 +381,7 @@ minetest.registered_on_priv_revoke = {}
 ---Called when `name` user connects with `ip`.
 ---
 ---Return `true` to by pass the player limit
----@param func fun(name: string, ip: string): boolean
+---@param func fun(name: string, ip: string): boolean|nil
 function minetest.register_can_bypass_userlimit(func) end
 
 ---Map of registered can_bypass_userlimit.

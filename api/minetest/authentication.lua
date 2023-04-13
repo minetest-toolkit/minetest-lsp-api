@@ -2,7 +2,7 @@
 ---Authentication
 -----------------
 
----@alias mt.PrivsSet { [string]: boolean }
+---@alias mt.PrivsSet { [string]: boolean|nil }
 
 ---Converts string representation of privs into table form
 ---@param str string String to convert.
@@ -30,7 +30,7 @@ function minetest.get_player_privs(name) end
 ---@param ... string
 ---@return boolean
 ---@return string[]?
----@overload fun(player_or_name: mt.PlayerObjectRef|string, privs: mt.PrivsSet): boolean, string[]?
+---@overload fun(player_or_name: mt.PlayerObjectRef|string, privs: mt.PrivsSet): boolean?, string[]?
 function minetest.check_player_privs(player_or_name, ...) end
 
 ---Returns true if the "password entry" for a player with name matches given
