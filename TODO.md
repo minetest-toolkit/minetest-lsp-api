@@ -33,10 +33,7 @@ Feel free to add your subitems if item is partially done.
 - [x] [Inventory](api/minetest/inventory.lua)
 - [x] [Colors](api/classes/color.lua)
 - [x] [Escape sequences](api/minetest/escape.lua)
-- [ ] [Spatial Vectors](api/classes/vector.lua)
-  - [x] Full form
-  - [ ] Simple form as different type?
-  - [ ] Separate Vector2 and Vector3?
+- [x] [Spatial Vectors](api/classes/vector.lua)
 - [x] [Helper functions](api/minetest/helpers.lua)
 - [x] [Translations](api/minetest/translations.lua)
 - [x] [Perlin noise](api/definitions/ore.lua)
