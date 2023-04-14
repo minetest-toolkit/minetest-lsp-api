@@ -247,7 +247,7 @@ function LuaObjectRef:get_luaentity() end
 ---@class mt.PlayerObjectRef : mt.ObjectRefProto
 local PlayerObjectRef = {}
 
----@return string|nil name `""` if is not a player.
+---@return string name `""` if is not a player.
 function PlayerObjectRef:get_player_name() end
 
 ---**DEPRECATED**, use get_velocity() instead.
