@@ -46,7 +46,7 @@ function minetest.facedir_to_dir(facedir) end
 
 -- Convert a vector to a wallmounted value, used for `paramtype2="wallmounted"`.
 ---@param dir mt.Vector
----@return mt.ParamType2
+---@return mt.NodeParam
 function minetest.dir_to_wallmounted(dir) end
 
 -- Convert a wallmounted value back into a vector
