@@ -8,13 +8,13 @@
 ---Item's description.
 ---
 ---Can contain new lines. `"\n"` has to be used as new line character.
----@field description string
+---@field description string|nil
 ---Short item description.
 ---
 ---Must not contain new lines.
 ---
 ---Default: `nil`
----@field short_description string?
+---@field short_description string|nil
 ---Item groups.
 ---
 ---key = name, value = rating; rating = 1..3.
@@ -25,33 +25,33 @@
 ---* `{soil = 2, outerspace = 1, crumbly = 1}`
 ---* `{bendy = 2, snappy = 1}`
 ---* `{hard = 1, metal = 1, spikes = 1}`
----@field groups table<string, integer>
+---@field groups table<string, integer>|nil
 ---Item inventory texture.
----@field inventory_image string
+---@field inventory_image string|nil
 ---An overlay to the inventory texture which does not get colorized.
----@field inventory_overlay string
+---@field inventory_overlay string|nil
 ---Item wielded texture.
----@field wield_image string
+---@field wield_image string|nil
 ---An overlay to the wielded texture which does not get colorized.
----@field wield_overlay string
+---@field wield_overlay string|nil
 ---An texture containing the palette of an item.
 ---
 ---You can set the currently used color as the `"palette_index"` field of the item stack metadata.
 ---
 ---The palette is always stretched to fit indices between `0` and `255`, to ensure compatibility with `"colorfacedir"` and `"colorwallmounted"` nodes.
----@field palette string
+---@field palette string|nil
 ---The color of the item. The palette overrides this.
----@field color mt.ColorSpec
+---@field color mt.ColorSpec|nil
 ---The scale the item will have in the player hand.
----@field wield_scale mt.Vector
+---@field wield_scale mt.Vector|nil
 ---How much items can be stacked together.
 ---
 ---The default value of `99` may be configured by users using the setting `"default_stack_max"`.
----@field stack_max integer
+---@field stack_max integer|nil
 ---How far will the player be able to aim with this node as hand.
----@field range number
+---@field range number|nil
 ---If true, item points to all liquid nodes (`liquidtype ~= "none"`), even those for which `pointable = false`.
----@field liquids_pointable boolean
+---@field liquids_pointable boolean|nil
 ---* **When used for nodes:** Defines amount of light emitted by node.
 ---* **Otherwise:** Defines texture glow when viewed as a dropped item
 ---
@@ -60,9 +60,9 @@
 ---A value outside the range `0` to `minetest.LIGHT_MAX` causes undefined behavior.
 ---
 ---Default: `0`
----@field light_source integer
+---@field light_source integer|nil
 ---Define the tool capabilities.
----@field tool_capabilities mt.ToolCaps
+---@field tool_capabilities mt.ToolCaps|nil
 ---Define client-side placement prediction.
 ---
 ---* If `nil` and item is node, prediction is made automatically.
@@ -72,7 +72,7 @@
 ---Otherwise should be name of node which the client immediately places on ground when the player places the item.
 ---
 ---Server will always update actual result shortly.
----@field node_placement_prediction string?
+---@field node_placement_prediction string|nil
 ---Define client-side dig prediction.
 ---
 ---* If `""`, no prediction is made.
@@ -83,14 +83,14 @@
 ---Server will always update actual result shortly.
 ---
 ---Default: `""`
----@field node_dig_prediction string?
+---@field node_dig_prediction string|nil
 ---Definition of items sounds to be played at various events.
 ---
 ---All fields in this table are optional.
 ---
 ---* `breaks`: When tool breaks due to wear. Ignored for non-tools.
 ---* `eat`: When item is eaten with `minetest.do_item_eat`.
----@field sound {breaks: mt.SimpleSoundSpec, eat: mt.SimpleSoundSpec}
+---@field sound {breaks: mt.SimpleSoundSpec, eat: mt.SimpleSoundSpec}|nil
 ---When the `place` key was pressed with the item in hand and a node was pointed at.
 ---
 ---Shall place item and return the leftover `itemstack` or `nil` to not modify the inventory.

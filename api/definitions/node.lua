@@ -5,32 +5,32 @@
 
 ---Used by `minetest.register_node`.
 ---@class mt.NodeDef:mt.ItemDef
----@field drawtype mt.DrawType
+---@field drawtype mt.DrawType|nil
 -- * Supported for drawtypes "plantlike", "signlike", "torchlike",
 --   "firelike", "mesh", "nodebox", "allfaces".
 -- * For plantlike and firelike, the image will start at the bottom of the node.
 -- * For torchlike, the image will start at the surface to which the
 --   node "attaches".
 -- * For the other drawtypes the image will be centered on the node.
----@field visual_scale number
+---@field visual_scale number|nil
 -- * Textures of node; +Y, -Y, +X, -X, +Z, -Z
 -- * Old field name was 'tile_images'.
 -- * List can be shortened to needed length.
----@field tiles mt.TileDef[]
+---@field tiles mt.TileDef[]|nil
 -- Same as `tiles`, but these textures are drawn on top of the base
 -- tiles. You can use this to colorize only specific parts of your
 -- texture. If the texture name is an empty string, that overlay is not
 -- drawn. Since such tiles are drawn twice, it is not recommended to use
 -- overlays on very common nodes.
----@field overlay_tiles mt.TileDef[]
+---@field overlay_tiles mt.TileDef[]|nil
 -- * Special textures of node; used rarely.
 -- * Old field name was 'special_materials'.
 -- * List can be shortened to needed length.
----@field special_tiles mt.TileDef[]
+---@field special_tiles mt.TileDef[]|nil
 -- * The node's original color will be multiplied with this color.
 -- * If the node has a palette, then this setting only has an effect in
 --   the inventory and on the wield item.
----@field color mt.ColorSpec
+---@field color mt.ColorSpec|nil
 -- Specifies how the texture's alpha channel will be used for rendering.
 -- possible values:
 -- * "opaque": Node is rendered opaque regardless of alpha channel
@@ -42,46 +42,46 @@
 -- "clip" otherwise.
 -- If set to a boolean value (deprecated): true either sets it to blend
 -- or clip, false sets it to clip or opaque mode depending on the drawtype.
----@field use_texture_alpha "opaque"|"clip"|"blend"
+---@field use_texture_alpha "opaque"|"clip"|"blend"|nil
 -- * The node's `param2` is used to select a pixel from the image.
 -- * Pixels are arranged from left to right and from top to bottom.
 -- * The node's color will be multiplied with the selected pixel's color.
 -- * Tiles can override this behavior.
 -- * Only when `paramtype2` supports palettes.
----@field palette string
+---@field palette string|nil
 -- Screen tint if player is inside node.
----@field post_effect_color mt.ColorSpec
----@field paramtype mt.ParamType
----@field paramtype2 mt.ParamType2
+---@field post_effect_color mt.ColorSpec|nil
+---@field paramtype mt.ParamType|nil
+---@field paramtype2 mt.ParamType2|nil
 -- Force value for param2 when player places node.
----@field place_param2 mt.NodeParam
+---@field place_param2 mt.NodeParam|nil
 -- If false, the cave generator and dungeon generator will not carve
 -- through this node.
 -- Specifically, this stops mod-added nodes being removed by caves and
 -- dungeons when those generate in a neighbor mapchunk and extend out
 -- beyond the edge of that mapchunk.
----@field is_ground_content boolean
+---@field is_ground_content boolean|nil
 -- If true, sunlight will go infinitely through this node.
----@field sunlight_propagates boolean
+---@field sunlight_propagates boolean|nil
 -- If true, objects collide with node.
----@field walkable boolean
+---@field walkable boolean|nil
 -- If true, can be pointed at.
----@field pointable boolean
+---@field pointable boolean|nil
 -- If false, can never be dug.
----@field diggable boolean
+---@field diggable boolean|nil
 -- If true, can be climbed on (ladder).
----@field climbable boolean
+---@field climbable boolean|nil
 -- Slows down movement of players through this node (max. 7).
 -- If this is nil, it will be equal to liquid_viscosity.
 -- Note: If liquid movement physics apply to the node
 -- (see `liquid_move_physics`), the movement speed will also be
 -- affected by the `movement_liquid_*` settings.
----@field move_resistance number
+---@field move_resistance number|nil
 -- If true, placed nodes can replace this node.
----@field buildable_to boolean
+---@field buildable_to boolean|nil
 -- If true, liquids flow into and replace this node.
 -- Warning: making a liquid node 'floodable' will cause problems.
----@field floodable boolean
+---@field floodable boolean|nil
 -- * "none":    no liquid flowing physics
 -- * "source":  spawns flowing liquid nodes at all 4 sides and below;
 --              recommended drawtype: "liquid".
@@ -91,19 +91,19 @@
 --              recommended drawtype: "flowingliquid".
 -- If it's "source" or "flowing" and `liquid_range > 0`, then
 -- both `liquid_alternative_*` fields must be specified.
----@field liquidtype "none"|"source"|"flowing"
+---@field liquidtype "none"|"source"|"flowing"|nil
 -- Flowing version of source liquid.
----@field liquid_alternative_flowing string
+---@field liquid_alternative_flowing string|nil
 -- Source version of flowing liquid.
----@field liquid_alternative_source string
+---@field liquid_alternative_source string|nil
 -- Controls speed at which the liquid spreads/flows (max. 7).
 -- 0 is fastest, 7 is slowest.
 -- By default, this also slows down movement of players inside the node
 -- (can be overridden using `move_resistance`)
----@field liquid_viscosity number
+---@field liquid_viscosity number|nil
 -- If true, a new liquid source can be created by placing two or more
 -- sources nearby.
----@field liquid_renewable boolean
+---@field liquid_renewable boolean|nil
 -- * false: No liquid movement physics apply.
 -- * true: Enables liquid movement physics. Enables things like
 --   ability to "swim" up/down, sinking slowly if not moving,
@@ -117,40 +117,40 @@
 -- Allows defining the nodebox height without using param2.
 -- The nodebox height is 'leveled' / 64 nodes.
 -- The maximum value of 'leveled' is `leveled_max`.
----@field leveled number
+---@field leveled number|nil
 -- Maximum value for `leveled` (0-127), enforced in
 -- `minetest.set_node_level` and `minetest.add_node_level`.
 -- Values above 124 might causes collision detection issues.
----@field leveled_max number
+---@field leveled_max number|nil
 -- Maximum distance that flowing liquid nodes can spread around
 -- source on flat land;
 -- maximum = 8; set to 0 to disable liquid flow.
----@field liquid_range number
+---@field liquid_range number|nil
 -- Player will take this amount of damage if no bubbles are left.
----@field drowning number
+---@field drowning number|nil
 -- If player is inside node, this damage is caused.
----@field damage_per_second number
----@field node_box mt.NodeBox
+---@field damage_per_second number|nil
+---@field node_box mt.NodeBox|nil
 -- Used for nodebox nodes with the type == "connected".
 -- Specifies to what neighboring nodes connections will be drawn.
 -- e.g. `{"group:fence", "default:wood"}` or `"default:stone"`.
----@field connects_to string[]
+---@field connects_to string[]|nil
 -- Tells connected nodebox nodes to connect only to these sides of this node.
----@field connect_sides string[]
+---@field connect_sides string[]|nil
 -- File name of mesh when using "mesh" drawtype.
----@field mesh string
+---@field mesh string|nil
 -- Custom selection box definition. Multiple boxes can be defined.
 -- If "nodebox" drawtype is used and selection_box is nil, then node_box
 -- definition is used for the selection box.
----@field selection_box mt.NodeBox
+---@field selection_box mt.NodeBox|nil
 -- Custom collision box definition. Multiple boxes can be defined.
 -- If "nodebox" drawtype is used and collision_box is nil, then node_box
 -- definition is used for the collision box.
 --
 -- Support maps made in and before January 2012.
----@field collision_box mt.NodeBox
----@field legacy_facedir_simple boolean
----@field legacy_wallmounted boolean
+---@field collision_box mt.NodeBox|nil
+---@field legacy_facedir_simple boolean|nil
+---@field legacy_wallmounted boolean|nil
 -- Valid for drawtypes:
 -- mesh, nodebox, plantlike, allfaces_optional, liquid, flowingliquid.
 -- 1 - wave node like plants (node top moves side-to-side, bottom is fixed)
@@ -160,16 +160,16 @@
 -- plantlike drawtype can only wave like plants.
 -- allfaces_optional drawtype can only wave like leaves.
 -- liquid, flowingliquid drawtypes can only wave like liquids.
----@field waving number
----@field sounds mt.NodeSoundsDef
----@field drop string|mt.NodeDropDef
----@field drops (string|mt.NodeDropDef)[]
+---@field waving number|nil
+---@field sounds mt.NodeSoundsDef|nil
+---@field drop string|mt.NodeDropDef|nil
+---@field drops (string|mt.NodeDropDef)[]|nil
 -- * Stores which mod actually registered a node.
 -- * If it can not find a source, returns "??".
 -- * Useful for getting what mod truly registered something.
 -- * Example: if a node is registered as ":othermodname:nodename",
 --   nodename will show "othermodname", but mod_origin will say "modname"
----@field mod_origin string
+---@field mod_origin string|nil
 local node = {}
 
 -- * Node constructor; called after adding node.
