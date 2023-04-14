@@ -9,12 +9,12 @@
 ---@field label string|nil
 -- Apply `action` function to these nodes.
 -- `group:groupname` can also be used here.
----@field nodenames string[]
+---@field nodenames string|string[]
 -- Only apply `action` to nodes that have one of, or any
 -- combination of, these neighbors.
 -- If left out or empty, any neighbor will do.
 -- `group:groupname` can also be used here.
----@field neighbors string[]
+---@field neighbors string|string[]
 ---@field interval number Operation interval in seconds.
 -- Chance of triggering `action` per-node per-interval is 1.0 / this value
 ---@field chance number

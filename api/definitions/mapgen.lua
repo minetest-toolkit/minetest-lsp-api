@@ -240,14 +240,6 @@ VoxelArea.ystride = nil
 ---@type mt.VoxelAreaStride
 VoxelArea.zstride = nil
 
----@alias mt.HeightMap number[]
-
----@alias mt.BiomeMap integer[]
-
----@alias mt.HeatMap number[]
-
----@alias mt.HumidityMap number[]
-
 ---@class mt.GenNotify
 ---A table mapping requested generation notification types to arrays of
 ---positions at which the corresponding generated structures are located within
@@ -264,10 +256,4 @@ VoxelArea.zstride = nil
 ---numeric unique decoration ID as returned by `minetest.get_decoration_id()`.
 ---For example, `"decoration#123"`.
 
----@alias mt.MapgenObject
----|mt.VoxelManip
----|mt.HeightMap
----|mt.BiomeMap
----|mt.HeatMap
----|mt.HumidityMap
----|mt.GenNotify
+---@alias mt.MapgenObject mt.VoxelManip|mt.GenNotify|table
