@@ -167,3 +167,6 @@ function ItemStackObject:peek_item(n) end
 ---  "equivalent".
 ---@param other mt.Item
 function ItemStackObject:equals(other) end
+
+---@return mt.ItemStackMetaRef
+function ItemStackObject:get_meta() end

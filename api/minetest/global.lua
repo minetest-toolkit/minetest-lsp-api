@@ -288,7 +288,7 @@ minetest.registered_on_player_receive_fields = {}
 ---* `old_craft_grid` contains the recipe (Note: the one in the inventory is cleared).
 ---* `craft_inv` is the inventory with the crafting grid
 ---* Return either an `ItemStack`, to replace the output, or `nil`, to not modify it.
----@param func fun(itemstack: mt.Item, player: mt.PlayerObjectRef, old_craft_grid: table, craft_inv: mt.InvRef): mt.ItemStack?
+---@param func fun(itemstack: mt.ItemStack, player: mt.PlayerObjectRef, old_craft_grid: table, craft_inv: mt.InvRef): mt.ItemStack?
 function minetest.register_on_craft(func) end
 
 ---Map of registered on_craft.

@@ -200,7 +200,7 @@ function minetest.item_place(itemstack, placer, pointed_thing, param2) end
 --
 -- Drop the item.
 ---@param itemstack mt.Item
----@param dropper mt.ObjectRef
+---@param dropper mt.ObjectRef|nil
 ---@param pos mt.Vector
 ---@return mt.ItemStack leftover
 function minetest.item_drop(itemstack, dropper, pos) end

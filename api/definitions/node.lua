@@ -54,7 +54,7 @@
 ---@field paramtype mt.ParamType
 ---@field paramtype2 mt.ParamType2
 -- Force value for param2 when player places node.
----@field place_param2 mt.ParamType2
+---@field place_param2 mt.NodeParam
 -- If false, the cave generator and dungeon generator will not carve
 -- through this node.
 -- Specifically, this stops mod-added nodes being removed by caves and

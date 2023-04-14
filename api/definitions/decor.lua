@@ -54,7 +54,7 @@
 -- Node (or list of nodes) that the decoration only spawns next to.
 -- Checks the 8 neighbor nodes on the same Y, and also the ones
 -- at Y+1, excluding both center nodes.
----@field spawn_by string
+---@field spawn_by string|string[]
 -- Number of spawn_by nodes that must be surrounding the decoration
 -- position to occur.
 -- If absent or -1, decorations occur next to any nodes.

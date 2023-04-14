@@ -131,7 +131,7 @@ noise at the expense of requiring more octaves to cover a paticular range of
 ]]
 ---@field lacunarity number
 -- Leave this field unset for no special handling.
----@field flags nil
+---@field flags nil|string
 -- Specify this if you would like to keep auto-selection of eased/not-eased
 -- while specifying some other flags.
 ---|"defaults"
