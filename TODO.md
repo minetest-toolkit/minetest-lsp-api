@@ -116,7 +116,5 @@ Feel free to add your subitems if item is partially done.
 
 - [ ] Check all `unknown` and `table` types
 - [x] Update it to the latest version
-- [ ] Check all optional variables
-- [ ] Mark optional class fields?
 - [ ] Test it in an existed games
 - [ ] Add examples
