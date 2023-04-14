@@ -38,7 +38,7 @@ local VoxelManip = {}
 function VoxelManip:read_from_map(p1, p2) end
 
 ---Writes the data loaded from the `VoxelManip` back to the map.
----@param light boolean `true` by default
+---@param light boolean|nil `true` by default
 ---* If `light` is true, then lighting is automatically recalculated.
 ---* If `light` is false, no light calculations happen, and you should correct
 ---all modified blocks with `minetest.fix_light()` as soon as possible.
@@ -59,8 +59,8 @@ function VoxelManip:get_node_at(pos) end
 function VoxelManip:set_node_at(pos, node) end
 
 ---Retrieves the node content data loaded into the `VoxelManip` object.
----@param buffer? table if present, will be used to store the result
----@return integer[]? # raw node data in the form of an array of node content IDs
+---@param buffer? table If present, will be used to store the result.
+---@return integer[] # Raw node data in the form of an array of node content IDs.
 function VoxelManip:get_data(buffer) end
 
 ---Sets the data contents of the `VoxelManip` object

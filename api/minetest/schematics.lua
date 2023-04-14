@@ -29,9 +29,9 @@ function minetest.create_schematic(p1, p2, probability_list, filename, slice_pro
 ---@param pos mt.Vector
 ---@param schematic mt.SchematicSpec
 ---@param rotation "0"|"90"|"180"|"270"|"random"
----@param replacements {[string]: string}
----@param force_placement boolean Nodes other than `air` and `ignore` are replaced by the schematic.
----@param flags {place_center_x:boolean, place_center_y:boolean, place_center_z:boolean}
+---@param replacements {[string]: string}|nil
+---@param force_placement boolean|nil Nodes other than `air` and `ignore` are replaced by the schematic.
+---@param flags {place_center_x:boolean, place_center_y:boolean, place_center_z:boolean}|nil
 function minetest.place_schematic(pos, schematic, rotation, replacements, force_placement, flags) end
 
 -- Return the serialized schematic specified by schematic.

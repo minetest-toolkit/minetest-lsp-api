@@ -208,7 +208,7 @@ function minetest.get_voxel_manip(pos1, pos2) end
 function VoxelManip(pos1, pos2) end
 
 ---Set the types of on-generate notifications that should be collected.
----@param flags string flag field
+---
 ---Available flags:
 ---* dungeon
 ---* temple
@@ -217,7 +217,8 @@ function VoxelManip(pos1, pos2) end
 ---* large_cave_begin
 ---* large_cave_end
 ---* decoration
----@param deco_ids string[] list of IDs of decorations which notification is requested for.
+---@param flags {[string]: boolean}|nil
+---@param deco_ids string[]|nil list of IDs of decorations which notification is requested for.
 function minetest.set_gen_notify(flags, deco_ids) end
 
 ---@return string flags
@@ -248,8 +249,13 @@ function minetest.get_heat(pos) end
 ---@return number? # humidity at the position, or `nil` on failure.
 function minetest.get_humidity(pos) end
 
+---@class mt.BiomeData
+---@field biome string
+---@field heat number
+---@field humidity number
+
 ---@param pos mt.Vector
----@return { biome: string, heat: number, humidity: number } | nil
+---@return mt.BiomeData | nil
 ---Get table with biome data at position or `nil` on failure.
 function minetest.get_biome_data(pos) end
 
@@ -263,18 +269,23 @@ function minetest.get_biome_id(biome_name) end
 ---If no biomes have been registered, such as in mgv6, returns `default`.
 function minetest.get_biome_name(biome_id) end
 
----@alias MapgenParams { mgname: string, seed: number, chunksize: number, water_level: number, flags: string }
+---@class mt.MapgenParams
+---@field mgname string
+---@field seed number
+---@field chunksize number
+---@field water_level number
+---@field flags string
 
 ---@deprecated
 ---Deprecated, use `minetest.get_mapgen_setting(name)` instead.
----@return MapgenParams
+---@return mt.MapgenParams
 function minetest.get_mapgen_params() end
 
 ---@deprecated
 ---Deprecated: use `minetest.set_mapgen_setting(name, value, override) instead.
 ---Set map generation parameters.
 ---Function cannot be called after the registration period.
----@param params MapgenParams
+---@param params mt.MapgenParams
 -- * Leave field unset to leave that parameter unchanged.
 -- * `flags` contains a comma-delimited string of flags to set, or if the
 --   prefix `"no"` is attached, clears instead.

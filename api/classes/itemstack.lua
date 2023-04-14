@@ -12,24 +12,23 @@
 ---* `stack1 == stack2`:
 ---* Returns whether `stack1` and `stack2` are identical.
 ---* Note: `stack1:to_string() == stack2:to_string()` is not reliable,
----      as stack metadata can be serialized in arbitrary order.
+---  as stack metadata can be serialized in arbitrary order.
 ---* Note: if `stack2` is an itemstring or table representation of an
----      ItemStack, this will always return false, even if it is "equivalent".
+---  ItemStack, this will always return false, even if it is "equivalent".
 ---@class mt.ItemStack
+---@field meta {[string]: string}
+---@field metadata string deprecated
+---@field count integer
+---@field name string
+---@field wear integer
+---@field tool_capabilities mt.ToolCaps
+---@field stack_max integer
 local ItemStackObject = {}
 
 ---`ItemStack` constructor.
 ---@param x mt.Item
 ---@return mt.ItemStack
 function ItemStack(x) end
-
----@class mt.ItemStackTable
----@field meta {[string]: string}
----@field metadata string deprecated
----@field count integer
----@field name string
----@field wear integer
-local ItemStackTable = {}
 
 ---Returns `true` if stack is empty.
 ---@return boolean
