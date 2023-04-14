@@ -10,9 +10,9 @@
 -- the noiseparams seed plus the world seed, to create world-specific noise.
 ---@class mt.PerlinNoise
 -- Returns 2D noise value at `pos={x=,y=}`.
----@field get_2d fun(pos:mt.Vector): mt.PerlinNoise
+---@field get_2d fun(self:self, pos:mt.Vector): mt.PerlinNoise
 -- Returns 3D noise value at `pos={x=,y=,z=}`.
----@field get_3d fun(pos:mt.Vector): mt.PerlinNoise
+---@field get_3d fun(self:self, pos:mt.Vector): mt.PerlinNoise
 
 ---@overload fun(seeddiff, octaves, persistence, spread):mt.PerlinNoise Deprecated.
 ---@param noiseparams mt.PerlinNoiseParams
