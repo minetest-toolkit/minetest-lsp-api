@@ -207,6 +207,8 @@ function minetest.get_voxel_manip(pos1, pos2) end
 ---@return mt.VoxelManip
 function VoxelManip(pos1, pos2) end
 
+---@alias mt.DecorID string|number
+
 ---Set the types of on-generate notifications that should be collected.
 ---
 ---Available flags:
@@ -218,15 +220,15 @@ function VoxelManip(pos1, pos2) end
 ---* large_cave_end
 ---* decoration
 ---@param flags {[string]: boolean}|nil
----@param deco_ids string[]|nil list of IDs of decorations which notification is requested for.
+---@param deco_ids mt.DecorID[]|nil list of IDs of decorations which notification is requested for.
 function minetest.set_gen_notify(flags, deco_ids) end
 
 ---@return string flags
----@return number[] # `deco_id`'s.
+---@return mt.DecorID[] # `deco_id`'s.
 function minetest.get_gen_notify() end
 
 ---@param decoration_name string
----@return number? # decoration ID number for the provided decoration name string, or `nil` on failure.
+---@return mt.DecorID? # Decoration ID number for the provided decoration name string, or `nil` on failure.
 function minetest.get_decoration_id(decoration_name) end
 
 ---@alias mt.VoxelManipName

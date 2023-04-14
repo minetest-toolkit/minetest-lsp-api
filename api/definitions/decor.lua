@@ -82,7 +82,7 @@
 -- The node name used as the decoration.
 -- If instead a list of strings, a randomly selected node from the list
 -- is placed as the decoration.
----@field decoration string
+---@field decoration string|string[]
 -- Decoration height in nodes.
 -- If height_max is not 0, this is the lower limit of a randomly
 -- selected height.
