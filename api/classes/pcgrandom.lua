@@ -4,8 +4,8 @@
 
 -- A 32-bit pseudorandom number generator. Uses PCG32, an algorithm of the permuted
 -- congruential generator family, offering very strong randomness.
----@param seed unknown
----@param sequence unknown
+---@param seed number
+---@param sequence number|nil
 ---@return mt.PcgRandom
 function PcgRandom(seed, sequence) end
 

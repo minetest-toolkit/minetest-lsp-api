@@ -121,7 +121,7 @@ function minetest.add_entity(pos, name, staticdata) end
 
 ---Spawn item
 ---@param pos mt.Vector
----@param item string
+---@param item mt.Item
 ---@return mt.ObjectRef? ref or `nil` if failed
 function minetest.add_item(pos, item) end
 

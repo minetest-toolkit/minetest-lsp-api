@@ -163,6 +163,7 @@
 ---@field waving number
 ---@field sounds mt.NodeSoundsDef
 ---@field drop string|mt.NodeDropDef
+---@field drops (string|mt.NodeDropDef)[]
 -- * Stores which mod actually registered a node.
 -- * If it can not find a source, returns "??".
 -- * Useful for getting what mod truly registered something.

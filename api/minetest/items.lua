@@ -83,6 +83,7 @@ function minetest.strip_param2_color(param2, paramtype2) end
 -- with the item `toolname` (not limited to tools).
 ---@param node mt.Node|string Node as table or node name.
 ---@param toolname string|nil Name of the item used to dig.
+---@return mt.ItemString[]
 function minetest.get_node_drops(node, toolname) end
 
 -- Used in `minetest.get_craft_result` and `minetest.get_craft_recipe`.

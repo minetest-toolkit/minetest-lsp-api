@@ -17,10 +17,9 @@
 ---@field object mt.ObjectRef
 local entity = {}
 
----@param self mt.EntityDef
 ---@param staticdata string
 ---@param dtime number Elapsed time.
-function entity.on_activate(self, staticdata, dtime) end
+function entity:on_activate(staticdata, dtime) end
 
 -- Called when the object is about to get removed or unloaded.
 --
@@ -28,15 +27,13 @@ function entity.on_activate(self, staticdata, dtime) end
 --   first place. In particular, `minetest.clear_objects({mode = "full"})` won't
 --   call this, whereas `minetest.clear_objects({mode = "quick"})` might call
 --   this.
----@param self mt.EntityDef
 ---@param removal boolean Indicating whether the object is about to get removed.
-function entity.on_deactivate(self, removal) end
+function entity:on_deactivate(removal) end
 
 -- Called every server step.
----@param self mt.EntityDef
 ---@param dtime number Elapsed time.
 ---@param moveresult mt.CollisionInfo|nil Only available if `physical` == `true`.
-function entity.on_step(self, dtime, moveresult) end
+function entity:on_step(dtime, moveresult) end
 
 --[[
 Damage calculation:
@@ -62,39 +59,33 @@ Entities can define a special armor group, which is `punch_operable`. This group
 disables the regular damage mechanism for players punching it by hand or a
 non-tool item, so that it can do something else than take damage.
 ]]
----@param self mt.EntityDef
 ---@param puncher mt.ObjectRef|nil
 ---@param time_from_last_punch number|nil
 ---@param tool_capabilities mt.ToolCaps|nil
 ---@param dir mt.Vector Pointing from the source of the punch to the punched object.
 ---@param damage number
 ---@return boolean is_damaged
-function entity.on_punch(self, puncher, time_from_last_punch, tool_capabilities, dir, damage) end
+function entity:on_punch(puncher, time_from_last_punch, tool_capabilities, dir, damage) end
 
 -- Called when the object dies.
----@param self mt.EntityDef
 ---@param killer mt.ObjectRef|nil
-function on_death(self, killer) end
+function entity:on_death(killer) end
 
 -- Called when `clicker` pressed the 'place/use' key while pointing to the
 -- object (not necessarily an actual rightclick).
----@param self mt.EntityDef
 ---@param clicker mt.ObjectRef
-function entity.on_rightclick(self, clicker) end
+function entity:on_rightclick(clicker) end
 
----@param self mt.EntityDef
 ---@param child mt.ObjectRef
-function on_attach_child(self, child) end
+function entity:on_attach_child(child) end
 
----@param self mt.EntityDef
 ---@param child mt.ObjectRef|nil
-function on_detach_child(self, child) end
+function entity:on_detach_child(child) end
 
 -- Called sometimes; the string returned is passed to `on_activate` when
 -- the entity is re-activated from static state.
----@param self mt.EntityDef
 ---@return string
-function entity.get_staticdata(self) end
+function entity:get_staticdata() end
 
 ---Collision info passed to `on_step` (`moveresult` argument).
 ---@class mt.CollisionInfo
