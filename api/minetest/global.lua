@@ -46,7 +46,7 @@ minetest.registered_on_shutdown = {}
 ---If return `true` no item is taken from `itemstack`
 ---
 ---**Not recommended**: use `on_construct` or `after_place_node` in node definition then possible.
----@param func fun(pos: mt.Vector, newnode: mt.Node, placer?: mt.ObjectRef, oldnode: mt.Node, itemstack: mt.Item, pointed_thing: mt.PointedThing): boolean|nil
+---@param func fun(pos: mt.Vector, newnode: string, placer?: mt.ObjectRef, oldnode: string, itemstack: mt.Item, pointed_thing: mt.PointedThing): boolean|nil
 function minetest.register_on_placenode(func) end
 
 ---Map of registered on_placenode.
@@ -56,11 +56,11 @@ minetest.registered_on_placenodes = {}
 ---Register a function that will be called when a node has been dug.
 ---
 ---**Not recommended**: use `on_destruct` or `after_dig_node` in node definition then possible.
----@param func fun(pos: mt.Vector, oldnode: mt.Node, digger: mt.ObjectRef)
+---@param func fun(pos: mt.Vector, oldnode: mt.Node|string, digger: mt.ObjectRef)
 function minetest.register_on_dignode(func) end
 
 ---Map of registered on_dignode.
----@type fun(pos: mt.Vector, oldnode: mt.Node, digger: mt.ObjectRef)[]
+---@type fun(pos: mt.Vector, oldnode: mt.Node|string, digger: mt.ObjectRef)[]
 minetest.registered_on_dignodes = {}
 
 ---Register a function that will be called when a node has been punched.
