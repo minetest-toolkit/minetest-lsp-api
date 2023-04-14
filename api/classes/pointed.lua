@@ -4,8 +4,8 @@
 
 ---@class mt.PointedThing
 ---@field type "nothing"|"node"|"object"
----@field under mt.Vector|nil Refers to the node position behind the pointed face.
----@field above mt.Vector|nil Refers to the node position in front of the pointed face.
+---@field under mt.Vector Refers to the node position behind the pointed face.
+---@field above mt.Vector Refers to the node position in front of the pointed face.
 ---@field ref mt.ObjectRef|nil
 ---The absolute world coordinates of the point on the selection box which is
 ---pointed at. May be in the selection box if the pointer is in the box too.
