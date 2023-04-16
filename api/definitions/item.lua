@@ -5,6 +5,8 @@
 -- Used by `minetest.register_node`, `minetest.register_craftitem`, and
 -- `minetest.register_tool`.
 ---@class mt.ItemDef
+---@field name string
+---@field type string
 ---Item's description.
 ---
 ---Can contain new lines. `"\n"` has to be used as new line character.
