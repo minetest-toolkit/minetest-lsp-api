@@ -34,15 +34,15 @@ function minetest.dir_to_facedir(dir, is6d) end
 ---@return mt.Vector
 function minetest.facedir_to_dir(facedir) end
 
--- -- Convert a vector to a 4dir value, used in `param2` for `paramtype2="4dir"`.
--- ---@param dir mt.Vector
--- ---@return string
--- function minetest.dir_to_fourdir(dir) end
+-- Convert a vector to a 4dir value, used in `param2` for `paramtype2="4dir"`.
+---@param dir mt.Vector
+---@return string
+function minetest.dir_to_fourdir(dir) end
 
--- -- Convert a 4dir back into a vector aimed directly out the "back" of a node.
--- ---@param fourdir string
--- ---@return mt.Vector
--- function minetest.fourdir_to_dir(fourdir) end
+-- Convert a 4dir back into a vector aimed directly out the "back" of a node.
+---@param fourdir string
+---@return mt.Vector
+function minetest.fourdir_to_dir(fourdir) end
 
 -- Convert a vector to a wallmounted value, used for `paramtype2="wallmounted"`.
 ---@param dir mt.Vector
