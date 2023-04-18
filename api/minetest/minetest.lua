@@ -1,6 +1,6 @@
 ---@meta
 
----Minetest [2a1bc8](https://github.com/minetest/minetest/blob/2a1bc8/doc/lua_api.txt) API
+---Minetest 5.7 [2a1bc8](https://github.com/minetest/minetest/blob/2a1bc8/doc/lua_api.txt) API
 ---
 ---* [Official site](http://www.minetest.net)
 ---* [Developer Wiki](http://dev.minetest.net)
