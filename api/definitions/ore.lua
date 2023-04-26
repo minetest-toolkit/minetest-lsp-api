@@ -137,7 +137,7 @@ noise at the expense of requiring more octaves to cover a paticular range of
 ---|"defaults"
 -- Maps noise gradient values onto a quintic S-curve before performing
 -- interpolation. This results in smooth, rolling noise. Disable this (`noeased`)
--- for sharp-looking noise with a slightly gridded appearence. If no flags are
+-- for sharp-looking noise with a slightly gridded appearance. If no flags are
 -- specified (or defaults is), 2D noise is eased and 3D noise is not eased.
 -- Easing a 3D noise significantly increases the noise calculation load,
 -- so use with restraint.

@@ -114,7 +114,13 @@ Feel free to add your subitems if item is partially done.
 
 ## Final tasks
 
+- [ ] Improve structure if possible
+- [ ] Separate between `common` and `ssm`
+- [ ] Create headers for `MTG` and `MC2`
+- [ ] Check if our documentation can replace [modding book]
 - [ ] Check all `unknown` and `table` types
 - [x] Update it to the latest version
 - [ ] Test it in an existed games
 - [ ] Add examples
+
+[modding book]: https://rubenwardy.com/minetest_modding_book
