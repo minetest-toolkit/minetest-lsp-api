@@ -112,6 +112,46 @@ Feel free to add your subitems if item is partially done.
   - [x] [Authentication handler definition](api/definitions/auth.lua)
   - [x] Bit Library
 
+## Client API is a little bit different
+
+- [ ] Sounds
+- [ ] Representations of simple things
+- [ ] Formspec
+- [ ] Spatial Vectors
+- [ ] Helper functions
+- [ ] Minetest namespace reference
+  - [ ] Utilities
+  - [ ] Logging
+  - [ ] Global callback registration functions
+  - [ ] Sounds
+  - [ ] Timing
+  - [ ] Map
+  - [ ] Player
+  - [ ] Privileges
+  - [ ] Client Environment
+  - [ ] Storage API
+  - [ ] Mod channels
+  - [ ] Particles
+  - [ ] Misc
+  - [ ] UI
+- [ ] Setting-related
+- [ ] Class reference
+  - [ ] ModChannel
+  - [ ] Minimap
+  - [ ] Camera
+  - [ ] LocalPlayer
+  - [ ] Settings
+  - [ ] NodeMetaRef
+  - [ ] Raycast
+  - [ ] Definitions
+  - [ ] Chat command
+  - [ ] Server info
+  - [ ] HUD
+- [ ] Escape sequences
+- [ ] ColorString
+- [ ] Color
+- [ ] HUD element types
+
 ## Final tasks
 
 - [ ] Improve structure if possible
