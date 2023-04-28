@@ -114,11 +114,12 @@ Feel free to add your subitems if item is partially done.
 
 ## Client API is a little bit different
 
-- [ ] Sounds
-- [ ] Representations of simple things
-- [ ] Formspec
-- [ ] Spatial Vectors
-- [ ] Helper functions
+- [x] Sounds
+- [x] Representations of simple things
+  - [x] Vector
+  - [x] PointedThing
+- [x] Formspec
+- [x] Helper functions
 - [ ] Minetest namespace reference
   - [ ] Utilities
   - [ ] Logging
