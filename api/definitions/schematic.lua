@@ -5,7 +5,7 @@
 -- A schematic specifier identifies a schematic by either a filename to a
 -- Minetest Schematic file (`.mts`) or through raw data supplied through Lua,
 -- in the form of a table.
----@class mt.SchematicSpec
+---@class mt.SchematicSpecTable
 -- 3D vector containing the dimensions of the provided schematic. (required field)
 ---@field size mt.Vector
 -- A flat table of MapNode tables making up the schematic,
@@ -15,6 +15,8 @@
 -- sets the probability of a particular horizontal slice of the schematic being
 -- placed. (optional field)
 ---@field yslice_prob {ypos:number, prob:number}[]?
+
+---@alias mt.SchematicSpec mt.SchematicSpecTable|string
 
 ---@alias mt.SchematicAttr
 ---|"place_center_x" Placement of this decoration is centered along the X axis.

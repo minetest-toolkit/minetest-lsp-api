@@ -161,7 +161,7 @@ function minetest.get_tool_wear_after_use(uses, initial_wear) end
 -- Simulates an item that digs a node.
 ---@param groups mt.ObjectGroups
 ---@param tool_capabilities mt.ToolCaps
----@param wear number Amount of wear the tool starts with (default: `0`).
+---@param wear number|nil Amount of wear the tool starts with (default: `0`).
 ---@return mt.DigParams
 function minetest.get_dig_params(groups, tool_capabilities, wear) end
 

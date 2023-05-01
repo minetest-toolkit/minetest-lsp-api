@@ -305,7 +305,16 @@ function node.on_receive_fields(pos, formname, fields, sender) end
 ---@param count integer
 ---@param player mt.ObjectRef
 ---@return integer allowed
-function node.allow_metadata_inventory_move(pos, from_list, from_index, to_list, to_index, count, player) end
+function node.allow_metadata_inventory_move(
+  pos,
+  from_list,
+  from_index,
+  to_list,
+  to_index,
+  count,
+  player
+)
+end
 
 -- * Called when a player wants to put something into the inventory.
 -- * Return value: number of items allowed to put.
@@ -316,7 +325,14 @@ function node.allow_metadata_inventory_move(pos, from_list, from_index, to_list,
 ---@param stack mt.Item
 ---@param player mt.ObjectRef
 ---@return integer allowed
-function node.allow_metadata_inventory_put(pos, listname, index, stack, player) end
+function node.allow_metadata_inventory_put(
+  pos,
+  listname,
+  index,
+  stack,
+  player
+)
+end
 
 -- * Called when a player wants to take something out of the inventory.
 -- * Return value: number of items allowed to take.
@@ -327,7 +343,14 @@ function node.allow_metadata_inventory_put(pos, listname, index, stack, player) 
 ---@param stack mt.Item
 ---@param player mt.ObjectRef
 ---@return integer allowed
-function node.allow_metadata_inventory_take(pos, listname, index, stack, player) end
+function node.allow_metadata_inventory_take(
+  pos,
+  listname,
+  index,
+  stack,
+  player
+)
+end
 
 -- * Called after the actual action has happened, according to what was allowed.
 -- * No return value.
@@ -338,7 +361,16 @@ function node.allow_metadata_inventory_take(pos, listname, index, stack, player)
 ---@param to_index integer
 ---@param count integer
 ---@param player mt.ObjectRef
-function node.on_metadata_inventory_move(pos, from_list, from_index, to_list, to_index, count, player) end
+function node.on_metadata_inventory_move(
+  pos,
+  from_list,
+  from_index,
+  to_list,
+  to_index,
+  count,
+  player
+)
+end
 
 -- * Called after the actual action has happened, according to what was allowed.
 -- * No return value.
@@ -356,7 +388,14 @@ function node.on_metadata_inventory_put(pos, listname, index, stack, player) end
 ---@param index integer
 ---@param stack mt.Item
 ---@param player mt.ObjectRef
-function node.on_metadata_inventory_take(pos, listname, index, stack, player) end
+function node.on_metadata_inventory_take(
+  pos,
+  listname,
+  index,
+  stack,
+  player
+)
+end
 
 -- * If defined, called when an explosion touches the node,
 --   instead of removing the node.
