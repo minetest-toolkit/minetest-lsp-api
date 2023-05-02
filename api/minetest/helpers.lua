@@ -5,12 +5,14 @@
 -- Returns a string which makes `obj` human-readable.
 ---@param obj any
 ---@param dumped table|nil Default: `{}`.
+---@return string
 function dump(obj, dumped) end
 
 -- Returns a string which makes `obj` human-readable, handles reference loops.
 ---@param obj any
 ---@param name string|nil Default: `"_"`.
 ---@param dumped table|nil Default: `{}`.
+---@return string
 function dump2(obj, name, dumped) end
 
 -- Get the hypotenuse of a triangle with legs x and y. Useful for distance
@@ -40,7 +42,14 @@ function math.factorial(x) end
 ---@param max_splits number|nil If it's negative, splits aren't limited. Default: `-1`.
 ---@param sep_is_pattern boolean|nil Is separator a plain string or a pattern? Default: `false`.
 ---@return string[]
-function string.split(str, separator, include_empty, max_splits, sep_is_pattern) end
+function string.split(
+  str,
+  separator,
+  include_empty,
+  max_splits,
+  sep_is_pattern
+)
+end
 
 -- Returns the string without whitespace pre- and suffixes.
 -- - e.g. `"\n \t\tfoo bar\t ":trim()` returns `"foo bar"`
