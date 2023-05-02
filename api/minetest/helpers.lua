@@ -5,14 +5,14 @@
 
 -- Returns a string which makes `obj` human-readable.
 ---@param obj any
----@param dumped table|nil Default: `{}`.
+---@param dumped string|nil Default: `{}`.
 ---@return string
 function dump(obj, dumped) end
 
 -- Returns a string which makes `obj` human-readable, handles reference loops.
 ---@param obj any
 ---@param name string|nil Default: `"_"`.
----@param dumped table|nil Default: `{}`.
+---@param dumped string|nil Default: `{}`.
 ---@return string
 function dump2(obj, name, dumped) end
 
