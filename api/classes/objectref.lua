@@ -24,13 +24,13 @@ local ObjectRef = {}
 -- object you are working with still exists.
 ---@alias mt.ObjectRef mt.LuaObjectRef|mt.PlayerObjectRef
 
----@return mt.Vector
+---@return mt.Vector|nil
 function ObjectRef:get_pos() end
 
 ---@param pos mt.Vector
 function ObjectRef:set_pos(pos) end
 
----@return mt.Vector
+---@return mt.Vector|nil
 function ObjectRef:get_velocity() end
 
 ---* In comparison to using get_velocity, adding the velocity and then using
@@ -69,7 +69,7 @@ function ObjectRef:punch(puncher, time_from_last_punch, tool_capabilities, direc
 function ObjectRef:right_click(clicker) end
 
 ---Returns number of health points.
----@return number
+---@return number|nil
 function ObjectRef:get_hp() end
 
 ---* Set number of health points.
@@ -84,14 +84,14 @@ function ObjectRef:set_hp(hp, reason) end
 function ObjectRef:get_inventory() end
 
 ---Returns the name of the inventory list the wielded item is in.
----@return string
+---@return string|nil
 function ObjectRef:get_wield_list() end
 
 ---Returns the index of the wielded item.
----@return number
+---@return number|nil
 function ObjectRef:get_wield_index() end
 
----@return mt.ItemStack
+---@return mt.ItemStack|nil
 function ObjectRef:get_wielded_item() end
 
 ---Replaces the wielded item, returns `true` if successful.
@@ -103,7 +103,7 @@ function ObjectRef:set_wielded_item(item) end
 function ObjectRef:set_armor_groups(group_table) end
 
 ---Returns a table with the armor group ratings.
----@return table {group1=rating, group2=rating, ...}
+---@return table {group1=rating, group2=rating, ...}|nil
 function ObjectRef:get_armor_groups() end
 
 ---@param frame_range { x: number, y: number }|nil `{x=1, y=1}`
@@ -112,10 +112,10 @@ function ObjectRef:get_armor_groups() end
 ---@param frame_loop boolean|nil Default: `true`.
 function ObjectRef:set_animation(frame_range, frame_speed, frame_blend, frame_loop) end
 
----@return { x: number, y: number} range
----@return number frame_speed
----@return number frame_blend
----@return boolean frame_loop
+---@return { x: number, y: number}|nil range
+---@return number|nil frame_speed
+---@return number|nil frame_blend
+---@return boolean|nil frame_loop
 function ObjectRef:get_animation() end
 
 ---@param frame_speed number|nil Default: `15.0`.
@@ -132,7 +132,7 @@ function ObjectRef:set_attach(parent, bone, position, rotation, forced_visible) 
 ---  in circular attachments.
 ---* Returns parent, bone, position, rotation, forced_visible,
 ---  or nil if it isn't attached.
----@return mt.ObjectRef parent
+---@return mt.ObjectRef|nil parent
 ---@return string|nil bone The root bone.
 ---@return mt.Vector|nil position Relative position.
 ---@return mt.Vector|nil rotation Relative rotation in degrees.
@@ -140,7 +140,7 @@ function ObjectRef:set_attach(parent, bone, position, rotation, forced_visible) 
 function ObjectRef:get_attach() end
 
 ---Returns a list of ObjectRefs that are attached to the object.
----@return mt.ObjectRef[]
+---@return mt.ObjectRef[]|nil
 function ObjectRef:get_children() end
 
 function ObjectRef:set_detach() end
@@ -152,13 +152,13 @@ function ObjectRef:set_bone_position(bone, position, rotation) end
 
 ---Returns position and rotation of the bone.
 ---@param bone string
----@return mt.Vector position, mt.Vector rotation
+---@return mt.Vector|nil position, mt.Vector|nil rotation
 function ObjectRef:get_bone_position(bone) end
 
 ---@param property_table table
 function ObjectRef:set_properties(property_table) end
 
----@return table
+---@return table|nil
 function ObjectRef:get_properties() end
 
 ---@return boolean
@@ -170,7 +170,7 @@ function ObjectRef:is_player() end
 ---@field bgcolor mt.ColorSpec|nil
 
 ---Returns a table with the attributes of the nametag of an object.
----@return mt.NameTagAttributes
+---@return mt.NameTagAttributes|nil
 function ObjectRef:get_nametag_attributes() end
 
 ---Sets the attributes of the nametag of an object.
@@ -252,27 +252,27 @@ function PlayerObjectRef:get_player_name() end
 
 ---**DEPRECATED**, use get_velocity() instead.
 ---@deprecated
----@return mt.Vector
+---@return mt.Vector|nil
 function PlayerObjectRef:get_player_velocity() end
 
 ---**DEPRECATED**, use add_velocity(vel) instead.
 ---@deprecated
----@param vel mt.Vector
+---@param vel mt.Vector|nil
 function PlayerObjectRef:add_player_velocity(vel) end
 
 ---Get camera direction as a unit vector.
----@return mt.Vector
+---@return mt.Vector|nil
 function PlayerObjectRef:get_look_dir() end
 
 ---* Pitch in radians.
 ---* Angle ranges between -pi/2 and pi/2, which are straight up and down
 ---  respectively.
----@return number
+---@return number|nil
 function PlayerObjectRef:get_look_vertical() end
 
 ---* Yaw in radians.
 ---* Angle is counter-clockwise from the +z direction.
----@return number
+---@return number|nil
 function PlayerObjectRef:get_look_horizontal() end
 
 ---Sets look pitch.
@@ -287,13 +287,13 @@ function PlayerObjectRef:set_look_horizontal(radians) end
 ---* Angle ranges between -pi/2 and pi/2, which are straight down and up
 ---  respectively.
 ---@deprecated
----@return number
+---@return number|nil
 function PlayerObjectRef:get_look_pitch() end
 
 ---* Yaw in radians - **Deprecated** as broken. Use `get_look_horizontal`.
 ---* Angle is counter-clockwise from the +x direction.
 ---@deprecated
----@return number
+---@return number|nil
 function PlayerObjectRef:get_look_yaw() end
 
 ---Sets look pitch - **Deprecated**. Use `set_look_vertical`.
@@ -307,7 +307,7 @@ function PlayerObjectRef:set_look_pitch(radians) end
 function PlayerObjectRef:set_look_yaw(radians) end
 
 ---Returns player's breath.
----@return number
+---@return number|nil
 function PlayerObjectRef:get_breath() end
 
 ---* Sets player's breath
@@ -326,9 +326,9 @@ function PlayerObjectRef:set_breath(value) end
 ---@param transition_time number|nil Default: `0`. If defined, enables smooth FOV transition. Interpreted as the time (in seconds) to reach target FOV. If set to 0, FOV change is instantaneous.
 function PlayerObjectRef:set_fov(fov, is_multiplier, transition_time) end
 
----@return number fov Server-sent FOV value. Returns 0 if an FOV override doesn't exist.
----@return boolean is_multiplier Indicating whether the FOV value is a multiplier.
----@return number transition_time (in seconds) taken for the FOV transition. Set by `set_fov`.
+---@return number|nil fov Server-sent FOV value. Returns 0 if an FOV override doesn't exist.
+---@return boolean|nil is_multiplier Indicating whether the FOV value is a multiplier.
+---@return number|nil transition_time (in seconds) taken for the FOV transition. Set by `set_fov`.
 function PlayerObjectRef:get_fov() end
 
 ---**DEPRECATED**, use set_meta() instead.
@@ -343,7 +343,7 @@ function PlayerObjectRef:set_attribute(attribute, value) end
 ---@return string|nil value
 function PlayerObjectRef:get_attribute(attribute) end
 
----@return mt.PlayerMetaRef
+---@return mt.PlayerMetaRef|nil
 function PlayerObjectRef:get_meta() end
 
 ---* Redefine player's inventory form.
@@ -353,7 +353,7 @@ function PlayerObjectRef:get_meta() end
 function PlayerObjectRef:set_inventory_formspec(formspec) end
 
 ---Returns a formspec string.
---- @return string
+--- @return string|nil
 function PlayerObjectRef:get_inventory_formspec() end
 
 ---* The formspec string will be added to every formspec shown to the user,
@@ -365,7 +365,7 @@ function PlayerObjectRef:get_inventory_formspec() end
 function PlayerObjectRef:set_formspec_prepend(formspec) end
 
 ---Returns a formspec string.
----@return string formspec
+---@return string formspec|nil
 function PlayerObjectRef:get_formspec_prepend() end
 
 ---* Returns table with player pressed keys.
@@ -375,7 +375,7 @@ function PlayerObjectRef:get_formspec_prepend() end
 ---* The fields `LMB` and `RMB` are equal to `dig` and `place` respectively,
 ---  and exist only to preserve backwards compatibility.
 ---* Returns an empty table `{}` if the object is not a player.
----@return { up: boolean|nil, down: boolean|nil, left: boolean|nil, right: boolean|nil, jump: boolean|nil, aux1: boolean|nil, sneak: boolean|nil, dig: boolean|nil, place: boolean|nil, LMB: boolean|nil, RMB: boolean|nil, zoom: boolean|nil }
+---@return { up: boolean|nil, down: boolean|nil, left: boolean|nil, right: boolean|nil, jump: boolean|nil, aux1: boolean|nil, sneak: boolean|nil, dig: boolean|nil, place: boolean|nil, LMB: boolean|nil, RMB: boolean|nil, zoom: boolean|nil }|nil
 function PlayerObjectRef:get_player_control() end
 
 ---* Returns integer with bit packed player pressed keys.
@@ -391,7 +391,7 @@ function PlayerObjectRef:get_player_control() end
 ---  * 8 - place
 ---  * 9 - zoom
 ---* Returns `0` (no bits set) if the object is not a player.
----@return number
+---@return number|nil
 function PlayerObjectRef:get_player_control_bits() end
 
 ---@class mt.PhysicsOverride
@@ -406,7 +406,7 @@ function PlayerObjectRef:get_player_control_bits() end
 function PlayerObjectRef:set_physics_override(override_table) end
 
 ---Returns the table given to `set_physics_override`.
----@return mt.PhysicsOverride
+---@return mt.PhysicsOverride|nil
 function PlayerObjectRef:get_physics_override() end
 
 ---Add a HUD element described by HUD def, returns ID number on success.
@@ -559,7 +559,7 @@ function get_sky_color() end
 function PlayerObjectRef:set_sun(sun_parameters) end
 
 ---Returns a table with the current sun parameters as in `set_sun`.
----@return mt.SunParameters
+---@return mt.SunParameters|nil
 function PlayerObjectRef:get_sun() end
 
 ---@class mt.MoonParameters
@@ -573,7 +573,7 @@ function PlayerObjectRef:get_sun() end
 function PlayerObjectRef:set_moon(moon_parameters) end
 
 ---Returns a table with the current moon parameters as in `set_moon`.
----@return mt.MoonParameters
+---@return mt.MoonParameters|nil
 function PlayerObjectRef:get_moon() end
 
 ---@class mt.StarParameters
@@ -588,7 +588,7 @@ function PlayerObjectRef:get_moon() end
 function PlayerObjectRef:set_stars(star_parameters) end
 
 ---Returns a table with the current stars parameters as in `set_stars`.
----@return mt.StarParameters
+---@return mt.StarParameters|nil
 function PlayerObjectRef:get_stars() end
 
 ---@class mt.CloudParameters
@@ -604,7 +604,7 @@ function PlayerObjectRef:get_stars() end
 function PlayerObjectRef:set_clouds(cloud_parameters) end
 
 ---Returns a table with the current cloud parameters as in `set_clouds`.
----@return mt.CloudParameters
+---@return mt.CloudParameters|nil
 function PlayerObjectRef:get_clouds() end
 
 ---* Overrides day-night ratio, controlling sunlight to a specific amount.
@@ -659,7 +659,7 @@ function PlayerObjectRef:send_mapblock(blockpos) end
 function PlayerObjectRef:set_lighting(light_definition) end
 
 ---Returns the current state of lighting for the player.
----@return mt.Light
+---@return mt.Light|nil
 function PlayerObjectRef:get_lighting() end
 
 ---Respawns the player using the same mechanism as the death screen,
