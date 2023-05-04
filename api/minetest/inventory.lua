@@ -3,7 +3,7 @@
 ------------
 
 ---@class mt.InvLocation
----@field type "player"|"node"|"detached"
+---@field type "player"|"node"|"detached"|"undefined"
 ---@field name string|nil
 ---@field pos mt.Vector|nil
 
@@ -33,4 +33,11 @@ function minetest.remove_detached_inventory(name) end
 ---@param user mt.ObjectRef
 ---@param pointed_thing mt.PointedThing
 ---@return mt.ItemStack leftover
-function minetest.do_item_eat(hp_change, replace_with_item, itemstack, user, pointed_thing) end
+function minetest.do_item_eat(
+  hp_change,
+  replace_with_item,
+  itemstack,
+  user,
+  pointed_thing
+)
+end
