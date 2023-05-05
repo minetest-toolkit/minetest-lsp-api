@@ -37,6 +37,39 @@ minetest.registered_on_mods_loaded = {}
 ---@param func fun()
 function minetest.register_on_shutdown(func) end
 
+-- Called always when a client receive a message.
+--
+-- * Return `true` to mark the message as handled,
+-- which means that it will not be shown to chat.
+---@param func fun(message:string):boolean?
+function minetest.register_on_receiving_chat_message(func) end
+
+-- Called always when a client sends a message from chat
+--
+-- * Return `true` to mark the message as handled,
+-- which means that it will not be sent to server
+---@param func fun(message:string):boolean?
+function minetest.register_on_sending_chat_message(func) end
+
+-- Called when the local player dies.
+---@param func fun()
+function minetest.register_on_death(func) end
+
+-- Called when server modified player's HP.
+---@param func fun(hp:number)
+function minetest.register_on_hp_modification(func) end
+
+-- Called when the local player take damages.
+---@param func fun(hp:number)
+function minetest.register_on_damage_taken(func) end
+
+-- Called when a button is pressed in the local player's inventory form
+--
+-- * Newest functions are called first
+-- * If function returns `true`, remaining functions are not called
+---@param func fun(formname:string, fields:unknown):boolean?
+function minetest.register_on_formspec_input(func) end
+
 ---Map of registered on_shutdown.
 ---@type fun()[]
 minetest.registered_on_shutdown = {}
@@ -412,13 +445,33 @@ function minetest.register_can_bypass_userlimit(func) end
 ---@type fun(name: string, ip: string)[]
 minetest.registered_can_bypass_userlimit = {}
 
----Called when an incoming mod channel message is received
+---Called when an incoming mod channel message is received.
 ---
 ---You should have joined some channels to receive events.
 ---
 ---If message comes from a server mod, `sender` field is an empty string.
 ---@param func fun(channel_name: string, sender: string, message: string)
 function minetest.register_on_modchannel_message(func) end
+
+-- Called when a valid incoming mod channel signal is received.
+--
+-- * Signal id permit to react to server mod channel events.
+-- * Possible values are:
+--   0: join_ok
+--   1: join_failed
+--   2: leave_ok
+--   3: leave_failed
+--   4: event_on_not_joined_channel
+--   5: state_changed
+---@param func fun(channel_name: string, signal:unknown)
+function minetest.register_on_modchannel_signal(func) end
+
+-- Called when the local player open inventory.
+--
+-- * Newest functions are called first.
+-- * If any function returns true, inventory doesn't open.
+---@param func fun(inventory:mt.InvRef):boolean?
+function minetest.register_on_inventory_open(func) end
 
 ---Map of registered on_modchannel_message.
 ---@type fun(channel_name: string, sender: string, message: string)[]
