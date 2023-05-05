@@ -196,6 +196,18 @@ function minetest.item_place_object(itemstack, placer, pointed_thing) end
 ---@return mt.ItemStack, mt.Vector|nil position
 function minetest.item_place(itemstack, placer, pointed_thing, param2) end
 
+-- Runs callbacks registered by `minetest.register_on_item_pickup` and adds
+-- the item to the picker's `"main"` inventory list.
+--
+-- * Parameters are the same as in `on_pickup`.
+---@param itemstack mt.ItemStack
+---@param picker mt.ObjectRef
+---@param pointed_thing mt.PointedThing
+---@param time_from_last_punch number
+---@param ... any
+---@return mt.ItemStack leftover
+function minetest.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, ...) end
+
 -- Default `on_drop` callback.
 --
 -- Drop the item.

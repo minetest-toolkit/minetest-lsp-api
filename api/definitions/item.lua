@@ -109,6 +109,13 @@
 ---
 ---default: `nil`
 ---@field on_secondary_use fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+-- Called when a dropped item is punched by a player.
+--
+-- Shall pick-up the item and return the leftover itemstack or nil to not
+-- modify the dropped item.
+--
+-- default: `minetest.item_pickup`
+---@field on_pickup fun(itemstack: mt.ItemStack, picker?: mt.ObjectRef, pointed_thing?: mt.PointedThing, time_from_last_punch?: number, ...?: any): mt.ItemStack?
 ---Shall drop item and return the leftover `itemstack`.
 ---
 ---The dropper may be any `ObjectRef` or `nil`.

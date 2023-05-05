@@ -351,12 +351,36 @@ minetest.registered_on_protection_violation = {}
 ---Called when an item is eaten, by `minetest.item_eat`.
 ---
 ---Return `itemstack` to cancel the default item eat response (i.e.: hp increase).
----@param func fun(hp_change: integer, replace_with_item, itemstack: mt.Item, user: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---@param func fun(hp_change: integer, replace_with_item, itemstack: mt.ItemStack, user: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 function minetest.register_on_item_eat(func) end
 
 ---Map of registered on_item_eat.
----@type (fun(hp_change: integer, replace_with_item, itemstack: mt.Item, user: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?)[]
+---@type (fun(hp_change: integer, replace_with_item, itemstack: mt.ItemStack, user: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?)[]
 minetest.registered_on_item_eat = {}
+
+-- Called by `minetest.item_pickup` before an item is picked up.
+--
+-- * Function is added to `minetest.registered_on_item_pickups`.
+-- * Oldest functions are called first.
+-- * Parameters are the same as in the `on_pickup` callback.
+-- * Return an itemstack to cancel the default item pick-up response (i.e.: adding
+--   the item into inventory).
+---@param func fun(itemstack:mt.ItemStack, picker:mt.ObjectRef, pointed_thing:mt.PointedThing, time_from_last_punch:number, ...:any): mt.ItemStack?
+function minetest.register_on_item_pickup(func) end
+
+---Map of registered on_item_pickup
+---@type (fun(itemstack:mt.ItemStack, picker:mt.ObjectRef, pointed_thing:mt.PointedThing, time_from_last_punch:number, ...:any): mt.ItemStack?)[]
+minetest.registered_on_item_pickup = {}
+
+-- Called when the local player uses an item.
+--
+-- * Newest functions are called first.
+-- * If any function returns true, the item use is not sent to server.
+---@param func fun(item:mt.ItemStack, pointed_thing:mt.PointedThing): boolean?
+function minetest.register_on_item_use(func) end
+
+---@type (fun(item:mt.ItemStack, pointed_thing:mt.PointedThing): boolean?)[]
+minetest.registered_on_item_use = {}
 
 ---Called when `granter` grants the priv `priv` to `name`.
 ---
