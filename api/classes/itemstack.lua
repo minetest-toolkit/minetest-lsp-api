@@ -118,7 +118,7 @@ function ItemStackObject:get_free_space() end
 function ItemStackObject:is_known() end
 
 ---Returns the item definition table.
----@return table
+---@return mt.ItemDef
 function ItemStackObject:get_definition() end
 
 ---Returns the digging properties of the item, or those of the hand if none are

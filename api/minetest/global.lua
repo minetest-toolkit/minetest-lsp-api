@@ -329,7 +329,7 @@ minetest.registered_allow_player_inventory_action = {}
 ---Function arguments: see `minetest.register_allow_player_inventory_action`
 ---
 ---Does not accept or handle any return value.
----@param func fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item})
+---@param func fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.ItemStack})
 function minetest.register_on_player_inventory_action(func) end
 
 ---Map of registered on_player_inventory_action.
