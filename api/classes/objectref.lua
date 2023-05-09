@@ -1,4 +1,4 @@
----@diagnostic disable: unused-local
+---@diagnostic disable: unused-local, missing-return
 ---@meta
 ---ObjectRef
 ------------
