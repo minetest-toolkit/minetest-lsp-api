@@ -63,7 +63,13 @@ will be automatically filled in based on the location of `puncher`.
 ---@param tool_capabilities mt.ToolCaps|nil
 ---@param direction mt.Vector|nil
 ---@return number tool_wear
-function ObjectRef:punch(puncher, time_from_last_punch, tool_capabilities, direction) end
+function ObjectRef:punch(
+  puncher,
+  time_from_last_punch,
+  tool_capabilities,
+  direction
+)
+end
 
 ---@param clicker mt.ObjectRef
 function ObjectRef:right_click(clicker) end
@@ -110,7 +116,13 @@ function ObjectRef:get_armor_groups() end
 ---@param frame_speed number|nil Default: `15.0`.
 ---@param frame_blend number|nil Default: `0.0`.
 ---@param frame_loop boolean|nil Default: `true`.
-function ObjectRef:set_animation(frame_range, frame_speed, frame_blend, frame_loop) end
+function ObjectRef:set_animation(
+  frame_range,
+  frame_speed,
+  frame_blend,
+  frame_loop
+)
+end
 
 ---@return { x: number, y: number}|nil range
 ---@return number|nil frame_speed
@@ -126,7 +138,14 @@ function ObjectRef:set_animation_frame_speed(frame_speed) end
 ---@param position mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative position.
 ---@param rotation mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative rotation in degrees.
 ---@param forced_visible boolean|nil Default: `false`. Should appear in first person?
-function ObjectRef:set_attach(parent, bone, position, rotation, forced_visible) end
+function ObjectRef:set_attach(
+  parent,
+  bone,
+  position,
+  rotation,
+  forced_visible
+)
+end
 
 ---* This command may fail silently (do nothing) when it would result
 ---  in circular attachments.
@@ -234,7 +253,13 @@ function LuaObjectRef:get_texture_mod() end
 ---@param num_frames number|nil Default: `1`. Total frames in the texture.
 ---@param framelength number|nil Default: `0.2`. Time per animated frame in seconds.
 ---@param select_x_by_camera boolean|nil Default: `false`. Only for visual = `sprite`. Changes the frame `x` position according to the view direction.
-function LuaObjectRef:set_sprite(start_frame, num_frames, framelength, select_x_by_camera) end
+function LuaObjectRef:set_sprite(
+  start_frame,
+  num_frames,
+  framelength,
+  select_x_by_camera
+)
+end
 
 ---**Deprecated**: Use the field `self.name` instead.
 ---@deprecated
@@ -622,7 +647,14 @@ function PlayerObjectRef:get_day_night_ratio() end
 ---@param dig  {x:number, y:number}|nil
 ---@param walk_while_dig {x:number, y:number}|nil
 ---@param frame_speed number|nil Default: `30`.
-function PlayerObjectRef:set_local_animation(idle, walk, dig, walk_while_dig, frame_speed) end
+function PlayerObjectRef:set_local_animation(
+  idle,
+  walk,
+  dig,
+  walk_while_dig,
+  frame_speed
+)
+end
 
 ---Returns idle, walk, dig, walk_while_dig tables and `frame_speed`.
 ---@return {x:number, y:number}|nil idle
@@ -665,3 +697,6 @@ function PlayerObjectRef:get_lighting() end
 ---Respawns the player using the same mechanism as the death screen,
 ---including calling on_respawnplayer callbacks.
 function PlayerObjectRef:respawn() end
+
+---@return mt.InvRef
+function PlayerObjectRef:get_inventory() end
