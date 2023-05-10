@@ -16,13 +16,6 @@
 ---* Note: if `stack2` is an itemstring or table representation of an
 ---  ItemStack, this will always return false, even if it is "equivalent".
 ---@class mt.ItemStack
----@field meta {[string]: string}
----@field metadata string deprecated
----@field count integer
----@field name string
----@field wear integer
----@field tool_capabilities mt.ToolCaps
----@field stack_max integer
 local ItemStackObject = {}
 
 ---`ItemStack` constructor.
