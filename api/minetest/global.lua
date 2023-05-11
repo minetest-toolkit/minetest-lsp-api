@@ -486,3 +486,20 @@ function minetest.register_on_liquid_transformed(func) end
 ---Map of registered on_liquid_transformed.
 ---@type fun(pos_list: mt.Vector[], node_list: mt.Node[])[]
 minetest.registered_on_liquid_transformed = {}
+
+---@param func function
+function minetest.register_on_mapgen_init(func) end
+
+-- Called soon after any nodes or node metadata have been modified. No
+-- modifications will be missed, but there may be false positives.
+--
+-- * Will never be called more than once per server step.
+-- * `modified_blocks` is the set of modified mapblock position hashes. These
+-- are in the same format as those produced by `minetest.hash_node_position`,
+-- and can be converted to positions with `minetest.get_position_from_hash`.
+-- The set is a table where the keys are hashes and the values are `true`.
+-- * `modified_block_count` is the number of entries in the set.
+-- * Note: callbacks must be registered at mod load time.
+---@param modified_blocks integer
+---@param modified_block_count integer
+function minetest.register_on_mapblocks_changed(modified_blocks, modified_block_count) end
