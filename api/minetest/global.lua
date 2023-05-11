@@ -63,13 +63,6 @@ function minetest.register_on_hp_modification(func) end
 ---@param func fun(hp:number)
 function minetest.register_on_damage_taken(func) end
 
--- Called when a button is pressed in the local player's inventory form
---
--- * Newest functions are called first
--- * If function returns `true`, remaining functions are not called
----@param func fun(formname:string, fields:unknown):boolean?
-function minetest.register_on_formspec_input(func) end
-
 ---Map of registered on_shutdown.
 ---@type fun()[]
 minetest.registered_on_shutdown = {}
