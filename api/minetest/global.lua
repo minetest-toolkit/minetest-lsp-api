@@ -331,6 +331,10 @@ function minetest.register_craft_predict(func) end
 ---@type fun(itemstack: mt.Item, player: mt.PlayerObjectRef, old_craft_grid: table, craft_inv: mt.InvRef)[]
 minetest.registered_craft_predicts = {}
 
+---List of possible `action` (string) values and their `inventory_info` (table) contents:
+---* `move`: `{from_list=string, to_list=string, from_index=number, to_index=number, count=number}`
+---* `put`:  `{listname=string, index=number, stack=ItemStack}`
+---* `take`: Same as `put`
 ---@alias mt.InvInfo {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item}
 
 ---Determines how much of a stack may be taken, put or moved to a player inventory.
