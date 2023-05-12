@@ -331,6 +331,8 @@ function minetest.register_craft_predict(func) end
 ---@type fun(itemstack: mt.Item, player: mt.PlayerObjectRef, old_craft_grid: table, craft_inv: mt.InvRef)[]
 minetest.registered_craft_predicts = {}
 
+---@alias mt.InvInfo {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item}
+
 ---Determines how much of a stack may be taken, put or moved to a player inventory.
 ---
 ---`player` (type `ObjectRef`) is the player who modified the inventory `inventory` (type `InvRef`).
@@ -343,11 +345,11 @@ minetest.registered_craft_predicts = {}
 ---Return a numeric value to limit the amount of items to be taken, put or moved.
 ---
 ---A value of `-1` for `take` will make the source stack infinite.
----@param func fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item}): integer
+---@param func fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: mt.InvInfo): integer
 function minetest.register_allow_player_inventory_action(func) end
 
 ---Map of registered allow_player_inventory_action.
----@type (fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item}): integer)[]
+---@type (fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: mt.InvInfo): integer)[]
 minetest.registered_allow_player_inventory_action = {}
 
 ---Called after a take, put or move event from/to/in a player inventory.
@@ -359,7 +361,7 @@ minetest.registered_allow_player_inventory_action = {}
 function minetest.register_on_player_inventory_action(func) end
 
 ---Map of registered on_player_inventory_action.
----@type fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item})[]
+---@type fun(player: mt.PlayerObjectRef, action: '"move"'|'"put"'|'"take"', inventory: mt.InvRef, inventory_info: mt.InvInfo)[]
 minetest.registered_on_player_inventory_action = {}
 
 ---Called by `builtin` and mods when a player violates protection at a position (eg, digs a node or punches a protected entity).
@@ -495,4 +497,8 @@ function minetest.register_on_mapgen_init(func) end
 -- * Note: callbacks must be registered at mod load time.
 ---@param modified_blocks integer
 ---@param modified_block_count integer
-function minetest.register_on_mapblocks_changed(modified_blocks, modified_block_count) end
+function minetest.register_on_mapblocks_changed(
+  modified_blocks,
+  modified_block_count
+)
+end
