@@ -3,7 +3,7 @@
 -------------------------------
 
 ---Map of registered items, indexed by name.
----@type table<string, mt.ItemDef>
+---@type table<string, mt.ItemDef|mt.NodeDef>
 minetest.registered_items = {}
 
 ---Map of registered node definitions, indexed by name.
