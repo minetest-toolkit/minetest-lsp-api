@@ -82,7 +82,7 @@ minetest.registered_on_placenodes = {}
 ---Register a function that will be called when a node has been dug.
 ---
 ---**Not recommended**: use `on_destruct` or `after_dig_node` in node definition then possible.
----@param func fun(pos: mt.Vector, oldnode: mt.Node|string, digger: mt.ObjectRef)
+---@param func fun(pos: mt.Vector, oldnode: mt.Node|string, digger: mt.ObjectRef|nil)
 function minetest.register_on_dignode(func) end
 
 ---Map of registered on_dignode.
