@@ -27,7 +27,7 @@
 ---* `{soil = 2, outerspace = 1, crumbly = 1}`
 ---* `{bendy = 2, snappy = 1}`
 ---* `{hard = 1, metal = 1, spikes = 1}`
----@field groups table<string, integer>|nil
+---@field groups mt.ObjectGroups
 ---Item inventory texture.
 ---@field inventory_image string|nil
 ---An overlay to the inventory texture which does not get colorized.
