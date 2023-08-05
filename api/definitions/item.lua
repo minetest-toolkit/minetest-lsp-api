@@ -5,8 +5,8 @@
 -- Used by `minetest.register_node`, `minetest.register_craftitem`, and
 -- `minetest.register_tool`.
 ---@class mt.ItemDef
----@field name string
----@field type string
+---@field name string|nil
+---@field type string|nil
 ---Item's description.
 ---
 ---Can contain new lines. `"\n"` has to be used as new line character.
@@ -27,7 +27,7 @@
 ---* `{soil = 2, outerspace = 1, crumbly = 1}`
 ---* `{bendy = 2, snappy = 1}`
 ---* `{hard = 1, metal = 1, spikes = 1}`
----@field groups mt.ObjectGroups
+---@field groups mt.ObjectGroups|nil
 ---Item inventory texture.
 ---@field inventory_image string|nil
 ---An overlay to the inventory texture which does not get colorized.
@@ -100,7 +100,7 @@
 ---The placer may be any `ObjectRef` or `nil`.
 ---
 ---default: `minetest.item_place`
----@field on_place fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---@field on_place nil|fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 ---Same as `on_place` but called when not pointing at a node.
 ---
 ---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
@@ -108,20 +108,20 @@
 ---The user may be any `ObjectRef` or `nil`.
 ---
 ---default: `nil`
----@field on_secondary_use fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---@field on_secondary_use nil|fun(itemstack: mt.ItemStack, placer?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 -- Called when a dropped item is punched by a player.
 --
 -- Shall pick-up the item and return the leftover itemstack or nil to not
 -- modify the dropped item.
 --
 -- default: `minetest.item_pickup`
----@field on_pickup fun(itemstack: mt.ItemStack, picker?: mt.ObjectRef, pointed_thing?: mt.PointedThing, time_from_last_punch?: number, ...?: any): mt.ItemStack?
+---@field on_pickup nil|fun(itemstack: mt.ItemStack, picker?: mt.ObjectRef, pointed_thing?: mt.PointedThing, time_from_last_punch?: number, ...?: any): mt.ItemStack?
 ---Shall drop item and return the leftover `itemstack`.
 ---
 ---The dropper may be any `ObjectRef` or `nil`.
 ---
 ---default: `minetest.item_drop`
----@field on_drop fun(itemstack: mt.ItemStack, dropper?: mt.ObjectRef, pos: mt.Vector): mt.ItemStack?
+---@field on_drop nil|fun(itemstack: mt.ItemStack, dropper?: mt.ObjectRef, pos: mt.Vector): mt.ItemStack?
 ---When user pressed the `punch/mine` key with the item in hand.
 ---
 ---Function must return either `nil` if inventory shall not be modified, or an `itemstack` to replace the original `itemstack`.
@@ -138,7 +138,7 @@
 ---The default functions handle regular use cases.
 ---
 ---default: `nil`
----@field on_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
+---@field on_use nil|fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, pointed_thing: mt.PointedThing): mt.ItemStack?
 ---If defined, should return an itemstack and will be called instead of wearing out the item (if tool).
 ---
 ---If returns `nil`, does nothing.
@@ -152,4 +152,4 @@
 ---```
 ---
 ---The user may be any `ObjectRef` or `nil`.
----@field after_use fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, node: mt.Node, digparams: unknown): mt.ItemStack?
+---@field after_use nil|fun(itemstack: mt.ItemStack, user?: mt.ObjectRef, node: mt.Node, digparams: unknown): mt.ItemStack?

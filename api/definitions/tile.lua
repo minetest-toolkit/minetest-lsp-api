@@ -7,32 +7,32 @@
 
 -- Tile definition.
 ---@class mt.TileTableDef
----@field name string
----@field animation mt.TileAnimDef
+---@field name string|nil
+---@field animation mt.TileAnimDef|nil
 -- Backface culling enabled by default for most nodes.
----@field backface_culling boolean
+---@field backface_culling boolean|nil
 -- Align style determines whether the texture will be rotated with the node
 -- or kept aligned with its surroundings. "user" means that client
 -- setting will be used, similar to `glasslike_framed_optional`.
 -- Note: supported by solid nodes and nodeboxes only.
----@field align_style "node"|"world"|"user"
+---@field align_style "node"|"world"|"user"|nil
 -- Scale is used to make texture span several (exactly `scale`) nodes,
 -- instead of just one, in each direction. Works for world-aligned
 -- textures only.
 -- Note that as the effect is applied on per-mapblock basis, `16` should
 -- be equally divisible by `scale` or you may get wrong results.
----@field scale integer
+---@field scale integer|nil
 -- * The texture's color will be multiplied with this color.
 -- * The tile's color overrides the owning node's color in all cases.
----@field color mt.ColorSpec
----@field image string Deprecated synonym for field `name`.
+---@field color mt.ColorSpec|nil
+---@field image string|nil Deprecated synonym for field `name`.
 
 -- Tile animation definition.
 ---@class mt.TileAnimDef
----@field type "vertical_frames"|"sheet_2d"
----@field aspect_w number Width of a frame in pixels ("vertical_frames").
----@field aspect_h number Height of a frame in pixels ("vertical_frames").
----@field length number Full loop length ("vertical_frames").
----@field frames_w number Width in number of frames ("sheet_2d").
----@field frames_h number Height in number of frames ("sheet_2d").
----@field frame_length number Length of a single frame ("sheet_2d").
+---@field type "vertical_frames"|"sheet_2d"|nil
+---@field aspect_w number|nil Width of a frame in pixels ("vertical_frames").
+---@field aspect_h number|nil Height of a frame in pixels ("vertical_frames").
+---@field length number|nil Full loop length ("vertical_frames").
+---@field frames_w number|nil Width in number of frames ("sheet_2d").
+---@field frames_h number|nil Height in number of frames ("sheet_2d").
+---@field frame_length number|nil Length of a single frame ("sheet_2d").
