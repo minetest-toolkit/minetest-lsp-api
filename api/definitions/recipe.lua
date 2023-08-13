@@ -6,15 +6,15 @@
 ---@alias mt.CraftRecipe mt.CraftRecipeRepair|mt.CraftRecipeFuel|mt.CraftRecipeShaped|mt.CraftRecipeCooking|mt.CraftRecipeShapeless
 
 ---@class mt.CraftRecipeShaped
----@field output string
----@field recipe string[][]
+---@field output string|nil
+---@field recipe string[][]|nil
 -- Replace one input item with another item on crafting.
 ---@field replacements nil|{[1]:string, [2]:string}[]
 
 ---@class mt.CraftRecipeShapeless
----@field type "shapeless"
----@field output string
----@field recipe string[]
+---@field type "shapeless"|nil
+---@field output string|nil
+---@field recipe string[]|nil
 -- Replace one input item with another item on crafting.
 ---@field replacements nil|{[1]:string, [2]:string}[]
 
@@ -33,18 +33,18 @@
 -- The result is rounded and can't be lower than 0. If the result is 65536 or higher,
 -- no crafting is possible.
 ---@class mt.CraftRecipeRepair
----@field type "toolrepair"
----@field additional_wear number Multiplier of 65536.
+---@field type "toolrepair"|nil
+---@field additional_wear number|nil Multiplier of 65536.
 
 ---@class mt.CraftRecipeCooking
----@field type "cooking"
----@field output string
----@field recipe string
----@field cooktime number
+---@field type "cooking"|nil
+---@field output string|nil
+---@field recipe string|nil
+---@field cooktime number|nil
 
 ---@class mt.CraftRecipeFuel
----@field type "fuel"
----@field recipe string
----@field burntime number
+---@field type "fuel"|nil
+---@field recipe string|nil
+---@field burntime number|nil
 -- Replace one input item with another item on crafting.
 ---@field replacements nil|{[1]:string, [2]:string}[]

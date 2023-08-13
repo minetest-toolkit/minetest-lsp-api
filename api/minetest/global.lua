@@ -137,7 +137,7 @@ minetest.registered_on_rightclickplayers = {}
 
 ---Register a function that will be called when a player is damaged or healed.
 ---@param func fun(player: mt.PlayerObjectRef, hp_change: integer, reason: mt.PlayerHPChangeReason): integer?, boolean?
----@param modifier boolean  When true, the function should return the actual `hp_change`.
+---@param modifier boolean|nil  When true, the function should return the actual `hp_change`.
 ---Note: modifiers only get a temporary `hp_change` that can be modified by later modifiers.
 ---
 ---Modifiers can return true as a second argument to stop the execution of further functions.

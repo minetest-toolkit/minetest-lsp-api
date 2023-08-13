@@ -23,4 +23,4 @@ minetest = {
 
 ---@deprecated
 ---@type mt.Core
-core = {}
+minetest = {}

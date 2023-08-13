@@ -26,7 +26,7 @@ function minetest.unban_player_or_ip(ip_or_name) end
 ---
 ---Returns boolean indicating success (false if player nonexistant).
 ---@param name string
----@param reason? string
+---@param reason string|nil
 ---@return boolean
 function minetest.kick_player(name, reason) end
 

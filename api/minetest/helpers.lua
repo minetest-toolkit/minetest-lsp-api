@@ -54,8 +54,9 @@ end
 
 -- Returns the string without whitespace pre- and suffixes.
 -- - e.g. `"\n \t\tfoo bar\t ":trim()` returns `"foo bar"`
+---@param str string
 ---@return string
-function string:trim() end
+function string.trim(str) end
 
 -- Adds newlines to the string to keep it within the specified character limit
 --

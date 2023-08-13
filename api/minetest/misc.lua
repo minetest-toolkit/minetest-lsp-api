@@ -116,7 +116,7 @@ function minetest.parse_json(string, nullvalue) end
 ---1. You can only use strings and positive integers of at least one as keys.
 ---2. You can not mix string and integer keys. This is due to the fact that JSON has two distinct array and object values.
 ---@param data table
----@param styled boolean Human-readable format, default: false
+---@param styled boolean|nil Human-readable format, default: false
 ---@return string? output
 ---@return string? error
 ---@nodiscard
@@ -267,12 +267,12 @@ function minetest.is_area_protected(pos1, pos2, player_name, interval) end
 ---@return mt.ItemStack
 ---@nodiscard
 function minetest.rotate_and_place(
-	itemstack,
-	placer,
-	pointed_thing,
-	infinitestacks,
-	orient_flags,
-	prevent_after_place
+  itemstack,
+  placer,
+  pointed_thing,
+  infinitestacks,
+  orient_flags,
+  prevent_after_place
 )
 end
 
@@ -299,13 +299,13 @@ function minetest.rotate_node(itemstack, placer, pointed_thing) end
 ---@return number
 ---@nodiscard
 function minetest.calculate_knockback(
-	player,
-	hitter,
-	time_from_last_punch,
-	tool_capabilities,
-	dir,
-	distance,
-	damage
+  player,
+  hitter,
+  time_from_last_punch,
+  tool_capabilities,
+  dir,
+  distance,
+  damage
 )
 end
 

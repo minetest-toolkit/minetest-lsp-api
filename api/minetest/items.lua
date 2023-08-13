@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-return
 ---@meta
 ---Item handling
 ----------------
@@ -89,7 +90,7 @@ function minetest.get_node_drops(node, toolname) end
 -- Used in `minetest.get_craft_result` and `minetest.get_craft_recipe`.
 ---@class mt.CraftInput
 ---@field method "normal"|"cooking"|"fuel"
----@field width number
+---@field width number|nil
 ---@field items mt.Item[]
 
 -- Used in `minetest.get_craft_result`.
@@ -171,7 +172,14 @@ function minetest.itemstring_with_color(item, colorstring) end
 ---@param param2 mt.NodeParam|nil Overrides `facedir` and wallmounted `param2`.
 ---@param prevent_after_place boolean|nil
 ---@return mt.ItemStack, mt.Vector|nil position
-function minetest.item_place_node(itemstack, placer, pointed_thing, param2, prevent_after_place) end
+function minetest.item_place_node(
+  itemstack,
+  placer,
+  pointed_thing,
+  param2,
+  prevent_after_place
+)
+end
 
 -- Place item as-is.
 --
@@ -206,7 +214,14 @@ function minetest.item_place(itemstack, placer, pointed_thing, param2) end
 ---@param time_from_last_punch number
 ---@param ... any
 ---@return mt.ItemStack leftover
-function minetest.item_pickup(itemstack, picker, pointed_thing, time_from_last_punch, ...) end
+function minetest.item_pickup(
+  itemstack,
+  picker,
+  pointed_thing,
+  time_from_last_punch,
+  ...
+)
+end
 
 -- Default `on_drop` callback.
 --
