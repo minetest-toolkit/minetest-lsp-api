@@ -94,6 +94,12 @@ function minetest.is_singleplayer() end
 ---@field mod_storage_on_disk boolean
 -- "zstd" method for compress/decompress (5.7.0).
 ---@field compress_zstd boolean
+-- Sound parameter tables support start_time (5.8.0)
+---@field sound_params_start_time boolean
+-- New fields for set_physics_override: speed_climb, speed_crouch,
+-- liquid_fluidity, liquid_fluidity_smooth, liquid_sink,
+-- acceleration_default, acceleration_air (5.8.0)
+---@field physics_overrides_v2 boolean
 minetest.features = {}
 
 ---@param arg string | table<mt.Feature, boolean>
@@ -177,6 +183,8 @@ function minetest.get_version() end
 ---@class mt.EngineVersion
 ---@field project string Name of the project, eg, "Minetest".
 ---@field string string Simple version, eg, "1.2.3-dev".
+---@field proto_min string The minimum supported protocol version.
+---@field proto_max string The maximum supported protocol version.
 -- Full git version (only set if available), eg, "1.2.3-dev-01234567-dirty".
 ---@field hash string
 -- Boolean value indicating whether it's a development build.
@@ -221,3 +229,9 @@ function minetest.colorspec_to_bytes(colorspec) end
 ---@param data mt.ColorSpec[]|string
 ---@param compression integer|nil Optional zlib compression level from 0 to 9.
 function minetest.encode_png(width, height, data, compression) end
+
+--- Encodes non-unreserved URI characters by a
+--- percent sign followed by two hex digits. See
+--- [RFC 3986, section 2.3](https://datatracker.ietf.org/doc/html/rfc3986#section-2.3).
+---@param str string
+function minetest.urlencode(str) end

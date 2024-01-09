@@ -5,12 +5,8 @@
 ---@alias mt.SoundHandle unknown
 
 ---@param spec mt.SimpleSoundSpec
----@param parameters table A sound parameter table.
---- `false`
---- Ephemeral sounds will not return a handle and can't be stopped or faded.
---- It is recommend to use this for short sounds that happen in response to
---- player actions (e.g. door closing).
----@param ephemeral boolean|nil
+---@param parameters mt.SoundParameters A sound parameter table.
+---@param ephemeral boolean|nil Ephemeral sounds will not return a handle and can't be stopped or faded. It is recommend to use this for short sounds that happen in response to player actions (e.g. door closing). (default: false)
 ---@return mt.SoundHandle handle
 function minetest.sound_play(spec, parameters, ephemeral) end
 

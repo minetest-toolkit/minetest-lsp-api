@@ -27,6 +27,8 @@ local ObjectRef = {}
 ---@return mt.Vector|nil
 function ObjectRef:get_pos() end
 
+---* Sets the position of the object.
+---* No-op if object is attached.
 ---@param pos mt.Vector
 function ObjectRef:set_pos(pos) end
 
@@ -36,7 +38,7 @@ function ObjectRef:get_velocity() end
 ---* In comparison to using get_velocity, adding the velocity and then using
 ---  set_velocity, add_velocity is supposed to avoid synchronization problems.
 ---  Additionally, players also do not support set_velocity.
----* If a player:
+---* If object is a player:
 ---  * Does not apply during free_move.
 ---  * Note that since the player speed is normalized at each move step,
 ---    increasing e.g. Y velocity beyond what would usually be achieved
@@ -50,27 +52,30 @@ function ObjectRef:add_velocity(vel) end
 ---* If `continuous` is true, the Lua entity will not be moved to the current
 ---      position before starting the interpolated move.
 ---* For players this does the same as `set_pos`,`continuous` is ignored.
+---* No-op if object is attached.
 ---@param pos mt.Vector
 ---@param continuous boolean|nil Default: `false`.
 function ObjectRef:move_to(pos, continuous) end
 
---[[
-If `direction` equals `nil` and `puncher` does not equal `nil`, `direction`
-will be automatically filled in based on the location of `puncher`.
-]]
+
+---* Punches the object, triggering all consequences a normal punch would have.
+---* If `direction` equals `nil` and `puncher` does not equal `nil`, `direction`
+--- will be automatically filled in based on the location of `puncher`.
 ---@param puncher mt.ObjectRef
 ---@param time_from_last_punch number|nil Time since last punch action.
 ---@param tool_capabilities mt.ToolCaps|nil
----@param direction mt.Vector|nil
+---@param dir mt.Vector|nil Direction vector of punch
 ---@return number tool_wear
 function ObjectRef:punch(
   puncher,
   time_from_last_punch,
   tool_capabilities,
-  direction
+  dir
 )
 end
 
+---* Simulates using the 'place/use' key on the object
+---* Triggers all consequences as if a real player had done this
 ---@param clicker mt.ObjectRef
 function ObjectRef:right_click(clicker) end
 
@@ -93,11 +98,10 @@ function ObjectRef:get_inventory() end
 ---@return string|nil
 function ObjectRef:get_wield_list() end
 
----Returns the index of the wielded item.
----@return number|nil
+---@return number|nil # The wield list index of the wielded item (starting with 1).
 function ObjectRef:get_wield_index() end
 
----@return mt.ItemStack|nil
+---@return mt.ItemStack|nil # A copy of the wielded item.
 function ObjectRef:get_wielded_item() end
 
 ---Replaces the wielded item, returns `true` if successful.
@@ -105,17 +109,22 @@ function ObjectRef:get_wielded_item() end
 ---@return boolean true If successful.
 function ObjectRef:set_wielded_item(item) end
 
----@param group_table table {group1=rating, group2=rating, ...}
-function ObjectRef:set_armor_groups(group_table) end
-
----Returns a table with the armor group ratings.
----@return table {group1=rating, group2=rating, ...}|nil
+---Returns a table with all of the object's armor group ratings.
+---@return table|nil `{group1_name = rating, group2_name = rating, ...}` or `nil`.
 function ObjectRef:get_armor_groups() end
 
----@param frame_range { x: number, y: number }|nil `{x=1, y=1}`
----@param frame_speed number|nil Default: `15.0`.
+---* Sets the object's full list of armor groups.
+---* Note: all armor groups not in the table will be removed.
+---@param group_table table `{group1_name = rating, group2_name = rating, ...}`
+function ObjectRef:set_armor_groups(group_table) end
+
+---* Sets the object animation parameters and (re)starts the animation.
+---* Animations only work with a `"mesh"` visual.
+---
+---@param frame_range { x: number, y: number }|nil Default `{x=1, y=1}`. Beginning and end frame (as specified in the mesh file). <br> * Animation interpolates towards the end frame but stops when it is reached. <br> * If looped, there is no interpolation back to the start frame. <br> * If looped, the model should look identical at start and end. <br> * Only integer numbers are supported.
+---@param frame_speed number|nil Default: `15.0`. How fast the animation plays, in frames per second.
 ---@param frame_blend number|nil Default: `0.0`.
----@param frame_loop boolean|nil Default: `true`.
+---@param frame_loop boolean|nil Default: `true`. If `true`, animation will loop. If false, it will play once.
 function ObjectRef:set_animation(
   frame_range,
   frame_speed,
@@ -124,17 +133,22 @@ function ObjectRef:set_animation(
 )
 end
 
----@return { x: number, y: number}|nil range
+---@return { x: number, y: number}|nil frame_range
 ---@return number|nil frame_speed
 ---@return number|nil frame_blend
 ---@return boolean|nil frame_loop
 function ObjectRef:get_animation() end
 
+--- * Sets the frame speed of the object's animation.
+--- * Unlike `set_animation`, this will not restart the animation.
+--- * `frame_speed`: See `set_animation`.
 ---@param frame_speed number|nil Default: `15.0`.
 function ObjectRef:set_animation_frame_speed(frame_speed) end
 
+--- * Attaches object to `parent`.
+--- * See 'Attachments' section for details.
 ---@param parent mt.ObjectRef
----@param bone string|nil Default: `""`. The root bone.
+---@param bone string|nil Default: `""`(the root bone). Bone to attach to.
 ---@param position mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative position.
 ---@param rotation mt.Vector|nil Default: `{x=0, y=0, z=0}`. Relative rotation in degrees.
 ---@param forced_visible boolean|nil Default: `false`. Should appear in first person?
@@ -149,8 +163,8 @@ end
 
 ---* This command may fail silently (do nothing) when it would result
 ---  in circular attachments.
----* Returns parent, bone, position, rotation, forced_visible,
----  or nil if it isn't attached.
+---* Returns current attachment parameters or nil if it isn't attached.
+---* If attached, returns `parent`, `bone`, `position`, `rotation`, `forced_visible`.
 ---@return mt.ObjectRef|nil parent
 ---@return string|nil bone The root bone.
 ---@return mt.Vector|nil position Relative position.
@@ -161,7 +175,7 @@ function ObjectRef:get_attach() end
 ---Returns a list of ObjectRefs that are attached to the object.
 ---@return mt.ObjectRef[]|nil
 function ObjectRef:get_children() end
-
+--- Detaches object. No-op if object was not attached.
 function ObjectRef:set_detach() end
 
 ---@param bone string|nil Default: `""`. The root bone.
@@ -169,11 +183,15 @@ function ObjectRef:set_detach() end
 ---@param rotation mt.Vector|nil Default: `{x=0, y=0, z=0}`.
 function ObjectRef:set_bone_position(bone, position, rotation) end
 
----Returns position and rotation of the bone.
+--- * Returns `position, rotation` of the specified bone (as vectors).
+--- * note: position is relative to the object.
 ---@param bone string
 ---@return mt.Vector|nil position, mt.Vector|nil rotation
 function ObjectRef:get_bone_position(bone) end
 
+--- * set a number of object properties in the given table
+--- * only properties listed in the table will be changed
+--- * see the [Object properties](https://github.com/minetest/minetest/blob/master/doc/lua_api.md#object-properties) section for details
 ---@param property_table table
 function ObjectRef:set_properties(property_table) end
 
@@ -188,7 +206,8 @@ function ObjectRef:is_player() end
 ---@field color mt.ColorSpec|nil
 ---@field bgcolor mt.ColorSpec|nil
 
----Returns a table with the attributes of the nametag of an object.
+--- * Returns a table with the attributes of the nametag of an object.
+--- * A nametag is a HUD text rendered above the object.
 ---@return mt.NameTagAttributes|nil
 function ObjectRef:get_nametag_attributes() end
 
@@ -242,6 +261,7 @@ function LuaObjectRef:set_texture_mod(mod) end
 function LuaObjectRef:get_texture_mod() end
 
 ---* Specifies and starts a sprite animation.
+---* Only used by `sprite` and `upright_sprite` visuals
 ---* Animations iterate along the frame `y` position.
 ---  * First column:  subject facing the camera
 ---  * Second column: subject looking to the left
@@ -265,7 +285,7 @@ end
 ---@deprecated
 function LuaObjectRef:get_entity_name() end
 
----@return any
+---@return any # The object's associated luaentity table.
 function LuaObjectRef:get_luaentity() end
 
 ---Player only (no-op for other objects).
@@ -346,7 +366,7 @@ function PlayerObjectRef:set_breath(value) end
 
 ---* Sets player's FOV.
 ---* Set `fov` to 0 to clear FOV override.
----@param fov number FOV value
+---@param fov number Field of View (FOV) value.
 ---@param is_multiplier boolean|nil Default: `false`. Set to `true` if the FOV value is a multiplier.
 ---@param transition_time number|nil Default: `0`. If defined, enables smooth FOV transition. Interpreted as the time (in seconds) to reach target FOV. If set to 0, FOV change is instantaneous.
 function PlayerObjectRef:set_fov(fov, is_multiplier, transition_time) end
@@ -419,14 +439,55 @@ function PlayerObjectRef:get_player_control() end
 ---@return number|nil
 function PlayerObjectRef:get_player_control_bits() end
 
+--- * Note: All numeric fields modify a corresponding `movement_*` setting in the game's `minetest.conf`.
+--- * Note: Some of the fields don't exist in old API versions, see feature
+--- `physics_overrides_v2`.
 ---@class mt.PhysicsOverride
----@field speed number|nil Default: `1`. Multiplier to default walking speed value.
+---@field speed number|nil Default: `1`. Multiplier to default movement speed and acceleration values.
 ---@field jump number|nil Default: `1`. Multiplier to default jump value.
 ---@field gravity number|nil Default: `1`. Multiplier to default gravity value.
+--- * Default: `1`.
+--- * Multiplier to default climb speed value.
+--- * Note: The actual climb speed is the product of `speed` and `speed_climb`.
+---@field speed_climb number|nil
+--- * Default: `1`.
+--- * Multiplier to default sneak speed value.
+--- * Note: The actual sneak speed is the product of `speed` and `speed_crouch`.
+---@field speed_crouch number|nil Default: `1`. Whether player can sneak.
+--- * Default: `1`.
+--- * Multiplier to liquid movement resistance value
+--- (for nodes with `liquid_move_physics`); the higher this value, the lower the
+--- resistance to movement. At `math.huge`, the resistance is zero and you can
+--- move through any liquid like air. (default: `1`)
+---   * Warning: Values below 1 are currently unsupported.
+---@field liquid_fluidity number|nil
+--- * Default: `1`.
+--- * Multiplier to default maximum liquid resistance value
+--- (for nodes with `liquid_move_physics`); controls deceleration when entering
+--- node at high speed. At higher values you come to a halt more quickly.
+---@field liquid_fluidity_smooth number|nil
+--- * Default: `1`.
+--- * Multiplier to default liquid sinking speed value;
+--- (for nodes with `liquid_move_physics`).
+---@field liquid_sink number|nil
+--- * Default: `1`.
+--- * Multiplier to horizontal and vertical acceleration
+--- on ground or when climbing.
+---   * Note: The actual acceleration is the product of `speed` and `acceleration_default`.
+---@field acceleration_default number|nil Default: `1`. Whether player can sneak.
+--- * Default: `1`.
+--- Multiplier to acceleration
+--- when jumping or falling.
+---   * Note: The actual acceleration is the product of `speed` and `acceleration_air`
+---@field acceleration_air number|nil Default: `1`. Whether player can sneak.
 ---@field sneak boolean|nil Default: `true`. Whether player can sneak.
 ---@field sneak_glitch boolean|nil Default: `false`. Whether player can use the new move code replications of the old sneak side-effects: sneak ladders and 2 node sneak jump.
 ---@field new_move boolean|nil Default: `true`. Use new move/sneak code. When false the exact old code is used for the specific old sneak behavior.
 
+--- * For games, we recommend for simpler code to first modify the `movement_*`
+--- settings (e.g. via the game's `minetest.conf`) to set a global base value
+--- for all players and only use `set_physics_override` when you need to change
+--- from the base value on a per-player basis.
 --- @param override_table mt.PhysicsOverride
 function PlayerObjectRef:set_physics_override(override_table) end
 
@@ -464,9 +525,9 @@ function PlayerObjectRef:hud_get(id) end
 ---@field breathbar boolean|nil
 ---@field minimap boolean|nil The client may locally elect to not view the minimap.
 ---@field minimap_radar boolean|nil Is only usable when `minimap` is true.
----Allow showing basic debug info that might give a gameplay advantage.
----This includes map seed, player position, look direction, the pointed node
----and block bounds. Does not affect players with the `debug` privilege.
+--- * Allow showing basic debug info that might give a gameplay advantage.
+--- * This includes map seed, player position, look direction, the pointed node
+--- * and block bounds. Does not affect players with the `debug` privilege.
 ---@field basic_debug boolean|nil
 
 ---Sets specified HUD flags of player.
@@ -521,40 +582,65 @@ function PlayerObjectRef:set_minimap_modes(modes, selected_mode) end
 ---@overload fun(base_color: mt.ColorSpec|nil, type:string|nil, textures:table|nil, clouds:boolean|nil) **Deprecated**.
 function PlayerObjectRef:set_sky(sky_parameters) end
 
----A table used in regular sky_parameters type only (alpha is ignored)
----@class mt.SkyColor
----Default: `#61b5f5`. For the top half of the sky during the day.
----@field day_sky mt.ColorSpec|nil
----Default: `#90d3f6`. For the bottom half of the sky during the day.
----@field day_horizon mt.ColorSpec|nil
----Default: `#b4bafa`. For the top half of the sky during dawn/sunset.
----@field dawn_sky mt.ColorSpec|nil
----Default: `#bac1f0`. For the bottom half of the sky during dawn/sunset.
----@field dawn_horizon mt.ColorSpec|nil
----Default: `#006bff`. For the top half of the sky during the night.
----@field night_sky mt.ColorSpec|nil
----Default: `#4090ff`. For the bottom half of the sky during the night.
----@field night_horizon mt.ColorSpec|nil
----Default: `#646464`. For when you're either indoors or underground.
----@field indoors mt.ColorSpec|nil
----Default: `#f47d1d`. Changes the fog tinting for the sun at sunrise and sunset.
----@field fog_sun_tint mt.ColorSpec|nil
----Default: `#7f99cc`. Changes the fog tinting for the moon at sunrise and sunset.
----@field fog_moon_tint mt.ColorSpec|nil
----Default: `"default"`. Changes which mode the directional fog.
----@field fog_tint_type `"custom"`|`"default"`|nil
-
 ---@class mt.SkyParameters
----Changes fog in "skybox" and "plain".
----@field base_color mt.ColorSpec|nil Default: `#ffffff`.
----`"regular"` Uses `0 | 6 | 0` textures, `base_color`
----`ignored | used as fog | used as both fog and sky`.
----@field type `"regular"`|`"skybox"`|`"plain"`|nil
+--- Default: `#ffffff`.
+--- Changes fog in "skybox" and "plain".
+---@field base_color mt.ColorSpec|nil
+--- * Float, rotation angle of sun/moon orbit in degrees.
+--- * By default, orbit is controlled by a client-side setting, and this field is not set.
+--- * After a value is assigned, it can only be changed to another float value.
+--- * Valid range [-60.0,60.0] (default: not set).
+---@field body_orbit_tilt? number
+--- * `"regular"`: Uses 0 textures, `base_color` ignored
+--- * `"skybox"`: Uses 6 textures, `base_color` used as fog.
+--- * `"plain"`: Uses 0 textures, `base_color` used as both fog and sky.
+--- (default: `"regular"`).
+---@field type "regular"|"skybox"|"plain"|nil
 ---A table containing up to six textures in the following order: Y+ (top),
 ---Y- (bottom), X- (west), X+ (east), Z+ (north), Z- (south).
 ---@field textures table|nil
 ---@field clouds boolean|nil `true` Boolean for whether clouds appear.
----@field sky_color mt.SkyColor
+---@field sky_color? mt.SkyColor
+---@field fog? mt.Fog
+
+  ---A table used in regular sky_parameters type only (alpha is ignored)
+  ---@class mt.SkyColor
+  ---Default: `#61b5f5`. For the top half of the sky during the day.
+  ---@field day_sky mt.ColorSpec|nil
+  ---Default: `#90d3f6`. For the bottom half of the sky during the day.
+  ---@field day_horizon mt.ColorSpec|nil
+  ---Default: `#b4bafa`. For the top half of the sky during dawn/sunset.
+  ---@field dawn_sky mt.ColorSpec|nil
+  ---Default: `#bac1f0`. For the bottom half of the sky during dawn/sunset.
+  ---@field dawn_horizon mt.ColorSpec|nil
+  ---Default: `#006bff`. For the top half of the sky during the night.
+  ---@field night_sky mt.ColorSpec|nil
+  ---Default: `#4090ff`. For the bottom half of the sky during the night.
+  ---@field night_horizon mt.ColorSpec|nil
+  ---Default: `#646464`. For when you're either indoors or underground.
+  ---@field indoors mt.ColorSpec|nil
+  ---Default: `#f47d1d`. Changes the fog tinting for the sun at sunrise and sunset.
+  ---@field fog_sun_tint mt.ColorSpec|nil
+  ---Default: `#7f99cc`. Changes the fog tinting for the moon at sunrise and sunset.
+  ---@field fog_moon_tint mt.ColorSpec|nil
+  ---Default: `"default"`. Changes which mode the directional fog.
+  ---@field fog_tint_type `"custom"`|`"default"`|nil
+
+  --- A table with optional fields.
+  ---@class mt.Fog
+  --- Integer, set an upper bound the client's viewing_range (inluding range_all).
+  --- By default, fog_distance is controlled by the client's viewing_range, and this field is not set.
+  --- Any value >= 0 sets the desired upper bound for the client's viewing_range and disables range_all.
+  --- Any value < 0, resets the behavior to being client-controlled.
+  --- Ddefault: `-1`.
+  ---@field fog_distance? number
+  --- Float, override the client's fog_start.
+  --- Fraction of the visible distance at which fog starts to be rendered.
+  --- By default, fog_start is controlled by the client's `fog_start` setting, and this field is not set.
+  --- Any value between [0.0, 0.99] set the fog_start as a fraction of the viewing_range.
+  --- Any value < 0, resets the behavior to being client-controlled.
+  --- Default: `-1`.
+  ---@field fog_start? number
 
 ---* `as_table`: boolean that determines whether the deprecated version of this
 ---  function is being used.
@@ -633,8 +719,8 @@ function PlayerObjectRef:set_clouds(cloud_parameters) end
 function PlayerObjectRef:get_clouds() end
 
 ---* Overrides day-night ratio, controlling sunlight to a specific amount.
----* `nil`: Disables override, defaulting to sunlight based on day-night cycle.
----@param ratio number|nil Ratio from 0 to 1.
+---* Passing no arguments disables override, defaulting to sunlight based on day-night cycle.
+---@param ratio? number Ratio from 0 to 1.
 function PlayerObjectRef:override_day_night_ratio(ratio) end
 
 ---@return number|nil ratio Ratio from 0 to 1, or `nil` if not overridden.
@@ -666,12 +752,13 @@ function PlayerObjectRef:get_local_animation() end
 
 ---* Defines offset vectors for camera per player.
 ---* in third person view max values are `{x=-10/10, y=-10,15, z=-5/5}`
----@param firstperson? mt.Vector|nil Default: `{x=0, y=0, z=0}`.
----@param thirdperson? mt.Vector|nil Default: `{x=0, y=0, z=0}`.
-function PlayerObjectRef:set_eye_offset(firstperson, thirdperson) end
+---@param firstperson? mt.Vector|nil * Offset in first person view. <br> * Defaults to `vector.zero()` if unspecified.
+---@param thirdperson_back? mt.Vector|nil * Offset in third person back view. <br> * Clamped between `vector.new(-10, -10, -5)` and `vector.new(10, 15, 5)`. <br> * Defaults to `vector.zero()` if unspecified.
+---@param thirdperson_front? mt.Vector|nil * Offset in third person front view. <br> * Same limits as for `thirdperson_back` apply. <br> * Defaults to `thirdperson_back` if unspecified.
+function PlayerObjectRef:set_eye_offset(firstperson, thirdperson_back, thirdperson_front) end
 
 ---Returns first and third person offsets.
----@return mt.Vector|nil, mt.Vector|nil
+---@return mt.Vector|nil, mt.Vector|nil, mt.Vector|nil
 function get_eye_offset() end
 
 ---* Sends an already loaded mapblock to the player.
@@ -683,11 +770,21 @@ function get_eye_offset() end
 function PlayerObjectRef:send_mapblock(blockpos) end
 
 ---@class mt.Light
----@field saturation number|nil This value has no effect on clients who have the "Tone Mapping" shader disabled.
+---@field saturation number|nil This value has no effect on clients who have the "Tone Mapping" shader disabled. Default: `1.0`.
 ---@field shadows {intensity: number|nil}|nil This value has no effect on clients who have the "Dynamic Shadows" shader disabled.
+--- A table that controls automatic exposure.
+--- The basic exposure factor equation is `e = 2^exposure_correction / clamp(luminance, 2^luminance_min, 2^luminance_max)`.
+--- * `luminance_min` set the lower luminance boundary to use in the calculation (default: `-3.0`).
+--- * `luminance_max` set the upper luminance boundary to use in the calculation (default: `-3.0`).
+--- * `exposure_correction` correct observed exposure by the given EV value (default: `0.0`).
+--- * `speed_dark_bright` set the speed of adapting to bright light (default: `1000.0`).
+--- * `speed_bright_dark` set the speed of adapting to dark scene (default: `1000.0`).
+--- * `center_weight_power` set the power factor for center-weighted luminance measurement (default: `1.0`).
+---@field exposure {luminance_min: number, luminance_max: number, exposure_correction: number, speed_dark_bright: number, speed_bright_dark: number, center_weight_power: number}
 
 ---Sets lighting for the player.
----@param light_definition mt.Light
+--- * Passing no arguments resets lighting to its default values.
+---@param light_definition? mt.Light
 function PlayerObjectRef:set_lighting(light_definition) end
 
 ---Returns the current state of lighting for the player.

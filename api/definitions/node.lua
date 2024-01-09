@@ -49,8 +49,11 @@
 -- * Tiles can override this behavior.
 -- * Only when `paramtype2` supports palettes.
 ---@field palette string|nil
--- Screen tint if player is inside node.
+-- Screen tint if a player is inside this node, see `ColorSpec`.
+-- Color is alpha-blended over the screen.
 ---@field post_effect_color mt.ColorSpec|nil
+-- Determines whether `post_effect_color` is affected by lighting.
+---@field post_effect_color_shaded boolean|nil
 ---@field paramtype mt.ParamType|nil
 ---@field paramtype2 mt.ParamType2|nil
 -- Force value for param2 when player places node.
@@ -390,6 +393,9 @@ function node.on_metadata_inventory_take(pos, listname, index, stack, player) en
 ---@class mt.NodeSoundsDef
 -- * If walkable, played when object walks on it.
 -- * If node is climbable or a liquid, played when object moves through it.
+-- * Sound is played at the base of the object's collision-box.
+-- * Gain is multiplied by `0.6`.
+-- * For local player, it's played position-less, with normal gain.
 ---@field footstep mt.SimpleSoundSpec
 -- * While digging node.
 -- * If `"__group"`, then the sound will be `default_dig_<groupname>`,
