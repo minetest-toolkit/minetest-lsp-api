@@ -158,7 +158,8 @@ function minetest.register_on_player_hpchange(func, modifier) end
 ---|"drown"
 ---|"respawn"
 ---@field object mt.ObjectRef|nil
----@field node string|nil node name
+---@field node string|nil Node name (when `type` is `"node"`).
+---@field node_pos mt.Vector|nil Node position (when `type` is `"node"`).
 ---@field from
 ---|"mod"
 ---|"engine"
@@ -338,6 +339,12 @@ minetest.registered_craft_predicts = {}
 ---@alias mt.InvInfo {from_list: string, to_list: string, from_index: integer, to_index: integer, count: integer}|{listname: string, index: integer, stack: mt.Item}
 
 ---Determines how much of a stack may be taken, put or moved to a player inventory.
+---* `minetest.register_on_player_inventory_action(function(player, action, inventory, inventory_info))`
+---* Called after an item take, put or move event from/to/in a player inventory
+---* These inventory actions are recognized:
+---  * move: Item was moved within the player inventory
+---  * put: Item was put into player inventory from another inventory
+---  * take: Item was taken from player inventory and put into another inventory
 ---
 ---`player` (type `ObjectRef`) is the player who modified the inventory `inventory` (type `InvRef`).
 ---

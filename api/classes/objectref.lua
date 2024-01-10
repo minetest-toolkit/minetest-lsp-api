@@ -529,6 +529,9 @@ function PlayerObjectRef:hud_get(id) end
 --- * This includes map seed, player position, look direction, the pointed node
 --- * and block bounds. Does not affect players with the `debug` privilege.
 ---@field basic_debug boolean|nil
+--- * Modifies the client's permission to view chat on the HUD.
+--- * The client may locally elect to not view chat. Does not affect the console.
+---@field chat boolean|nil
 
 ---Sets specified HUD flags of player.
 ---@param flags mt.HUDFlags If a flag equals `nil`, the flag is not modified.

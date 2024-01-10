@@ -52,14 +52,16 @@ function MetaDataRef:set_float(key, value) end
 ---@return number
 function MetaDataRef:get_float(key) end
 
----Returns `nil` or a table with keys: `fields`: key-value storage.
+---Returns a metadata table or `nil` on failure.
 ---@return {fields: {[string]: any}}?
 function MetaDataRef:to_table() end
 
----Any non-table value will clear the metadata.
----
---- * Returns `true` on success.
---- * `fields`: key-value storage
+---* Imports metadata from a metadata table
+---* If `data` is a metadata table (see below), the metadata it represents
+--- will replace all metadata of this MetaDataRef object
+---* Any non-table value for `data` will clear all metadata
+---* Item table values the `inventory` field may also be itemstrings
+---* Returns `true` on success
 ---@param table {fields: {[string]: any}}?
 ---@return boolean
 function MetaDataRef:from_table(table) end

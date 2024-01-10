@@ -131,6 +131,40 @@ function minetest.has_feature(arg) end
 ---@return mt.PlayerInfo
 function minetest.get_player_information(player_name) end
 
+--- Will only be present if the client sent this information (requires v5.7+)
+---
+--- Note that none of these things are constant, they are likely to change during a client
+--- connection as the player resizes the window and moves it between monitors
+---
+--- real_gui_scaling and real_hud_scaling can be used instead of DPI.
+--- OSes don't necessarily give the physical DPI, as they may allow user configuration.
+--- real_*_scaling is just OS DPI / 96 but with another level of user configuration.
+---@class mt.PlayerWindowInfo
+--- Current size of the in-game render target (pixels).
+---
+--- This is usually the window size, but may be smaller in certain situations,
+--- such as side-by-side mode.
+---@field size {x: number, y: number}
+--- Estimated maximum formspec size before Minetest will start shrinking the
+--- formspec to fit. For a fullscreen formspec, use a size 10-20% larger than
+--- this and `padding[-0.01,-0.01]`.
+---@field max_formspec_size {x: number, y: number}
+--- GUI Scaling multiplier
+---
+--- Equal to the setting `gui_scaling` multiplied by `dpi / 96`
+---@field real_gui_scaling number
+--- HUD Scaling multiplier
+---
+--- Equal to the setting `hud_scaling` multiplied by `dpi / 96`
+---@field real_hud_scaling number
+
+--- Will only be present if the client sent this information (requires v5.7+)
+---
+--- Note that none of these things are constant, they are likely to change during a client
+--- connection as the player resizes the window and moves it between monitors
+---@return mt.PlayerWindowInfo
+function minetest.get_player_window_information(player_name) end
+
 -- Creates a directory specified by `path`, creating parent directories
 -- if they don't exist.
 ---@param path string
