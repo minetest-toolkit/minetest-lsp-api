@@ -30,6 +30,8 @@ function MetaDataRef:set_string(key, value) end
 ---@return string
 function MetaDataRef:get_string(key) end
 
+--- The range for the value is system-dependent (usually 32 bits).
+--- The value will be converted into a string when stored
 ---@param key string
 ---@param value integer
 function MetaDataRef:set_int(key, value) end
@@ -39,6 +41,8 @@ function MetaDataRef:set_int(key, value) end
 ---@return integer
 function MetaDataRef:get_int(key) end
 
+--- The range for the value is system-dependent (usually 32 bits).
+--- The value will be converted into a string when stored.
 ---@param key string
 ---@param value number
 function MetaDataRef:set_float(key, value) end
@@ -48,14 +52,16 @@ function MetaDataRef:set_float(key, value) end
 ---@return number
 function MetaDataRef:get_float(key) end
 
----Returns `nil` or a table with keys: `fields`: key-value storage.
+---Returns a metadata table or `nil` on failure.
 ---@return {fields: {[string]: any}}?
 function MetaDataRef:to_table() end
 
----Any non-table value will clear the metadata.
----
---- * Returns `true` on success.
---- * `fields`: key-value storage
+---* Imports metadata from a metadata table
+---* If `data` is a metadata table (see below), the metadata it represents
+--- will replace all metadata of this MetaDataRef object
+---* Any non-table value for `data` will clear all metadata
+---* Item table values the `inventory` field may also be itemstrings
+---* Returns `true` on success
 ---@param table {fields: {[string]: any}}?
 ---@return boolean
 function MetaDataRef:from_table(table) end
@@ -155,6 +161,11 @@ Some of the values in the key-value store are handled specially:
   in [`ItemStack`]
 - `short_description`: Set the item stack's short description. See also:
   `get_short_description` in [`ItemStack`]
+- `inventory_image`: Override inventory_image
+- `inventory_overlay`: Override inventory_overlay
+- `wield_image`: Override wield_image
+- `wield_overlay`: Override wield_overlay
+- `wield_scale`: Override wield_scale, use vector.to_string
 - `color`: A `ColorString`, which sets the stack's color.
 - `palette_index`: If the item has a palette, this is used to get the current
   color from the palette.

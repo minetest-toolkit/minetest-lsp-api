@@ -51,10 +51,15 @@
 -- Upper limits for decoration.
 -- These parameters refer to the Y co-ordinate of the `place_on` node.
 ---@field y_max number
--- Node (or list of nodes) that the decoration only spawns next to.
--- Checks the 8 neighbor nodes on the same Y, and also the ones
--- at Y+1, excluding both center nodes.
+-- * Node (or list of nodes) that the decoration only spawns next to.
+-- * Checks the 8 neighboring nodes on the same height,
+-- and also the ones at the height plus the check_offset, excluding both center nodes.
 ---@field spawn_by string|string[]
+-- * Specifies the offset that spawn_by should also check
+-- * The default value of -1 is useful to e.g check for water next to the base node.
+-- * 0 disables additional checks, valid values: {-1, 0, 1}.
+-- Default: `-1`.
+---@field check_offset number
 -- Number of spawn_by nodes that must be surrounding the decoration
 -- position to occur.
 -- If absent or -1, decorations occur next to any nodes.

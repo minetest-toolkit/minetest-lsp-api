@@ -235,8 +235,8 @@ function minetest.item_drop(itemstack, dropper, pos) end
 -- Default `on_eat` callback.
 --
 -- - `replace_with_item` is the itemstring which is added to the inventory. If
---   the player is eating a stack, then replace_with_item goes to a different
---   spot.
+--   the player is eating a stack and `replace_with_item` doesn't fit onto
+--   the eaten stack, then the remainings go to a different spot, or are dropped.
 --
 -- Returns a function wrapper for `minetest.do_item_eat`.
 ---@param hp_change number

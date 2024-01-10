@@ -94,6 +94,12 @@ function minetest.is_singleplayer() end
 ---@field mod_storage_on_disk boolean
 -- "zstd" method for compress/decompress (5.7.0).
 ---@field compress_zstd boolean
+-- Sound parameter tables support start_time (5.8.0)
+---@field sound_params_start_time boolean
+-- New fields for set_physics_override: speed_climb, speed_crouch,
+-- liquid_fluidity, liquid_fluidity_smooth, liquid_sink,
+-- acceleration_default, acceleration_air (5.8.0)
+---@field physics_overrides_v2 boolean
 minetest.features = {}
 
 ---@param arg string | table<mt.Feature, boolean>
@@ -124,6 +130,40 @@ function minetest.has_feature(arg) end
 ---@param player_name string
 ---@return mt.PlayerInfo
 function minetest.get_player_information(player_name) end
+
+--- Will only be present if the client sent this information (requires v5.7+)
+---
+--- Note that none of these things are constant, they are likely to change during a client
+--- connection as the player resizes the window and moves it between monitors
+---
+--- real_gui_scaling and real_hud_scaling can be used instead of DPI.
+--- OSes don't necessarily give the physical DPI, as they may allow user configuration.
+--- real_*_scaling is just OS DPI / 96 but with another level of user configuration.
+---@class mt.PlayerWindowInfo
+--- Current size of the in-game render target (pixels).
+---
+--- This is usually the window size, but may be smaller in certain situations,
+--- such as side-by-side mode.
+---@field size {x: number, y: number}
+--- Estimated maximum formspec size before Minetest will start shrinking the
+--- formspec to fit. For a fullscreen formspec, use a size 10-20% larger than
+--- this and `padding[-0.01,-0.01]`.
+---@field max_formspec_size {x: number, y: number}
+--- GUI Scaling multiplier
+---
+--- Equal to the setting `gui_scaling` multiplied by `dpi / 96`
+---@field real_gui_scaling number
+--- HUD Scaling multiplier
+---
+--- Equal to the setting `hud_scaling` multiplied by `dpi / 96`
+---@field real_hud_scaling number
+
+--- Will only be present if the client sent this information (requires v5.7+)
+---
+--- Note that none of these things are constant, they are likely to change during a client
+--- connection as the player resizes the window and moves it between monitors
+---@return mt.PlayerWindowInfo
+function minetest.get_player_window_information(player_name) end
 
 -- Creates a directory specified by `path`, creating parent directories
 -- if they don't exist.
@@ -177,6 +217,8 @@ function minetest.get_version() end
 ---@class mt.EngineVersion
 ---@field project string Name of the project, eg, "Minetest".
 ---@field string string Simple version, eg, "1.2.3-dev".
+---@field proto_min string The minimum supported protocol version.
+---@field proto_max string The maximum supported protocol version.
 -- Full git version (only set if available), eg, "1.2.3-dev-01234567-dirty".
 ---@field hash string
 -- Boolean value indicating whether it's a development build.
@@ -221,3 +263,9 @@ function minetest.colorspec_to_bytes(colorspec) end
 ---@param data mt.ColorSpec[]|string
 ---@param compression integer|nil Optional zlib compression level from 0 to 9.
 function minetest.encode_png(width, height, data, compression) end
+
+--- Encodes non-unreserved URI characters by a
+--- percent sign followed by two hex digits. See
+--- [RFC 3986, section 2.3](https://datatracker.ietf.org/doc/html/rfc3986#section-2.3).
+---@param str string
+function minetest.urlencode(str) end

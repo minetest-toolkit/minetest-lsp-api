@@ -48,9 +48,9 @@ function InvRef:get_stack(listname, index) end
 ---@param stack mt.Item
 function InvRef:set_stack(listname, index, stack) end
 
----Return full list (list of `ItemStack`s).
+---Return full list (list of `ItemStack`s) or `nil` if list doesn't exist (size 0).
 ---@param listname string
----@return mt.ItemStack[]
+---@return mt.ItemStack[]?
 function InvRef:get_list(listname) end
 
 ---Set full list (size will not change).

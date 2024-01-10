@@ -236,6 +236,15 @@ function vector.offset(v, x, y, z) end
 ---@nodiscard
 function vector.check(v) end
 
+--- * Returns a boolean value indicating if `pos` is inside area formed by `min` and `max`.
+--- * `min` and `max` are inclusive.
+--- * If `min` is bigger than `max` on some axis, function always returns false.
+--- * You can use `vector.sort` if you have two vectors and don't know which are the minimum and the maximum.
+---@param pos mt.Vector
+---@param min mt.Vector
+---@param max mt.Vector
+function vector.in_area(pos, min, max) end
+
 ---If `x` is a vector: Returns the sum of `v` and `x`.
 ---
 ---If `x` is a number: Adds `x` to each component of `v`.
