@@ -81,19 +81,24 @@
 --     * Returns `v` scaled by `s`.
 -- * `v / s`:
 --     * Returns `v` scaled by `1 / s`.
----@class mt.Vector
----@field x number
----@field y number
----@field z number
----@field [1] number
----@field [2] number
----@field [3] number
+---@class mt.Vector:mt.VectorXYZ
 ---@operator unm: mt.Vector
 ---@operator sub(mt.Vector): mt.Vector
 ---@operator add(mt.Vector): mt.Vector
 ---@operator mul(number): mt.Vector
 ---@operator div(number): mt.Vector
 vector = {}
+
+---@class mt.VectorXYZ
+---@field x number
+---@field y number
+---@field z number
+
+-- Is it actually works?
+---@class mt.Vector123
+---@field [1] number
+---@field [2] number
+---@field [3] number
 
 ---Create a new vector.
 ---
