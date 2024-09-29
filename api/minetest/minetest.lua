@@ -19,8 +19,5 @@ minetest = {
   MAP_BLOCKSIZE = 16,
   PLAYER_MAX_BREATH_DEFAULT = 10,
   PLAYER_MAX_HP_DEFAULT = 20,
+  nodedef_default = {} ---@type mt.NodeDef
 }
-
----@deprecated
----@type mt.Core
-minetest = {}
