@@ -33,6 +33,7 @@ function minetest.after(time, func, ...) end
 --
 -- Classes:
 --
+-- - `AreaStore`
 -- - `ItemStack`
 -- - `PerlinNoise`
 -- - `PerlinNoiseMap`

@@ -51,6 +51,8 @@
 --   'inventory_image'.
 --   If 'itemname' contains a ColorString or palette index (e.g. from
 --   `minetest.itemstring_with_palette()`), the entity will inherit the color.
+--   Wielditems are scaled a bit. If you want a wielditem to appear
+--   to be as large as a node, use `0.667` in `visual_size`.
 ---@field visual "cube"|"sprite"|"upright_sprite"|"mesh"|"item"|"wielditem"
 -- Multipliers for the visual size. If `z` is not specified, `x` will be used
 -- to scale the entity along both horizontal axes.

@@ -38,7 +38,7 @@ function math.factorial(x) end
 
 -- `"a,b":split","` returns `{"a", "b"}`.
 ---@param str string
----@param separator string|nil Default: `","`.
+---@param separator string|nil Cannot be empty. Default: `","`.
 ---@param include_empty boolean|nil Default: `false`.
 ---@param max_splits number|nil If it's negative, splits aren't limited. Default: `-1`.
 ---@param sep_is_pattern boolean|nil Is separator a plain string or a pattern? Default: `false`.

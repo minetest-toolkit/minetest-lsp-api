@@ -38,8 +38,23 @@
 ---
 ---@class mt.SimpleSoundSpecTable
 ---@field name string|mt.SpecialSoundFile
----@field gain number
----@field pitch number
+--- * Volume (`1.0` = 100%), must be non-negative.
+--- * At the end, OpenAL clamps sound gain to a maximum of `1.0`. By setting gain for
+--- a positional sound higher than `1.0`, one can increase the radius inside which
+--- maximal gain is reached.
+--- * Furthermore, gain of positional sounds doesn't increase inside a 1 node radius.
+--- * The gain given here describes the gain at a distance of 3 nodes.
+--- * Default: `1.0`
+---@field gain? number
+--- * Applies a pitch-shift to the sound.
+--- * Each factor of `2.0` results in a pitch-shift of +12 semitones.
+--- * Must be positive.
+--- * Default: `1.0`
+---@field pitch? number
+--- If > `0.0`, the sound is faded in, with this value in gain per second, until
+--- `gain` is reached.
+--- * Default: `0.0`
+---@field fade? number
 local sound_spec = {}
 
 ---@alias mt.SimpleSoundSpec mt.SimpleSoundSpecTable|string|mt.SpecialSoundFile
@@ -53,13 +68,26 @@ local sound_spec = {}
 ---`exclude_player = name` can be applied to locationless, positional and object-
 ---bound sounds to exclude a single player from hearing them.
 ---@class mt.SoundParameters
----@field gain number Default: `1.0`.
----@field pitch number Default: `1.0`.
----@field fade number Default: `0.0`. Change to a value > 0 to fade the sound in.
----@field to_player string Name.
----@field exclude_player string Name.
----@field loop boolean
----@field pos mt.Vector
----@field max_hear_distance number Default: `32`.
----@field object mt.ObjectRef
+---@field gain? number Scales the gain specified in `SimpleSoundSpec`. Default: `1.0`.
+---@field pitch? number Overwrites the pitch specified in `SimpleSoundSpec`. Default: `1.0`.
+---@field fade? number Overwrites the fade specified in `SimpleSoundSpec`. Default: `0.0`. Change to a value > 0 to fade the sound in.
+--
+-- * Start with a time-offset into the sound.
+-- * The behavior is as if the sound was already playing for this many seconds.
+-- * Negative values are relative to the sound's length, so the sound reaches
+-- its end in `-start_time` seconds.
+-- * It is unspecified what happens if `loop` is false and `start_time` is
+-- smaller than minus the sound's length.
+-- * Available since feature `sound_params_start_time`.
+-- * Default: `1.0`.
+---@field start_time? string
+---@field loop? boolean Default: `false`.
+---@field pos? mt.Vector Play sound at a position. <br> Can't be used together with `object`.
+---@field object? mt.ObjectRef Attach the sound to an object. <br> Can't be used together with `pos`.
+---@field to_player? string A player name. Only play for this player. <br> Can't be used together with `exclude_player`.
+---@field exclude_player? string A player name. Don't play sound for this player. <br> Can't be used together with `to_player`.
+--- * Only play for players that are at most this far away when the sound starts playing.
+--- * Needs `pos` or `object` to be set.
+--- * Default: `32`.
+---@field max_hear_distance? number
 local sound_parameters = {}

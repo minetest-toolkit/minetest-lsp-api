@@ -20,4 +20,7 @@
 -- and not only the first time the block gets activated after the LBM
 -- was introduced.
 ---@field run_at_every_load boolean
----@field action fun(pos:mt.Vector, node:mt.Node)
+-- Function triggered for each qualifying node.
+-- `dtime_s` is the in-game time (in seconds) elapsed since the block
+-- was last active
+---@field action fun(pos:mt.Vector, node:mt.Node, dtime_s: number)

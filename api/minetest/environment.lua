@@ -149,7 +149,7 @@ function minetest.set_timeofday(val) end
 ---@return number timeofday between `0` and `1`; `0` for midnight, `0.5` for midday
 function minetest.get_timeofday() end
 
----@return number time the time, in seconds, since the world was created.
+---@return number | nil time the time, in seconds, since the world was created. The time is not available (`nil`) before the first server step.
 function minetest.get_gametime() end
 
 ---@return number days number of days elapsed since world was created.

@@ -49,8 +49,11 @@
 -- * Tiles can override this behavior.
 -- * Only when `paramtype2` supports palettes.
 ---@field palette string|nil
--- Screen tint if player is inside node.
+-- Screen tint if a player is inside this node, see `ColorSpec`.
+-- Color is alpha-blended over the screen.
 ---@field post_effect_color mt.ColorSpec|nil
+-- Determines whether `post_effect_color` is affected by lighting.
+---@field post_effect_color_shaded boolean|nil
 ---@field paramtype mt.ParamType|nil
 ---@field paramtype2 mt.ParamType2|nil
 -- Force value for param2 when player places node.
@@ -205,14 +208,14 @@ function node.after_destruct(pos, oldnode) end
 ---@param newnode mt.Node
 function node.on_flood(pos, oldnode, newnode) end
 
--- * Called when oldnode is about be converted to an item, but before the
+-- * Called when `oldnode` is about be converted to an item, but before the
 --   node is deleted from the world or the drops are added.
 -- * This is generally the result of either the node being dug or an attached
 --   node becoming detached.
 -- * Default: `nil`.
 ---@param pos mt.Vector
----@param oldnode mt.Node
----@param oldmeta mt.NodeMetaRef Old node before deletion.
+---@param oldnode mt.Node Node table of node before it was deleted.
+---@param oldmeta mt.NodeMetaRef Metadata of node before it was deleted, as a metadata table.
 ---@param drops table<unknown, mt.Item>
 function node.preserve_metadata(pos, oldnode, oldmeta, drops) end
 
@@ -220,18 +223,18 @@ function node.preserve_metadata(pos, oldnode, oldmeta, drops) end
 --   `minetest.item_place_node` / `minetest.place_node`.
 -- * If return true no item is taken from itemstack.
 -- * Default: `nil`.
----@param pos mt.Vector
----@param placer mt.ObjectRef|nil
+---@param pos mt.Vector Node position.
+---@param placer mt.ObjectRef|nil 
 ---@param itemstack mt.Item
 ---@param pointed_thing mt.PointedThing
 function node.after_place_node(pos, placer, itemstack, pointed_thing) end
 
--- * Called after destructing node when node was dug using
+-- * Called after destructing the node when node was dug using
 --   `minetest.node_dig` / `minetest.dig_node`.
 -- * Default: `nil`.
 ---@param pos mt.Vector
----@param oldnode mt.Node
----@param oldmetadata table
+---@param oldnode mt.Node Node table of node before it was dug.
+---@param oldmetadata table Metadata of node before it was dug, as a metadata table.
 ---@param digger mt.ObjectRef
 function node.after_dig_node(pos, oldnode, oldmetadata, digger) end
 
@@ -390,6 +393,9 @@ function node.on_metadata_inventory_take(pos, listname, index, stack, player) en
 ---@class mt.NodeSoundsDef
 -- * If walkable, played when object walks on it.
 -- * If node is climbable or a liquid, played when object moves through it.
+-- * Sound is played at the base of the object's collision-box.
+-- * Gain is multiplied by `0.6`.
+-- * For local player, it's played position-less, with normal gain.
 ---@field footstep mt.SimpleSoundSpec
 -- * While digging node.
 -- * If `"__group"`, then the sound will be `default_dig_<groupname>`,

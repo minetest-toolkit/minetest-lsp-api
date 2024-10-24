@@ -315,9 +315,15 @@ end
 ---
 ---If `transient` is `false` or absent, the forceload will be persistent (saved between server runs).
 ---If `true`, the forceload will be transient (not saved between server runs).
+---
+---`limit` is an optional limit on the number of blocks that can be
+---forceloaded at once. If `limit` is negative, there is no limit. If it is
+---absent, the limit is the value of the setting `"max_forceloaded_blocks"`.
+---If the call would put the number of blocks over the limit, the call fails.
 ---@param pos mt.Vector
 ---@param transient? boolean
-function minetest.forceload_block(pos, transient) end
+---@param limit? number
+function minetest.forceload_block(pos, transient, limit) end
 
 ---Stops forceloading the position `pos`.
 ---
